@@ -1,0 +1,99 @@
+.login-register {
+    margin: 50px;
+}
+
+fieldset {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    gap: 20px;
+}
+
+form {
+    flex: 1;
+    border-bottom: 2px solid ccc;
+    padding-bottom: 20px;
+}
+
+form:nth-child(1) {
+    border-right: 2px solid #ccc; 
+    padding-right: 20px; 
+}
+
+.email, .password, .firstname, .lastname, .password, .confirm-password, .phone-number, .country, .checkbox1, .checkbox2, .forgot-password {
+    padding-bottom: 20px;
+}
+
+
+fieldset label {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select {
+    padding: 10px; 
+    font-size: 16px; 
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+
+button {
+    background-color:#007bff;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 12px 24px;
+    text-align: center;
+    width: 100%;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+.checkbox1 label, .checkbox2 label {
+    display: inline;
+}
+
+
+input.error {
+    border-color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin: 5px 0 0;
+}
+
+input.success {
+    border-color: green;
+}
+
+.success-message {
+    color: green;
+    font-size: 14px;
+    margin: 5px 0 0;
+}
+
+input .warning {
+    border-color: orange;
+}
+
+.warning-message {
+    color: orange;
+    font-size: 14px;
+    margin: 5px 0 0;
+}
+
