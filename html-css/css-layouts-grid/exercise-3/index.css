@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    background-color: rgba(188,71,123,0.2);
+    display: grid;
+    width: 1400px;
+    grid-template-columns: repeat(7, 200px);
+    grid-template-rows: 30px repeat(5, 100px);
+    padding-top: 10px;
+}
+
+.grid-item {
+    border: 1px solid white;
+    text-align: center;
+}
+
+.item1 {
+    padding: 5px;   
+    background-color: #560027;
+    color: white;
+}
+
+.item3 {
+    border: none;
+    grid-column: 1 / span 4;
+}
+
+.item-day {
+    background-color: #bc477b;
+    color: white;
+    text-align: right;
+    padding-top: 10px;
+    padding-right: 5px;
+}
+
