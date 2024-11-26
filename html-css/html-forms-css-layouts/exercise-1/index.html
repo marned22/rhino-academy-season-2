@@ -8,25 +8,24 @@
 </head>
 <body>
     <div class="login-register">
-        <fieldset>
-        <form action="http://httpbin.org/post" method="post" class="login-form">
+        <form action="http://httpbin.org/post" method="post" class="login-form fs-20">
                 <div class="login">
                     <h2>Login</h2>
-                    <div class="email">
+                    <div class="email p-20">
                         <label for="email">Email or Username</label>
                         <input type="email" name="email" class="error" placeholder="Enter your email or username" required>
                         <p class="error-message">Check your email format</p> 
                     </div>
-                    <div class="password">
+                    <div class="password p-20">
                         <label for="password">Password</label>
                         <input type="text" name="password" class="success" placeholder="Enter your password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                         <p class="success-message">Your password is correct</p>
                     </div>
-                    <div class="checkbox1">
+                    <div class="checkbox1 p-20">
                         <input type="checkbox" name="remember_me" value="remember_me" checked>
                         <label for="remember_me">Remember me</label>
                     </div>
-                    <div class="forgot-password">
+                    <div class="forgot-password p-20">
                         <a href="//">Forgot password?</a>
                     </div>
                     <div class="btn-login">
@@ -34,49 +33,49 @@
                     </div>
                 </div>
         </form>
-        <form action="http://httpbin.org/post" method="post" class="register-form">
+        <form action="http://httpbin.org/post" method="post" class="register-form fs-20">
                 <div class="register">
                     <h2>Register</h2>
-                    <div class="firstname">
+                    <div class="firstname p-20">
                         <label for="firstname">First Name</label>
                         <input type="text" name="firstname" class="warning" placeholder="Enter your first name" minlength="3" maxlength="35" required />
                         <p class="warning-message">First name should be at least 3 characters long</p> 
                     </div>
-                    <div class="lastname">
+                    <div class="lastname p-20">
                         <label for="lastname">Last Name</label>
                         <input type="text" name="lastname" class="warning" placeholder="Enter your last name" minlength="3" maxlength="35" required />
                         <p class="warning-message">Last name should be at least 3 characters long</p> 
                     </div>
-                    <div class="email">
+                    <div class="email p-20">
                         <label for="email">Email</label>
                         <input type="email" name="email" class="error" placeholder="Enter your email" required />
                         <p class="error-message">Please provide a valid email address</p>
                     </div>
-                    <div class="phone-number">
+                    <div class="phone-number p-20">
                         <label for="phonenumber">Phone Number</label>
                         <input type="number" name="phone_number" placeholder="Enter phone number" />
                         <p class="warning-message">Optional, but recommended</p> 
                     </div>
-                    <div class="password">
+                    <div class="password p-20">
                         <label for="password">Password</label>
                         <input type="password" name="password" placeholder="Enter your password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required />
                         <p class="warning-message">The password
                             should contain 1 uppercase, 1 lowercase, number/special character, min
                             length of 8</p>
                     </div>
-                    <div class="confirm-password">
+                    <div class="confirm-password p-20">
                         <label for="confirm_password">Confirm Password</label>
                         <input type="password" name="confirm_password" placeholder="Confirm your password" required />
                         <p class="error-message">Please check your password</p> 
                     </div>
-                    <div class="country">
+                    <div class="country p-20">
                         <label for="country">Country</label>
                         <select id="country" name="country" required>
                             <option value="" selected>Select your country</option>
                             <option value="mkd">Macedonia</option>
                          </select>
                     </div>
-                    <div class="checkbox2">
+                    <div class="checkbox2 p-20">
                         <input type="checkbox" name="agreement" value="agreement" required>
                         <label for="agreement">I agree to the Terms and Conditions</label>
                     </div>
@@ -85,7 +84,6 @@
                     </div>
                 </div>
             </form>
-        </fieldset>
     </div>
 </body>
 </html>

@@ -1,10 +1,9 @@
-.login-register {
-    margin: 50px;
-}
 
-fieldset {
-    width: 100%;
+
+.login-register {
+    width: 80%;
     display: flex;
+    margin: 50px;
     justify-content: space-between;
     border: 2px solid #ccc;
     border-radius: 15px;
@@ -22,17 +21,25 @@ form:nth-child(1) {
     padding-right: 20px; 
 }
 
-.email, .password, .firstname, .lastname, .password, .confirm-password, .phone-number, .country, .checkbox1, .checkbox2, .forgot-password {
+.p-20 {
     padding-bottom: 20px;
 }
 
+.login-form {
+    padding: 50px;
+    margin-right: 50px;
+}
 
-fieldset label {
+
+.fs-20 label {
     display: block;
     font-size: 20px;
     font-weight: bold;
-    font-size: 20px;
 }
+
+
+
+
 
 input[type="text"],
 input[type="email"],
@@ -41,7 +48,7 @@ input[type="number"],
 select {
     padding: 10px; 
     font-size: 16px; 
-    width: 100%; 
+    width: 80%; 
     box-sizing: border-box; 
 }
 
