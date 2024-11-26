@@ -17,14 +17,14 @@ body{
     gap: 20px;
 }
 
-.first-fieldset {
+.personal-info-wrapper {
     background-color: white;
     border: 2px solid #ccc; 
     border-radius: 15px;
     padding: 30px;
 }
 
-.second-fieldset {
+.personal-info-wrapper-2 {
     background-color: white;
     width: 300px;
     height: 300px;
@@ -36,11 +36,11 @@ body{
 
 }
 
-.name, .street-address, .inline, .country, .card-name, .card-number, .comments, .remember {
+.pb-20 {
     padding-bottom: 20px;
 }
 
-.first-fieldset
+.personal-info-wrapper
 label[for="name"],
 label[for="street-address"], 
 label[for="country"], 
@@ -62,15 +62,15 @@ select {
     box-sizing: border-box;
 }
 
-.first-fieldset label[for="type_delivery"] {
+.personal-info-wrapper label[for="type_delivery"] {
     display: block;
 }
 
-.first-fieldset label[for="type_delivery"] {
+.personal-info-wrapper label[for="type_delivery"] {
     padding-top: 10px;
 }
 
-.first-fieldset label[for="zip-code"] label[for="city"] {
+.personal-info-wrapper label[for="zip-code"] label[for="city"] {
     display: inline;
     font-size: 20px;
     font-weight: bold;
