@@ -18,7 +18,7 @@ fieldset {
     padding: 30px;
 }
 
-.name, .street-address, .inline, .country, .card-name, .card-number, .comments, .remember {
+.pb-20 {
     padding-bottom: 20px;
 }
 
