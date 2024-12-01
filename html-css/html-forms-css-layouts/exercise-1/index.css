@@ -1,0 +1,106 @@
+
+
+.login-register {
+    width: 80%;
+    display: flex;
+    margin: 50px;
+    justify-content: space-between;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    gap: 20px;
+}
+
+form {
+    flex: 1;
+    border-bottom: 2px solid ccc;
+    padding-bottom: 20px;
+}
+
+form:nth-child(1) {
+    border-right: 2px solid #ccc; 
+    padding-right: 20px; 
+}
+
+.p-20 {
+    padding-bottom: 20px;
+}
+
+.login-form {
+    padding: 50px;
+    margin-right: 50px;
+}
+
+
+.fs-20 label {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select {
+    padding: 10px; 
+    font-size: 16px; 
+    width: 80%; 
+    box-sizing: border-box; 
+}
+
+
+button {
+    background-color:#007bff;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 12px 24px;
+    text-align: center;
+    width: 100%;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+.checkbox1 label, .checkbox2 label {
+    display: inline;
+}
+
+
+input.error {
+    border-color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin: 5px 0 0;
+}
+
+input.success {
+    border-color: green;
+}
+
+.success-message {
+    color: green;
+    font-size: 14px;
+    margin: 5px 0 0;
+}
+
+input .warning {
+    border-color: orange;
+}
+
+.warning-message {
+    color: orange;
+    font-size: 14px;
+    margin: 5px 0 0;
+}
+
