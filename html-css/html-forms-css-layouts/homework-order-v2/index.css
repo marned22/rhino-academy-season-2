@@ -1,0 +1,175 @@
+p {
+    padding: 10px;
+}
+.header {
+    text-align: center;
+}
+
+body{
+    background-color: #ccc;
+}
+
+
+.display-flex{
+    width: 90%;
+    display:flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.personal-info-wrapper {
+    background-color: white;
+    border: 2px solid #ccc; 
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.personal-info-wrapper-2 {
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    border: 2px solid #ccc; 
+    border-radius: 15px;
+    padding: 20px;
+    position: sticky;
+    top: 10px;
+
+}
+
+.pb-20 {
+    padding-bottom: 20px;
+}
+
+.personal-info-wrapper
+label[for="name"],
+label[for="street-address"], 
+label[for="country"], 
+label[for="card_name"],
+label[for="card_number"],
+label[for="comments"] {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.personal-info-wrapper label[for="type_delivery"] {
+    display: block;
+}
+
+.personal-info-wrapper label[for="type_delivery"] {
+    padding-top: 10px;
+}
+
+.personal-info-wrapper label[for="zip-code"] label[for="city"] {
+    display: inline;
+    font-size: 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+label[for="personal-information"], 
+label[for="card-details"], 
+label[for="delivery-options"] {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+label[for="type_delivery"] {
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.country, .security-code{
+    padding-bottom: 30px;
+}
+
+
+.zip-code, .city {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.expiry-date, .security-code {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.inline {
+    display: flex;
+    gap: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.complete-order button{
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+}
+
+.reset button {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+}
+
+label[for="shopping-cart"] {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+label[for="total"] {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.item1 img, .item2 img, .item3 img{
+    float: left;
+    padding-right: 10px;
+}
+
+.item1, .item2, .item3 {
+    padding-top: 20px;
+}
+
+.item3 {
+    padding-bottom: 20px;
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+.clearfix1{
+    overflow:auto;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
