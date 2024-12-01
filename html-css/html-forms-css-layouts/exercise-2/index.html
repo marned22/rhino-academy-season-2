@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order-form</title>
+    <link rel="stylesheet" href="./index.css" />
+</head>
+<body>
+    <form action="http://httpbin.org/post" method="post" class="checkout">
+        <div class="header">
+            <h1>Checkout</h1>
+            <p>Fields marked with an astrisk (*) are required</p>
+        </div>
+        <fieldset>
+            <label for="personal-information">Step 1 - Personal information</label>
+            <div class="name pb-20">
+                <label for="name">Name *</label>
+                <input type="text" name="name" required>
+            </div>
+            <div class="street-address pb-20">
+                <label for="street-address">Street address *</label>
+                <input type="text" name="street-address" required>
+            </div>
+            <div class="inline pb-20">
+                <div class="zip-code">
+                    <label for="zip-code">Zip code</label>
+                    <input type="text" name="zip-code" pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]">
+                </div>
+                <div class="city">
+                    <label for="city">City *</label>
+                    <input type="text" name="city" pattern="[[A-Za-z]+$" required>
+                </div>
+            </div>
+            <div class="country pb-20">
+                <label for="country">Country or region *</label>
+                <select id="country" name="country" required>
+                    <option value selected>Select your country</option>
+                    <option value="Macedonia">Macedonia</option>
+            </div>
+            <label for="card-details">Step 2 - Card details</label>
+            <div class="card-name pb-20">
+                <label for="card_name">Name on card *</label>
+                <input type="text" name="card_name" required>
+            </div>
+            <div class="card-number pb-20">
+                <label for="card_number">Card number *</label>
+                <input type="text" name="card_number" pattern="[0-9]+$" required >
+            </div>
+            <div class="inline pb-20">
+                <div class="expiry-date">
+                    <label for="expiry_date">Expiry date *</label>
+                    <input type="number" name="expiry_date" pattern="[0-9]+$" required>
+                </div>
+                <div class="security-code">
+                    <label for="security_code">Security code *</label>
+                    <input type="text" name="security_code" pattern="^[0-9]{3,4}$" required>       
+                </div>
+            </div>
+            <label for="delivery-options">Step 3 - Delivery options</label>
+            <label for="type_delivery">Type of delivery</label>
+            <div class="inline pb-20">
+                <div class="standard-delivery">
+                    <input type="radio" name="standard_delivery" checked>
+                    <label for="standard_delivery">Standard delivery</label>
+                </div>
+                <div class="express-delivery">
+                    <input type="radio" name="express_delivery" >
+                    <label for="express_delivery">Express delivery</label>
+                </div>
+            </div>
+            <div class="comments pb-20">
+                <label for="comments">Comments</label>
+                <textarea name="comments" row="5" cols="60"></textarea>
+            </div>
+            <div class="remember pb-20">
+                <input type="checkbox" name="remember" >
+                <label for="remember">Remember me</label>
+            </div>
+            <div class="buttons">
+                <div class="complete-order">
+                    <button type="submit">Complete order</button>
+                </div>
+                <div class="reset">
+                    <button type="reset">Reset</button>
+                </div>
+            </div>
+        </fieldset>
+</form>
+</body>
+</html>
