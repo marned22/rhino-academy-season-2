@@ -3,8 +3,8 @@ const student = {
     lastName: "Nedelkovski",
     age: 25,
     job: "front-end developer",
-    sentence: function(){
-        return `Hi, my name is ${student.name} ${student.lastName}. I am ${student.age} years old and work as a ${student.job}.`
+    sentence() {
+        return `Hi, my name is ${this.name} ${this.lastName}. I am ${this.age} years old and work as a ${this.job}.`
     }
 }
 
