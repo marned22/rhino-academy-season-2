@@ -1,7 +1,6 @@
 function processNames(names) {
-    const longName = names.filter((name) => name.length > 3)
-    const upperCassed = longName.map(name => name.toUpperCase());
-    return upperCassed;
+    const filteredNames = names.filter((name) => name.length > 3).map(name => name.toUpperCase());
+    return filteredNames
 }
 
 const names = ["Martin", "Zlate", "Mia", "Bo", "Viktor"]
