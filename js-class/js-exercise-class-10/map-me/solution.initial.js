@@ -32,11 +32,11 @@ const alphabet = {
   function invert(input) {
     const inputArray = input.split("")
     for(let i = 0; i < input.length; i++){
-        let name = inputArray[i] 
-        alphabet[name]
-        
+        if(alphabet[inputArray[i]]) {
+          inputArray[i] = alphabet[inputArray[i]]
         }
-    return inputArray
+        }
+    return inputArray.join("")
   }
 
   console.log(invert("AMAZON"))
