@@ -9,7 +9,7 @@ const counter = {
     countToZero: function(){
         console.log(this.count)
         if(this.count > 0){
-            this.count -= 1;
+            this.decrement();
             this.countToZero()
         }
 
