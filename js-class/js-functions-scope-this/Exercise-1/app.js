@@ -1,9 +1,9 @@
 const arr = (numbers) => {
-    let sum = 0;
-    for(i = 0;i < numbers.length; i++){
-        sum += numbers[i]
+    if(numbers.length === 0) {
+        return 0
     }
-    return sum;
+
+    return numbers[0] + arr(numbers.slice(1))
 }
 
 numbers = [1,2,3,4,5]
