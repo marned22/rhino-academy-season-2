@@ -57,7 +57,7 @@ function revealScores() {
   const views = document.querySelectorAll(".score-container");
   views.forEach((view, idx) => {
     const player = players[idx];
-    player.challengeContainer.remove();
+    player.challengeContainer.innerHTML = '';
 
     view.innerHTML = `
        <div class="score">
@@ -241,6 +241,8 @@ function updateLeaderboard() {
 
 
 function newGame() {
+
+
   p1Username = "";
   p2Username = "";
 
@@ -257,6 +259,8 @@ function newGame() {
     player.challengeContainer.innerHTML = "";
   });
 
+  
+
   const leaderboardContainer = document.getElementById("leaderboard-container");
   leaderboardContainer.innerHTML = "";
 
@@ -270,7 +274,13 @@ function newGame() {
   newGameBtn.disabled = true;
   newGameBtn.style.display = "none";
   startGameBtn.disabled = false;
-  startGameBtn.style.display = "block";
+  startGameBtn.style.display = "none";
+
+   const playerViewContainers = document.querySelectorAll(".player-view-container");
+    playerViewContainers.forEach((container) => {
+      container.classList.remove("disabled", "active");
+      container.style.display = ""; // 
+    });
 }
 
 
