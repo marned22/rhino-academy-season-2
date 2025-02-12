@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #2a5298, #1e3c72);
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    background: #f4f4f4;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #004e92;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* User List */
+#user-list {
+    list-style: none;
+    padding: 0;
+}
+
+#user-list li {
+    background: #66bb6a;
+    padding: 12px;
+    margin: 6px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+    color: white;
+}
+
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+input, select {
+    padding: 10px;
+    border: 2px solid #004e92;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+    background: white;
+    color: #333;
+}
+
+input:focus, select:focus {
+    border-color: #1a75ff;
+    box-shadow: 0 0 5px rgba(26, 117, 255, 0.5);
+}
+
+/* Post List */
+#post-list {
+    list-style: none;
+    padding: 0;
+}
+
+#post-list li {
+    background: #ffcc80;
+    padding: 15px;
+    margin: 12px 0;
+    border-left: 6px solid #ff9800;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    position: relative;
+    transition: 0.3s;
+}
+
+#post-list li:hover {
+    transform: scale(1.02);
+    background: #ffb74d;
+}
+
+/* Delete Button */
+.delete-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-btn:hover {
+    background: #b71c1c;
+    transform: scale(1.1);
+}
+
+#post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+#post-form input, #post-form textarea {
+    padding: 12px;
+    border: 2px solid #004e92;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+    background: white;
+    color: #333;
+}
+
+#post-form input:focus, #post-form textarea:focus {
+    border-color: #1a75ff;
+    box-shadow: 0 0 5px rgba(26, 117, 255, 0.5);
+}
+
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    background: linear-gradient(135deg, #004e92, #1a75ff);
+    color: white;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #1a75ff, #004e92);
+    transform: scale(1.05);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#message {
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    background: #ffcc00;
+    color: black;
+}
+
+#loading {
+    text-align: center;
+    font-size: 18px;
+    color: #1a75ff;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
