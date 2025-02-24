@@ -10,4 +10,11 @@ export type GameElements = {
     newGameButton: HTMLElement | null;
 }
 
-export type FlippedCards = [Card, Card] 
+export type FlippedCards = [Card, Card]
+
+export enum GameState {
+    NotStarted,
+    Playing,
+    Pending, 
+    Won
+}
