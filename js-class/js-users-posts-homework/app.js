@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("All Posts:", allPosts);
       displayPosts(allPosts);
       prevBtn.disabled = page === 1;
+      nextBtn.disabled = allPosts.length < limit
     } catch (error) {
       console.error("Error fetching posts:", error);
       showMessage("Failed to fetch posts", true);
