@@ -62,7 +62,7 @@ async function fetchWeather(city) {
     data = response.data
     displayWeather(data);
   } catch (error) {
-    weatherResult.innerHTML = `<p style="color: red;">Error: ${error}</p>`
+    weatherResult.innerHTML = `<p style="color: red;">${city} city not found</p>`
   }
 }
 
