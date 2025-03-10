@@ -1,6 +1,6 @@
 type Callback = () => void
 
-type Events = {[key: string] : [Callback]}
+type Events = {[key: string] : Callback[]}
 
 interface IEventMenager{
     subscribe(event: string, callBack: Callback): void
@@ -27,16 +27,22 @@ class EventMenager implements IEventMenager{
 
 
     subscribe(event: string, callBack: Callback): void {
-        this.events.
+        if(this.events[event]){
+            this.events[event] = []
+        }
+        this.events[event].push(callBack)
     }
     dispatch(event: string, data: string): void {
-        for 
+        if(this.events[event]){
+            this.events[event].forEach(callBack => callBack())
+        }
     }
     unsubscribe(event: string, callBack: Callback): void {
-
-        delete this.events.callBack
+        if(this.events[event]){
+            this.events[event] = this.events[event].filter(cb => cb !== callBack)
+        }
     }
     unsubscribeAll(event: string): void {
-        
+        delete this.events[event]
     }
 }
