@@ -2,26 +2,26 @@ type Callback = () => void
 
 type Events = {[key: string] : Callback[]}
 
-interface IEventMenager{
+interface IEventManager{
     subscribe(event: string, callBack: Callback): void
-    dispatch(event: string, data: string): void
+    dispatch(event: string, data): void
     unsubscribe(event: string, callBack: Callback): void
     unsubscribeAll(event: string): void
 }
 
-class EventMenager implements IEventMenager{
+class EventManager implements IEventManager{
     private events: Events = {}
-    private static instance: EventMenager | null
+    private static instance: EventManager | null
 
     private constructor() {}
 
-    static getEventMenager(): EventMenager{
+    static getEventManager(): EventManager{
         if(this.instance){
-            const instance = new EventMenager()
-            EventMenager.instance = instance
+            const instance = new EventManager()
+            EventManager.instance = instance
         }
 
-        return EventMenager.instance!;
+        return EventManager.instance!;
     }
 
 
@@ -32,7 +32,7 @@ class EventMenager implements IEventMenager{
         }
         this.events[event].push(callBack)
     }
-    dispatch(event: string, data: string): void {
+    dispatch(event: string, data): void {
         if(this.events[event]){
             this.events[event].forEach(callBack => callBack())
         }
@@ -46,3 +46,5 @@ class EventMenager implements IEventMenager{
         delete this.events[event]
     }
 }
+
+export default EventManager
