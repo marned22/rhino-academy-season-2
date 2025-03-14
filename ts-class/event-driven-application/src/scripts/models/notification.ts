@@ -1,13 +1,13 @@
-import EventManager from "./eventManager"
-import {v4 as uuidv4} from 'uuid'
+import { EventManager } from './eventManager'
+import { v4 as uuidv4 } from 'uuid'
 
-class NotificationManager {
-    constructor(eventManager: EventManager){
-        this.eventManager = eventManager
-        this.eventManager.subscribe('notification', this.handleNotification.bind(this))
-    }
+export class NotificationManager {
     private eventManager: EventManager
 
+    constructor(eventManager: EventManager){
+        this.eventManager = eventManager
+        this.eventManager.subscribe('notification', (notification: AppNotification) => this.handleNotification(notification));
+    }
     private handleNotification(notification: AppNotification){
         if(notification.type === 'success'){
             console.log(`Success: ${notification.message}`)
@@ -34,15 +34,15 @@ interface IbaseAppNotification{
     type: 'success' | 'error' | 'warning'
 }
 
-class AppNotification implements IbaseAppNotification{
+export class AppNotification implements IbaseAppNotification{
     id: string
     timestamp: number
     message: string
     type: 'success' | 'error' | 'warning'
 
-    constructor(message:string, type: 'success' | 'error' | 'warning'){
+    constructor(type: 'success' | 'error' | 'warning', message:string){
+        this.type = type    
         this.message = message
-        this.type = type
         this.id = uuidv4()
         this.timestamp = Date.now()
     }
