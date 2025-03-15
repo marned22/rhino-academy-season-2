@@ -1,3 +1,4 @@
+import { LogErrorNotification } from './decorators';
 import { EventManager } from './eventManager'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -8,7 +9,9 @@ export class NotificationManager {
         this.eventManager = eventManager
         this.eventManager.subscribe('notification', (notification: AppNotification) => this.handleNotification(notification));
     }
-    private handleNotification(notification: AppNotification){
+
+    @LogErrorNotification
+    public handleNotification(notification: AppNotification){
         if(notification.type === 'success'){
             console.log(`Success: ${notification.message}`)
         }
