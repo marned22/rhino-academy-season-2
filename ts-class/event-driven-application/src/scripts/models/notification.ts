@@ -12,15 +12,6 @@ export class NotificationManager {
 
     @LogErrorNotification
     public handleNotification(notification: AppNotification){
-        if(notification.type === 'success'){
-            console.log(`Success: ${notification.message}`)
-        }
-        if(notification.type === 'error'){
-            console.log(`Error: ${notification.message}`)
-        }
-        if(notification.type === 'warning'){
-            console.log(`Warning: ${notification.message}`)
-        }
     }
 
     sendNotification(notification: AppNotification){
@@ -34,21 +25,37 @@ interface IbaseAppNotification{
     id: string
     timestamp: number
     message: string
-    type: 'success' | 'error' | 'warning'
 }
 
-export class AppNotification implements IbaseAppNotification{
+class AppNotification implements IbaseAppNotification{
     id: string
     timestamp: number
     message: string
-    type: 'success' | 'error' | 'warning'
 
-    constructor(type: 'success' | 'error' | 'warning', message:string){
-        this.type = type    
+    constructor(message:string){
         this.message = message
         this.id = uuidv4()
         this.timestamp = Date.now()
     }
+}
 
+export class displaySuccess extends AppNotification{
+    constructor(message: string){
+        super(message)
+        console.log(`success: ${this.message}`)
+    }
+}
 
+export class displayError extends AppNotification{
+    constructor(message: string){
+        super(message)
+        console.log(`error: ${this.message}`)
+    }
+}
+
+export class displayWarning extends AppNotification{
+    constructor(message: string){
+        super(message)
+        console.log(`success: ${this.message}`)
+    }
 }

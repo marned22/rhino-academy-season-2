@@ -1,9 +1,9 @@
 import { EventManager } from "./models/eventManager"
-import { AppNotification, NotificationManager } from "./models/notification"
+import { displayError, displaySuccess, displayWarning, NotificationManager } from "./models/notification"
 
 const eventBus = EventManager.getEventManager()
 const notificationManager = new NotificationManager(eventBus)
 
-notificationManager.sendNotification(new AppNotification('error', 'Something went wrong'))
-notificationManager.sendNotification(new AppNotification('success','Working fine'))
-notificationManager.sendNotification(new AppNotification('warning', 'There is warning'))
+notificationManager.sendNotification(new displayError('Something went wrong'))
+notificationManager.sendNotification(new displaySuccess('Working fine'))
+notificationManager.sendNotification(new displayWarning('There is warning'))
