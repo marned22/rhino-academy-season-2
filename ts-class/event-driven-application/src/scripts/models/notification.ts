@@ -13,6 +13,13 @@ export class NotificationManager {
 
     @LogErrorNotification
     public handleNotification(notification: AppNotification){
+        if(notification instanceof displayError){
+            console.log(`Error: ${notification.message}`)
+        }else if(notification instanceof displaySuccess){
+            console.log(`Success ${notification.message}`)
+        }else if(notification instanceof displayWarning){
+            console.log(`Warning: ${notification.message}`)
+        }
     }
 
     sendNotification(notification: AppNotification){
