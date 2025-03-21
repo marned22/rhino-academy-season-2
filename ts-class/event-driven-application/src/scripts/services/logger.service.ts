@@ -1,15 +1,8 @@
-export type LogData = {
-    message: string
-    context: {
-        class: string
-        method : string
-        timestamp: string
-        notification: string
-    }
-}
+import { LogData } from "../models/types"
 
 export class LoggerService{
     static logError(data: LogData): void{
+        const timestampPart = data.context.timestamp ? `[${data.context.timestamp}]` : ''
         console.error(`[LoggerService] - ${data.context.timestamp}: ${data}`)
     }
 }

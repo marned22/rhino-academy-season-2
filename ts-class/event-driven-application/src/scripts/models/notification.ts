@@ -11,7 +11,7 @@ export class NotificationManager {
         this.eventManager.subscribe('notification', (notification: AppNotification) => this.handleNotification(notification));
     }
 
-    @LogErrorNotification
+    @LogErrorNotification(true)
     public handleNotification(notification: AppNotification){
         if(notification instanceof displayError){
             console.log(`Error: ${notification.message}`)
