@@ -3,7 +3,7 @@ import { LogData } from "../models/types"
 export class LoggerService{
     static logError(data: LogData): void{
         const timestampPart = data.context.timestamp ? `[${data.context.timestamp}]` : ''
-        console.error(`[LoggerService] - ${data.context.timestamp}: ${data}`)
+        console.error(`[LoggerService] - ${timestampPart}: ${data}`)
     }
 }
 

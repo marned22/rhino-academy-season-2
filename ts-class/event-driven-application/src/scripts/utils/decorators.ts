@@ -1,6 +1,6 @@
-import { LoggerService } from "../services/logger.service";
+import { LoggerService } from '../services/index'
 import { LogData } from "../models/types";
-import { AppNotification } from "../models/notification";
+import { AppNotification } from "../core/notificationManager";
 
 export function LogErrorNotification(includeTimeStamp: boolean = false){
     return function(target: any, propertyKey: string, descriptor: PropertyDescriptor){

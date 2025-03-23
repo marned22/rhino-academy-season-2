@@ -1,11 +1,106 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <title>My First Parcel App</title>
-  </head>
-  <body>
-    <h1>Hello, World!</h1>
-  </body>
-  <script type = "module" src="./scripts/index.ts"/>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Application</title>
+  <link rel="stylesheet" href="./styles/index.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+  <div id="root">
+    <!-- header component -->
+    <!-- logged out -->
+    <header class="chat-header">
+      <div id="chat-login-container">
+        <div class="chat-login">
+          <input type="text" id="username" placeholder="Enter your name...">
+          <input type="password" id="password" placeholder="Enter your password...">
+          <button id="login-btn">Login</button>
+        </div>
+      </div>
+      <div class="user-info">
+        <span id="user-display"></span>
+
+      </div>
+    </header>
+
+    <!-- logged in -->
+    <header class="chat-header">
+      <div class="chat-login">ChatMe - Mircame</div>
+      <div class="user-info">
+        <span id="user-display">aleks93</span>
+        <button id="logout-btn" class="hidden">Logout</button>
+      </div>
+    </header>
+
+    <!-- main component -->
+    <!-- logged out -->
+    <main class="chat-main">
+      <div class="chat-login-main">
+        <h1>Please login to continue</h1>
+      </div>
+    </main>
+
+    <!-- logged in -->
+    <main class="chat-main">
+      <section class="chat-box">
+        <div id="messages">
+          <ul id="messages-container" class="messages-container">
+            <li class="message-wrapper">
+              <div class="message sent">
+
+                <span class="message-content">Hello</span>
+                <span class="message-time">15:54</span>
+              </div>
+            </li>
+            <li class="message-wrapper">
+              <div class="message received component-je9i4vpup">
+                <strong>user1</strong>
+                <span class="message-content">hi</span>
+                <span class="message-time">15:54</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <footer class="message-input">
+          <textarea id="message" placeholder="Type a message..." spellcheck="false"></textarea>
+          <button id="send-btn">
+            <span class="material-icons">send</span>
+          </button>
+        </footer>
+      </section>
+      <aside class="chat-sidebar">
+        <div id="sidebar-section">
+          <div class="room-creation">
+            <div class="room-creation component-btb6704r2">
+              <input type="text" id="room-name" placeholder="Enter room name...">
+              <button id="create-room-btn">Create</button>
+            </div>
+          </div>
+          <div class="room-list">
+            <ul id="room-list">
+              <li class="active">
+                <div id="room-item-wrapper" class="room-item-wrapper active">
+                  <div class="room-info">
+                    <span class="room-name">general</span>
+                    <span class="room-count">5 users</span>
+                  </div>
+                  <button id="leave-room-btn" class="leave-room-btn" title="Leave Room">
+                    <span>×</span>
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+  <script type="module" src="./scripts/index.ts"></script>
+</body>
+
 </html>

@@ -1,12 +1,12 @@
-import { LogErrorNotification } from '../utils/decorators';
-import { EventManager } from '../core/eventManager'
-import { IbaseAppNotification } from './types';
+import { LogErrorNotification } from '../utils';
+import { EventManager } from './eventManager';
+import { IbaseAppNotification, INotificationEvents } from '../models/types';
 import { v4 as uuidv4 } from 'uuid'
 
 export class NotificationManager {
-    private eventManager: EventManager<'notification'>
+    private eventManager: EventManager<INotificationEvents>
 
-    constructor(eventManager: EventManager<'notification'>){
+    constructor(eventManager: EventManager<INotificationEvents>){
         this.eventManager = eventManager
         this.eventManager.subscribe('notification', (notification: AppNotification) => this.handleNotification(notification));
     }

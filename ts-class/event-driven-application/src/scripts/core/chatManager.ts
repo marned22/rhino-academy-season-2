@@ -1,36 +1,13 @@
 import { v4 as uuidv4} from 'uuid'
+import { IChatEvents, IChatMessage, IChatRoom, IChatUser } from '../models/types'
+import { EventManager } from './eventManager'
 
-interface IChatRoom{
-    id: string
-    name: string
-}
-
-interface IChatMessage{
-    id: string
-    roomId: string
-    userId: number
-    content: string
-    timestamp: number
-}
-
-interface IChatUser{
-    id: number
-    name: string
-}
-
-interface IChatEvents{
-    roomCreated(room: IChatRoom): void
-    roomJoined(data: {user: IChatUser, room: IChatRoom}): void
-    roomLeft(data: {user: IChatUser, room: IChatRoom}): void
-    messageSent(message: IChatMessage): void
-}
-
-class ChatManager{
-    private eventManager: IChatEvents
+export class ChatManager{
+    private eventManager: EventManager<IChatEvents>
     private rooms: IChatRoom[] = []
     private currentRoomId: string | null
 
-    constructor(eventManager: IChatEvents){
+    constructor(eventManager: EventManager<IChatEvents>){
         this.eventManager = eventManager
         this.currentRoomId = null
     }
