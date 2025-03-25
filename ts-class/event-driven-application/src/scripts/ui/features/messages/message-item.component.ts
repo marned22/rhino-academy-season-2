@@ -20,13 +20,6 @@ export class MessageItemComponent extends BaseComponent{
                 })}</span>
               </div>
             </li>
-            <li class="message-wrapper">
-              <div class="message received component-je9i4vpup">
-                <strong>user1</strong>
-                <span class="message-content">hi</span>
-                <span class="message-time">15:54</span>
-              </div>
-        </li>
         `
     }
 
