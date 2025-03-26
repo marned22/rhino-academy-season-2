@@ -58,4 +58,22 @@ interface INotificationEvents{
     notification: AppNotification
 }
 
-export { IChatRoom, IChatEvents, IChatMessage, IChatUser, Callback, IEventManager, LogData, IbaseAppNotification , INotificationEvents, ChildFactoryFn}
+
+interface UserCredentials{
+    username: string
+    password: string
+}
+
+export { 
+    IChatRoom, 
+    IChatEvents, 
+    IChatMessage, 
+    IChatUser, 
+    Callback, 
+    IEventManager, 
+    LogData, 
+    IbaseAppNotification , 
+    INotificationEvents, 
+    ChildFactoryFn,
+    UserCredentials
+}
