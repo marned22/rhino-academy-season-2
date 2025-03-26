@@ -1,6 +1,4 @@
-import { LoginComponent } from "../features/auth/login.component";
-
-type ChildFactoryFn = (element: Element) => BaseComponent
+import { ChildFactoryFn } from "../../models";
 
 export abstract class BaseComponent {
     parent: Element;

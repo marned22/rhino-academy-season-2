@@ -1,11 +1,14 @@
-import { AppNotification } from "../core"
+import { AppNotification } from "../core" 
+import { BaseComponent } from "../ui/base/base.component"
+
+type ChildFactoryFn = (element: Element) => BaseComponent
 
 type Callback<T = any> = (data: T) => void
 
 interface IEventManager<T extends Record<string, any>>{
-    subscribe<K extends keyof T>(event: K, callBack: Callback <any>): void
-    dispatch<K extends keyof T>(event: K, data: any): void
-    unsubscribe<K extends keyof T>(event: K, callBack: Callback<any>): void
+    subscribe<K extends keyof T>(event: K, callBack: Callback <T[K]>): void
+    dispatch<K extends keyof T>(event: K, data: T[K]): void
+    unsubscribe<K extends keyof T>(event: K, callBack: Callback<T[K]>): void
     unsubscribeAll<K extends keyof T>(event: K): void
 }
 
@@ -40,8 +43,8 @@ interface IChatUser{
 
 interface IChatEvents{
     roomCreated(room: IChatRoom): void
-    roomJoined(data: {user: IChatUser, room: IChatRoom}): void
-    roomLeft(data: {user: IChatUser, room: IChatRoom}): void
+    roomJoined:{user: IChatUser, room: IChatRoom}
+    roomLeft:{user: IChatUser, room: IChatRoom}
     messageSent(message: IChatMessage): void
 }
 
@@ -55,4 +58,4 @@ interface INotificationEvents{
     notification: AppNotification
 }
 
-export { IChatRoom, IChatEvents, IChatMessage, IChatUser, Callback, IEventManager, LogData, IbaseAppNotification , INotificationEvents}
+export { IChatRoom, IChatEvents, IChatMessage, IChatUser, Callback, IEventManager, LogData, IbaseAppNotification , INotificationEvents, ChildFactoryFn}
