@@ -64,6 +64,11 @@ interface UserCredentials{
     password: string
 }
 
+interface AuthEvents {
+    login: IChatUser
+    logout: void;
+}
+
 export { 
     IChatRoom, 
     IChatEvents, 
@@ -75,5 +80,6 @@ export {
     IbaseAppNotification , 
     INotificationEvents, 
     ChildFactoryFn,
-    UserCredentials
+    UserCredentials,
+    AuthEvents
 }
