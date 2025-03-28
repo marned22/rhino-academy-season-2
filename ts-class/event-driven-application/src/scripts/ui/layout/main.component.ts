@@ -1,5 +1,6 @@
 import { BaseComponent } from "../base/base.component";
 import { MessagesComponent } from "../features/messages/messages.component";
+import { SideBarComponent } from "./sidebar.component";
 
 export class MainComponent extends BaseComponent {
   private isAuth: boolean = true;
@@ -12,6 +13,11 @@ export class MainComponent extends BaseComponent {
       "#messages",
       (element) => new MessagesComponent(element)
     );
+
+    this.registerChild(
+      '.chat-sidebar',
+      (element) => new SideBarComponent(element)
+    )
   }
 
   getBindingEvents(): {
@@ -43,31 +49,7 @@ export class MainComponent extends BaseComponent {
           </button>
         </footer>
       </section>
-      <aside class="chat-sidebar">
-        <div id="sidebar-section">
-          <div class="room-creation">
-            <div class="room-creation component-btb6704r2">
-              <input type="text" id="room-name" placeholder="Enter room name...">
-              <button id="create-room-btn">Create</button>
-            </div>
-          </div>
-          <div class="room-list">
-            <ul id="room-list">
-              <li class="active">
-                <div id="room-item-wrapper" class="room-item-wrapper active">
-                  <div class="room-info">
-                    <span class="room-name">general</span>
-                    <span class="room-count">5 users</span>
-                  </div>
-                  <button id="leave-room-btn" class="leave-room-btn" title="Leave Room">
-                    <span>×</span>
-                  </button>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </aside>
+      <aside class="chat-sidebar"></aside>
     </main>
     `;
   }

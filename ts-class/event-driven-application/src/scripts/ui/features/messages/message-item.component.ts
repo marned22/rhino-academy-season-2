@@ -19,7 +19,7 @@ export class MessageItemComponent extends BaseComponent{
                     minute: '2-digit',
                 })}</span>
               </div>
-            </li>
+        </li>
         `
     }
 
