@@ -2,7 +2,7 @@ import { EventManager } from "../core";
 import { IChatUser, UserCredentials, AuthEvents } from "../models";
 import { UserService } from "./usersService";
 
-class AuthService {
+export class AuthService {
     private static instance: AuthService
     private currentUser!: IChatUser | null
     private authToken!: string | null
@@ -12,6 +12,7 @@ class AuthService {
     constructor(eventManager: EventManager<AuthEvents>){
         this.eventManager = eventManager
         this.userService = new UserService()
+
         this.loadUserFromStorage()
     }
 

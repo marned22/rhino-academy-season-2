@@ -1,2 +1,5 @@
 export * from './logger.service'
 export * from './socket.service'
+export * from './auth.service'
+export * from './usersService'
+export * from './baseApiService'

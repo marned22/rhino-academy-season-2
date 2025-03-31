@@ -9,13 +9,17 @@ export class LoginComponent extends BaseComponent {
       return {
         '#login-btn': {
           event: 'click',
-          handler: this.handleLogin,
+          handler: (ev: Event) => this.handleLogin(ev),
         }
       }
     }
 
-    private handleLogin(){
-      console.log('Login clicked')
+    private handleLogin(ev: Event){
+      const username = (document.querySelector('#username') as HTMLInputElement).value
+      const password = (document.querySelector('#upassword') as HTMLInputElement).value
+
+      console.log('Username: ', username)
+      console.log('Password', password)
     }
 
 

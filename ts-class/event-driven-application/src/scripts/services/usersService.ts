@@ -1,4 +1,4 @@
-import { ApiError, BaseApiService } from "./BaseApiService";
+import { ApiError, BaseApiService } from './baseApiService'
 import { v4 as uuidv4 } from "uuid";
 import { UserCredentials } from "../models";
 import { IChatUser } from "../models";

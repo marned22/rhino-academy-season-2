@@ -26,8 +26,8 @@ export class ChatManager{
     }
 
     public initialize(){
-        this.eventManager.subscribe('roomJoined', (data) => this.handleRoomJoined(data))
-        this.eventManager.subscribe('roomLeft', (data) => this.handleRoomLeft(data))
+        this.eventManager.subscribe('roomJoined', this.handleRoomJoined)
+        this.eventManager.subscribe('roomLeft', this.handleRoomLeft)
     }
 
     public subscribe<K extends keyof IChatEvents>(event: K, handler: (data: IChatEvents[K]) => void): void{

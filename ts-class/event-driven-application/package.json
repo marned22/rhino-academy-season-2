@@ -1,7 +1,10 @@
 {
   "devDependencies": {
+    "@types/express": "^5.0.1",
+    "buffer": "^6.0.3",
     "concurrently": "^9.1.2",
-    "parcel": "^2.13.3"
+    "parcel": "^2.13.3",
+    "process": "^0.11.10"
   },
   "name": "event-driven-application",
   "version": "1.0.0",

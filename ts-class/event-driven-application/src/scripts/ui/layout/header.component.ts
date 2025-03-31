@@ -1,11 +1,22 @@
+import { EventManager } from "../../core";
+import { AuthEvents } from "../../models";
+import { AuthService } from "../../services";
 import { BaseComponent } from "../base/base.component"
 import { LoginComponent } from "../features/auth/login.component";
 
 export class HeaderComponent extends BaseComponent {
-    constructor(parent: Element){
+    private authService: AuthService
+    private eventManager: EventManager<AuthEvents>
+
+    constructor(parent: Element, authService: AuthService, eventManager: EventManager<AuthEvents>){
         super(parent)
+        this.authService = authService
+        this.eventManager = eventManager
 
         this.registerChild('#chat-login-container',(element) => new LoginComponent(element))
+
+        this.eventManager.subscribe('login', () => this.render())
+        this.eventManager.subscribe('logout', () => this.render())
     }
 
     getBindingEvents(): { [selector: string]: { event: string; handler: (ev: Event) => void } } {
@@ -19,7 +30,7 @@ export class HeaderComponent extends BaseComponent {
 
 
     private handleLogout(){
-      console.log('Logout CLicked')
+      this.authService.logout()
     }
 
     template(): string{
