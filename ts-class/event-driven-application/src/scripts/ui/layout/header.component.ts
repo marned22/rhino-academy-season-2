@@ -13,7 +13,7 @@ export class HeaderComponent extends BaseComponent {
         this.authService = authService
         this.eventManager = eventManager
 
-        this.registerChild('#chat-login-container',(element) => new LoginComponent(element))
+        this.registerChild('#chat-login-container',(element) => new LoginComponent(element, authService))
 
         this.eventManager.subscribe('login', () => this.render())
         this.eventManager.subscribe('logout', () => this.render())
@@ -23,7 +23,7 @@ export class HeaderComponent extends BaseComponent {
       return {
         '#logout-btn': {
           event: 'click',
-          handler: this.handleLogout,
+          handler: this.handleLogout.bind(this),
         }
       }
     }
@@ -33,14 +33,33 @@ export class HeaderComponent extends BaseComponent {
       this.authService.logout()
     }
 
-    template(): string{
-        return `   <header class="chat-header">
-      <div id="chat-login-container"></div>
-      <div class="user-info">
-        <span id="user-display"></span>
-        <button id="logout-btn">Logout</button>
-      </div>
-    </header>`
+    render(): void {
+        this.parent.innerHTML = '';
+        super.render();
     }
 
+    template(): string{
+      const isAuthenticated = this.authService.isAuthenticated()
+      const currentUser = this.authService.getCurrentUser()
+      console.log(isAuthenticated)
+      console.log(currentUser)
+        if(!isAuthenticated){
+          return `  
+    <header class="chat-header">
+      <div id="chat-login-container"></div>
+    </header>
+    `}
+
+        return `
+          <header class="chat-header">
+      <div class="chat-login">ChatMe - Mircame</div>
+      <div class="user-info">
+        <span id="user-display">${currentUser?.username || ''}</span>
+        <button id="logout-btn" ${!isAuthenticated ? 'class="hidden"' : ''} >Logout</button>
+      </div>
+    </header>
+        `
+    }
+
+    
 }

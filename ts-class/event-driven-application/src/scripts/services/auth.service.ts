@@ -10,10 +10,17 @@ export class AuthService {
     private eventManager: EventManager<AuthEvents>
 
     constructor(eventManager: EventManager<AuthEvents>){
-        this.eventManager = eventManager
-        this.userService = new UserService()
+        this.eventManager = eventManager;
+        this.userService = new UserService();
 
-        this.loadUserFromStorage()
+        const isFirstStart = localStorage.getItem('firstStart') === null;
+        if (isFirstStart) {
+            localStorage.removeItem('authUser');
+            localStorage.removeItem('authToken');
+            localStorage.setItem('firstStart', 'false');
+        }
+
+        this.loadUserFromStorage();
     }
 
     static getInstance(): AuthService {
@@ -34,6 +41,9 @@ export class AuthService {
             if (this.currentUser) {
                 this.eventManager.dispatch('login', this.currentUser)
             }
+        } else {
+            this.currentUser = null
+            this.authToken = null
         }
     }
 
@@ -44,25 +54,32 @@ export class AuthService {
         }
     }
 
-    async login(credentials: UserCredentials): Promise<void>{
-        try{
-            const response = await this.userService.login(credentials)
-            this.currentUser = response.user
-            this.authToken = response.token
-            this.saveUserToStorage()
-            this.eventManager.dispatch('login', this.currentUser)
-        } catch(error){
-            console.error('Login failed:', error)
-            throw error
+    async register(credentials: UserCredentials): Promise<IChatUser> {
+        await this.userService.register(credentials)
+        const result = await this.login(credentials)
+        return result
+    }
+
+    async login(credentials: UserCredentials): Promise<IChatUser>{
+        try {
+            const response = await this.userService.login(credentials);
+            this.currentUser = response.user;
+            this.authToken = response.token;
+            this.saveUserToStorage();
+            this.eventManager.dispatch('login', this.currentUser); // Dispatch login event
+            return response.user;
+        } catch (error) {
+            console.error('Login failed:', error);
+            throw error;
         }
     }
 
-    logout(){
-        this.currentUser = null
-        this.authToken = null
-        localStorage.removeItem('authUser')
-        localStorage.removeItem('authToken')
-        this.eventManager.dispatch('logout', undefined)
+    logout(): void {
+        this.currentUser = null;
+        this.authToken = null;
+        localStorage.removeItem('authUser');
+        localStorage.removeItem('authToken');
+        this.eventManager.dispatch('logout', undefined); // Dispatch logout event
     }
 
     getCurrentUser(): IChatUser | null {
@@ -70,7 +87,7 @@ export class AuthService {
     }
 
     isAuthenticated(): boolean{
-        return this.currentUser !== null
+        return this.currentUser !== null && this.authToken !== null
     }
 
     getAuthToken(): string | null {

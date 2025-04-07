@@ -1,10 +1,13 @@
 {
   "devDependencies": {
     "@types/express": "^5.0.1",
+    "assert": "^2.1.0",
     "buffer": "^6.0.3",
     "concurrently": "^9.1.2",
+    "console-browserify": "^1.2.0",
     "parcel": "^2.13.3",
-    "process": "^0.11.10"
+    "process": "^0.11.10",
+    "util": "^0.12.5"
   },
   "name": "event-driven-application",
   "version": "1.0.0",
@@ -99,7 +102,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "parcel src/index.html",
     "start:socket:server": "npx tsx watch ./server/index.ts",
-    "start: server": "json-server --watch ./db/db.json --port 2000",
+    "start:server": "json-server --watch ./db/db.json --port 2000",
     "dev:serve": "concurrently \"npm run start:socket:server\" \"npm run start:server\" \"npm run dev\""
   },
   "author": "",

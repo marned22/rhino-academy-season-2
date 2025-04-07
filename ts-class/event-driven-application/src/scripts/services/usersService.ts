@@ -18,18 +18,30 @@ export class UserService extends BaseApiService{
 
     public register(credentials: UserCredentials): Promise<{ user: IChatUser; token: string}>{
         const newUser = { id: uuidv4(), ...credentials}
-        return this.post<{user: IChatUser; token: string}>('/auth/register', newUser)
+        console.log('New user:', newUser)
+        return this.post<{user: IChatUser; token: string}>('users', newUser)
             .then(response => {
                 if(!response.user) throw new ApiError(400, 'Registration failed')
                 return response
             })
     }
 
-    public login(credentials: UserCredentials): Promise<{ user: IChatUser; token: string}>{
-        return this.post<{ user: IChatUser,  token: string}>('/auth/login', credentials)
-            .then(response => {
-                if(!response.user) throw new ApiError(401, 'Invalid username or password')
-                return response
-            })
-    }
+    async login(
+        credentials: UserCredentials
+      ): Promise<{ user: IChatUser; token: string }> {
+        console.log(credentials)
+        // json-server doesn't have built-in auth so we simulate it
+        const users = await this.get<(IChatUser & { password: string })[]>(
+          `users?name=${credentials.username}`
+        );
+        const user = users.find((u) => u.username === credentials.username);
+    
+        if (!user) {
+          throw new Error("User not found");
+        }
+        return {
+          user,
+          token: "fake-jwt-token", // In real app, generate JWT
+        };
+      }
 }

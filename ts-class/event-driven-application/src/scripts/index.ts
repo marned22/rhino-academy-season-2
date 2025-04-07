@@ -12,28 +12,31 @@ class App {
     static MainComponent: MainComponent
 
 
-    static init(){
+    static init() {
         App.chatManager = new ChatManager(
             App.eventHub as unknown as EventManager<IChatEvents>
-        )
+        );
 
         App.notificationsManager = new NotificationManager(
             App.eventHub as unknown as EventManager<INotificationEvents>
-        )
+        );
 
-        App.authService = AuthService.getInstance()
+        App.authService = AuthService.getInstance();
 
-        const root = document.getElementById('root')
+        const root = document.getElementById('root');
 
-        if(!root) {
-            throw new Error('Root element not found')
+        if (!root) {
+            throw new Error('Root element not found');
         }
 
-        this.HeaderComponent = new HeaderComponent(root, App.authService, App.eventHub)
-        this.MainComponent = new MainComponent(root)
+        // Clear the root element before rendering
+        root.innerHTML = '';
 
-        this.HeaderComponent.render()
-        this.MainComponent.render()
+        this.HeaderComponent = new HeaderComponent(root, App.authService, App.eventHub);
+        this.MainComponent = new MainComponent(root, App.authService, App.eventHub);
+
+        this.HeaderComponent.render();
+        this.MainComponent.render();
     }
 }
 

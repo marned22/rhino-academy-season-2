@@ -1,6 +1,67 @@
 {
-    "users": [],
-    "rooms": [],
-    "messages": [],
-    "roomUsers": []
+  "users": [
+    {
+      "id": "0fee0d43-f956-4050-b7c7-6f2743816254",
+      "username": "0956756",
+      "password": "pofgoifghj"
+    },
+    {
+      "id": "0069",
+      "username": "89657",
+      "password": "hjjrkhtritr"
+    },
+    {
+      "id": "fcf6b3e7-383c-485e-8e5f-93287295ffb2",
+      "username": "89657",
+      "password": "hjjrkhtritr"
+    },
+    {
+      "id": "580d4aee-9e8d-4b2b-9b69-83370c55b016",
+      "username": "Zoran",
+      "password": "zoran1234"
+    },
+    {
+      "id": "50d3dbb5-a991-4c56-abd0-018914ca37ab",
+      "username": "Zoran",
+      "password": "zoran1234"
+    },
+    {
+      "id": "ce968f51-8ac2-432b-8002-1bfd6076182e",
+      "username": "Zoran",
+      "password": "zoran1234"
+    },
+    {
+      "id": "878dd7ef-dd5f-4fbd-9d89-3544dbd0b798",
+      "username": "Zoran",
+      "password": "zoran1234"
+    },
+    {
+      "id": "1a528cad-51e6-4a3d-a84f-80abc7475461",
+      "username": "Zoran",
+      "password": "zoran1234"
+    },
+    {
+      "id": "6f66792c-03ac-4819-85a2-53b72860c5bf",
+      "username": "Martin123",
+      "password": "martin123"
+    },
+    {
+      "id": "332657c8-02c3-49e3-b5c1-4c169529e477",
+      "username": "klgdfkmlgdkmlgkml",
+      "password": "faklakldmkfdkm"
+    },
+    {
+      "id": "6c3564a4-3e8c-47d5-a852-aead7cb1a2a9",
+      "username": "dfjkjksdnjdfj",
+      "password": "fdsfdsfdsfds"
+    },
+    {
+      "id": "d11c11e5-d218-43d6-890c-eaf5c260b05e",
+      "username": "asdasdasd",
+      "password": "sdadsasd"
+    }
+  ],
+  "rooms": [],
+  "messages": [],
+  "roomUsers": []
 }

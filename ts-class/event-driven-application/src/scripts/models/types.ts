@@ -37,9 +37,9 @@ interface IChatMessage{
 }
 
 interface IChatUser{
+    username?: string
     id: number
     name: string
-    password: string
 }
 
 interface IChatEvents{
