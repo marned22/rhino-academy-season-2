@@ -15,4 +15,8 @@ export class RoomService extends BaseApiService{
         const newRoom: IChatRoom = { id: uuidv4(), ...room}
         return this.post<IChatRoom>('/rooms', newRoom)
     }
+
+    async deleteRoom(id: string): Promise<IChatRoom> {
+        return this.delete<IChatRoom>(`/rooms/${id}`)
+    }
 }

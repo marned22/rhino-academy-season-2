@@ -1,9 +1,17 @@
-import { IChatRoom } from "../../../models";
+import { ChatManager, EventManager } from "../../../core";
+import { IChatEvents, IChatRoom } from "../../../models";
+import { RoomService } from "../../../services";
 import { BaseComponent } from "../../base/base.component";
 
 export class RoomItemComponent extends BaseComponent {
-  constructor(parent: Element, private room: IChatRoom) {
+  private roomService: RoomService
+  private chatManager: ChatManager
+
+  constructor(parent: Element, private room: IChatRoom, chatManager: ChatManager) {
     super(parent);
+
+    this.roomService = new RoomService()
+    this.chatManager = chatManager
   }
 
   template(): string {
@@ -26,12 +34,20 @@ export class RoomItemComponent extends BaseComponent {
       return{
         '#leave-room-btn': {
               event: 'click',
-              handler: this.handleLeaveRoom
+              handler: this.handleLeaveRoom.bind(this)
             }
       }
   }
 
-  private handleLeaveRoom(){
-    console.log('You leave the room')
-  } 
+  private async handleLeaveRoom(){
+      try {
+        await this.roomService.deleteRoom(this.room.id)
+
+        this.chatManager.leaveRoom(this.room.id)
+
+        console.log(`Room ${this.room.name} has been left successfully`)
+      } catch(error){
+        console.error('Error leave room: ', error)
+      }
+    } 
 }

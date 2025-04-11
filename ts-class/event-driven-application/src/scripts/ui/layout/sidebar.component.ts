@@ -1,13 +1,22 @@
+import { ChatManager } from "../../core";
+import { RoomService } from "../../services";
 import { BaseComponent } from "../base/base.component";
 import { RoomsComponent } from "../features/rooms/room.component";
 
 export class SideBarComponent extends BaseComponent{
-    constructor(parent: Element){
+    private roomService: RoomService
+    private chatManager: ChatManager
+
+
+    constructor(parent: Element, chatManager: ChatManager){
         super(parent)
+
+        this.roomService = new RoomService()
+        this.chatManager = chatManager
 
         this.registerChild(
             '#room-list',
-            (element) => new RoomsComponent(element)
+            (element) => new RoomsComponent(element, this.chatManager)
           )
     }
 
@@ -20,8 +29,20 @@ export class SideBarComponent extends BaseComponent{
         }
     }
 
-    private handleCreateRoom(){
-      console.log('Room Created')     
+    private async handleCreateRoom(){
+    const roomNameInput = document.querySelector<HTMLInputElement>('#room-name')
+        if(roomNameInput && roomNameInput.value !== '') {
+          const roomName = roomNameInput.value
+          try{
+            const newRoom = await this.roomService.create({ name: roomName})
+            console.log('Room created', newRoom);
+            
+            roomNameInput.value = ''
+            this.render
+          } catch (error){
+            console.log('Eror creating room: ', error)
+          }
+        }
     }
 
     template(): string {

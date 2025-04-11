@@ -38,7 +38,7 @@ interface IChatMessage{
 
 interface IChatUser{
     username?: string
-    id: number
+    id: string
     name: string
 }
 

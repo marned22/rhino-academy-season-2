@@ -48,6 +48,19 @@ export class BaseApiService {
             data,
         })
     }
+
+    protected async put<T>(endPoint: string, data: any): Promise<T>{
+      return this.request<T>(endPoint, {
+        method: 'PUT',
+        data,
+      })
+    }
+
+    protected async delete<T>(endPoint: string): Promise<T>{
+      return this.request<T>(endPoint, {
+        method: 'DELETE',
+      })
+    }
 }
 
 

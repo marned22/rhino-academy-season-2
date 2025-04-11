@@ -72,6 +72,9 @@ export class ChatManager{
         }
 
         this.currentRoomId = null
+
+        this.eventManager.dispatch('roomLeft', { user: this.currentUser, room})
+
         this.socketService.dispatchLeaveRoom(roomId, this.currentUser.id)
     }
 

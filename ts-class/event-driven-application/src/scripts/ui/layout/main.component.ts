@@ -1,4 +1,4 @@
-import { EventManager } from "../../core";
+import { ChatManager, EventManager } from "../../core";
 import { AuthEvents } from "../../models";
 import { AuthService } from "../../services";
 import { BaseComponent } from "../base/base.component";
@@ -9,12 +9,14 @@ export class MainComponent extends BaseComponent {
   private isAuth: boolean = false;
   private authService: AuthService;
   private eventManager: EventManager<AuthEvents>;
+  private chatManager: ChatManager
 
-  constructor(parent: Element, authService: AuthService, eventManager: EventManager<AuthEvents>) {
+  constructor(parent: Element, authService: AuthService, chatManager:ChatManager, eventManager: EventManager<AuthEvents>) {
     super(parent);
 
     this.authService = authService;
     this.eventManager = eventManager;
+    this.chatManager = chatManager
 
     // Initialize isAuth based on the current authentication state
     this.isAuth = this.authService.isAuthenticated();
@@ -37,7 +39,7 @@ export class MainComponent extends BaseComponent {
 
     this.registerChild(
       '.chat-sidebar',
-      (element) => new SideBarComponent(element)
+      (element) => new SideBarComponent(element, chatManager)
     );
   }
 

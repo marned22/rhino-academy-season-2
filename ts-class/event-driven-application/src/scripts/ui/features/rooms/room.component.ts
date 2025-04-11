@@ -1,25 +1,33 @@
+import { ChatManager } from "../../../core";
 import { IChatRoom } from "../../../models";
+import { RoomService } from "../../../services";
 import { BaseComponent } from "../../base/base.component";
 import { RoomItemComponent } from "./room-item.component";
 
 export class RoomsComponent extends BaseComponent{
-    private rooms: IChatRoom[] = [
-        {
-            id: '1',
-            name: 'Room 1'
-        },
-        {
-            id: '2',
-            name: 'Room 2'
-        }
-    ]
+    private rooms: IChatRoom[] = []
+    private roomService: RoomService
+    private chatManager: ChatManager
 
-    constructor(parent: Element){
+    constructor(parent: Element, chatManager: ChatManager){
         super(parent)
+        this.roomService = new RoomService()
+        this.chatManager = chatManager
 
-        setTimeout(() => {
+        this.loadRooms()
+
+        this.chatManager.subscribe('roomLeft', (data) => {
+            this.rooms.filter((room) => room.id !== data.room.id)
+        })
+    }
+
+    private async loadRooms(){
+        try {
+            this.rooms = await this.roomService.getAll()
             this.renderRooms()
-        }, 1000)
+        } catch(error){
+            console.error('Error loading rooms: ', error)
+        }
     }
 
     private renderRooms(){
@@ -27,7 +35,7 @@ export class RoomsComponent extends BaseComponent{
             '#room-list',
             this.rooms,
             (room) => `room_id_${room.id}`,
-            (element, item) => new RoomItemComponent(element, item)
+            (element, item) => new RoomItemComponent(element, item, this.chatManager)
         )
     }
 
