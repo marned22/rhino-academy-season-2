@@ -18,6 +18,7 @@ export class RoomsComponent extends BaseComponent{
 
         this.chatManager.subscribe('roomLeft', (data) => {
             this.rooms.filter((room) => room.id !== data.room.id)
+            this.renderRooms()
         })
     }
 

@@ -63,12 +63,12 @@
   ],
   "rooms": [
     {
-      "id": "bfa9a717-9050-4f69-a18a-89867e6bbb61",
-      "name": "Room 1"
+      "id": "08c8bebb-9f92-4cfa-9607-b3afd7d29110",
+      "name": "Room 3"
     },
     {
-      "id": "b8126a1f-fac9-4bd9-93a2-060effc3b085",
-      "name": "Room 2"
+      "id": "b94e6530-7a90-4aea-96a9-4015adf1fc4c",
+      "name": "Room 4"
     }
   ],
   "messages": [],

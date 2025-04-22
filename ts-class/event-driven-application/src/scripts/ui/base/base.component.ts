@@ -60,6 +60,8 @@ export abstract class BaseComponent {
 
 
     render(){
+
+      this.parent.innerHTML = ''
         const template = document.createElement('template')
         template.innerHTML = this.template()
 
