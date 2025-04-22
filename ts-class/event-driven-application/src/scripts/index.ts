@@ -12,8 +12,6 @@ class App {
     static HeaderComponent: HeaderComponent
     static MainComponent: MainComponent
 
-
-
     static init() {
         App.chatManager = new ChatManager(
             App.eventHub as unknown as EventManager<IChatEvents>
@@ -25,7 +23,7 @@ class App {
 
         App.authService = AuthService.getInstance();
 
-        const roomService = new RoomService()
+        const roomService = new RoomService();
 
         const root = document.getElementById('root');
 
@@ -36,8 +34,20 @@ class App {
         // Clear the root element before rendering
         root.innerHTML = '';
 
-        this.HeaderComponent = new HeaderComponent(root, App.authService, App.eventHub);
-        this.MainComponent = new MainComponent(root, App.authService, App.chatManager, App.eventHub, roomService);
+        // Create containers for header and main sections
+        const headerContainer = document.createElement('div');
+        headerContainer.id = 'header';
+
+        const mainContainer = document.createElement('div');
+        mainContainer.id = 'main';
+
+        // Append the containers to the root
+        root.appendChild(headerContainer);
+        root.appendChild(mainContainer);
+
+        // Initialize and render components
+        this.HeaderComponent = new HeaderComponent(headerContainer, App.authService, App.eventHub);
+        this.MainComponent = new MainComponent(mainContainer, App.authService, App.chatManager, App.eventHub, roomService);
 
         this.HeaderComponent.render();
         this.MainComponent.render();

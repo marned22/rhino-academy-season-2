@@ -10,16 +10,27 @@ export class RoomsComponent extends BaseComponent{
     private chatManager: ChatManager
 
     constructor(parent: Element, chatManager: ChatManager){
-        super(parent)
-        this.roomService = new RoomService()
-        this.chatManager = chatManager
+        super(parent);
+        this.roomService = new RoomService();
+        this.chatManager = chatManager;
 
-        this.loadRooms()
+        this.loadRooms();
 
-        this.chatManager.subscribe('roomLeft', (data) => {
-            this.rooms.filter((room) => room.id !== data.room.id)
-            this.renderRooms()
-        })
+        // Listen for the "roomCreated" event on the #sidebar-section element
+        const sidebarSection = document.getElementById("sidebar-section");
+        if (sidebarSection) {
+            sidebarSection.addEventListener("roomCreated", (event) => {
+                const customEvent = event as CustomEvent<IChatRoom>;
+                const newRoom = customEvent.detail;
+                this.rooms.push(newRoom);
+                this.renderRooms();
+            });
+        }
+
+        this.chatManager.subscribe("roomLeft", (data) => {
+            this.rooms = this.rooms.filter((room) => room.id !== data.room.id);
+            this.renderRooms();
+        });
     }
 
     private async loadRooms(){

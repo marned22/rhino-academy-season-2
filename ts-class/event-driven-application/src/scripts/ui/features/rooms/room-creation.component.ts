@@ -30,6 +30,13 @@ export class RoomCreationComponent extends BaseComponent {
                 this.chatManager.createRoom(newRoom.name);
                 console.log("Room created", newRoom);
 
+                // Dispatch the event on the closest common parent (e.g., #sidebar-section)
+                const sidebarSection = document.getElementById("sidebar-section");
+                if (sidebarSection) {
+                    const event = new CustomEvent("roomCreated", { detail: newRoom });
+                    sidebarSection.dispatchEvent(event);
+                }
+
                 roomNameInput.value = ""; // Clear the input field
             } catch (error) {
                 console.log("Error creating room: ", error);

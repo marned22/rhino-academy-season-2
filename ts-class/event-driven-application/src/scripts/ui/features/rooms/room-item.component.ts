@@ -48,6 +48,8 @@ export class RoomItemComponent extends BaseComponent {
         console.log(`Room ${this.room.name} has been left successfully`)
       } catch(error){
         console.error('Error leave room: ', error)
+      } finally {
+        this.parent.remove()
       }
     } 
 }
