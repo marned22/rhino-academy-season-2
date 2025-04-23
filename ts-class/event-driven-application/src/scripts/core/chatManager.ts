@@ -78,7 +78,7 @@ export class ChatManager{
             throw new Error(`Room with ID ${roomId} not found`);
         }
 
-        this.currentRoomId = roomId;
+        this.setCurrentRoomId(roomId);
 
         try {
             // Fetch messages for the room
@@ -150,7 +150,15 @@ export class ChatManager{
         return await this.roomService.getUsersInRoom(roomId);
     }
 
+    public setCurrentRoomId(roomId: string) {
+        this.currentRoomId = roomId;
+        localStorage.setItem('currentRoomId', roomId); // Persist roomId
+    }
+
     public getCurrentRoomId(): string | null {
+        if (!this.currentRoomId) {
+            this.currentRoomId = localStorage.getItem('currentRoomId'); // Restore roomId
+        }
         return this.currentRoomId;
     }
 

@@ -25,12 +25,14 @@ export class MessagesComponent extends BaseComponent {
 
     private async loadMessage() {
         const roomId = this.chatManager.getCurrentRoomId(); 
+        console.log("Restored Room ID:", roomId); // Debugging log
         if (!roomId) {
             console.error("No room joined");
             return;
         }
 
         this.messages = await this.messageService.getByRoomId(roomId);
+        console.log("Fetched messages after refresh:", this.messages); // Debugging log
         this.renderMessages();
     }
 
