@@ -57,15 +57,4 @@ class App {
     }
 }
 
-const rooms = [
-  {
-    "id": "60b24356-5a06-4e87-abe3-09227dc4b93a",
-    "name": "Room 2"
-  },
-  {
-    "id": "bb0f3b03-4bcd-42dc-ac87-26d6c3d9d9c3",
-    "name": "Room 3"
-  }
-];
-
 App.init()

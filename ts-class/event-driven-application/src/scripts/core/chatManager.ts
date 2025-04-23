@@ -9,7 +9,7 @@ export class ChatManager{
     private rooms: IChatRoom[] = []
     private currentRoomId: string | null
     private socketService: SocketService
-    private currentUser: { id: string, name: string}
+    private currentUser: { id: string, name: string} | null
     private roomService: RoomService
     private roomUsers: { roomId: string; userId: string }[] = [];
     private messages: IChatMessage[] = [];
@@ -27,7 +27,8 @@ export class ChatManager{
         if (user) {
             this.currentUser = { id: user.id, name: user.username || 'Unknown User' };
         } else {
-            throw new Error('No logged-in user found');
+            console.warn('No logged-in user found. ChatManager will operate in unauthenticated mode.');
+            this.currentUser = null; 
         }
     }
 
@@ -69,7 +70,7 @@ export class ChatManager{
 
         const newRoom: IChatRoom = { id: uuidv4(), name}
         this.rooms.push(newRoom)
-        this.socketService.dispatchRoomJoined(newRoom.id, this.currentUser.id)
+        this.socketService.dispatchRoomJoined(newRoom.id, this.currentUser?.id || '')
     }
 
     public async joinRoom(roomId: string) {
@@ -81,13 +82,16 @@ export class ChatManager{
         this.setCurrentRoomId(roomId);
 
         try {
-            // Fetch messages for the room
+
             const messages = await this.messageService.getByRoomId(roomId);
             this.messages = messages;
             console.log('Fetched messages:', this.messages);
 
-            // Dispatch an event to update the UI
-            this.eventManager.dispatch('roomJoined', { user: this.currentUser, room });
+            if (this.currentUser) {
+                this.eventManager.dispatch('roomJoined', { user: this.currentUser, room });
+            } else {
+                console.error('Cannot dispatch roomJoined event: currentUser is null');
+            }
         } catch (error) {
             console.error('Failed to fetch messages:', error);
         }
@@ -119,7 +123,7 @@ export class ChatManager{
 
         const newMessage: Omit<IChatMessage, 'id' | 'timestamp'> = {
             roomId,
-            userId: this.currentUser.id, 
+            userId: this.currentUser?.id || '', 
             content,
         };
 
@@ -162,7 +166,7 @@ export class ChatManager{
         return this.currentRoomId;
     }
 
-    public getCurrentUser(): { id: string; name: string } {
+    public getCurrentUser(): { id: string; name: string } | null {
         return this.currentUser;
     }
 }

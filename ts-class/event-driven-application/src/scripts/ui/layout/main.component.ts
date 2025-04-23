@@ -4,7 +4,7 @@ import { AuthService, MessageService, RoomService } from "../../services";
 import { BaseComponent } from "../base/base.component";
 import { MessagesComponent } from "../features/messages/messages.component";
 import { SideBarComponent } from "./sidebar.component";
-
+import { LoginComponent } from "../features/auth/login.component";
 export class MainComponent extends BaseComponent {
   private isAuth: boolean = false;
   private authService: AuthService;
@@ -13,37 +13,37 @@ export class MainComponent extends BaseComponent {
   private roomService: RoomService
   private messageService: MessageService
 
-  constructor(parent: Element, authService: AuthService, chatManager:ChatManager, eventManager: EventManager<AuthEvents>, roomService: RoomService) {
+  constructor(parent: Element, authService: AuthService, chatManager: ChatManager, eventManager: EventManager<AuthEvents>, roomService: RoomService) {
     super(parent);
 
     this.authService = authService;
     this.eventManager = eventManager;
-    this.chatManager = chatManager
-    this.roomService = roomService
-    this.messageService = new MessageService()
+    this.chatManager = chatManager;
+    this.roomService = roomService;
+    this.messageService = new MessageService();
 
     // Initialize isAuth based on the current authentication state
     this.isAuth = this.authService.isAuthenticated();
 
     // Subscribe to login and logout events
     this.eventManager.subscribe('login', () => {
-      this.isAuth = true;
-      this.render();
+        this.isAuth = true;
+        this.render();
     });
 
     this.eventManager.subscribe('logout', () => {
-      this.isAuth = false;
-      this.render();
+        this.isAuth = false;
+        this.render();
     });
 
     this.registerChild(
-      "#messages",
-      (element) => new MessagesComponent(element, this.messageService, this.chatManager) // Pass chatManager
+        '#messages',
+        (element) => new MessagesComponent(element, this.messageService, this.chatManager)
     );
 
     this.registerChild(
-      '.chat-sidebar',
-      (element) => new SideBarComponent(element, chatManager, this.roomService)
+        '.chat-sidebar',
+        (element) => new SideBarComponent(element, chatManager, this.roomService)
     );
   }
 
@@ -73,7 +73,7 @@ export class MainComponent extends BaseComponent {
 
   template(): string {
     if (!this.isAuth) {
-      return `
+        return `
         <main class="chat-main">
           <div class="chat-login-main">
             <h1>Please login to continue</h1>
