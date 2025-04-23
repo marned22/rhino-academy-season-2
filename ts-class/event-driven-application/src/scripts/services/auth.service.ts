@@ -82,8 +82,9 @@ export class AuthService {
         this.eventManager.dispatch('logout', undefined); // Dispatch logout event
     }
 
-    getCurrentUser(): IChatUser | null {
-        return this.currentUser
+    public getCurrentUser(): IChatUser | null {
+        const user = localStorage.getItem('authUser'); // Use 'authUser' instead of 'currentUser'
+        return user ? JSON.parse(user) : null;
     }
 
     isAuthenticated(): boolean{

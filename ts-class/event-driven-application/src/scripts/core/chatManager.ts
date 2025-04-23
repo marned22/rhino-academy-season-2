@@ -1,20 +1,34 @@
 import { v4 as uuidv4} from 'uuid'
 import { Callback, IChatEvents, IChatMessage, IChatRoom, IChatUser } from '../models/types'
 import { EventManager } from './eventManager'
-import { SocketService } from '../services'
+import { SocketService, RoomService, MessageService } from '../services'
+import { AuthService } from '../services'
 
 export class ChatManager{
-    private eventManager: EventManager<IChatEvents>
+    eventManager: EventManager<IChatEvents>
     private rooms: IChatRoom[] = []
     private currentRoomId: string | null
     private socketService: SocketService
     private currentUser: { id: string, name: string}
+    private roomService: RoomService
+    private roomUsers: { roomId: string; userId: string }[] = [];
+    private messages: IChatMessage[] = [];
+    private messageService: MessageService
 
-    constructor(eventManager: EventManager<IChatEvents>){
-        this.eventManager = eventManager
-        this.currentRoomId = null
-        this.socketService = new SocketService(eventManager)
-        this.currentUser = { id: 'default', name: 'default'}
+    constructor(eventManager: EventManager<IChatEvents>, authService: AuthService) {
+        this.eventManager = eventManager;
+        this.currentRoomId = null;
+        this.socketService = new SocketService(eventManager);
+        this.roomService = new RoomService();
+        this.messageService = new MessageService();
+
+        // Set the current user from the AuthService
+        const user = authService.getCurrentUser();
+        if (user) {
+            this.currentUser = { id: user.id, name: user.username || 'Unknown User' };
+        } else {
+            throw new Error('No logged-in user found');
+        }
     }
 
     private handleRoomJoined = (data: { user: IChatUser, room: IChatRoom }): void => {
@@ -25,9 +39,17 @@ export class ChatManager{
         console.log(`User ${data.user.name} left room ${data.room.name}`)
     }
 
-    public initialize(){
-        this.eventManager.subscribe('roomJoined', this.handleRoomJoined)
-        this.eventManager.subscribe('roomLeft', this.handleRoomLeft)
+    public async initialize() {
+        this.eventManager.subscribe('roomJoined', this.handleRoomJoined);
+        this.eventManager.subscribe('roomLeft', this.handleRoomLeft);
+
+        try {
+            const rooms = await this.roomService.getAll();
+            this.rooms = rooms; 
+            console.log('Rooms fetched from backend:', this.rooms);
+        } catch (error) {
+            console.error('Failed to fetch rooms:', error);
+        }
     }
 
     public subscribe<K extends keyof IChatEvents>(event: K, handler: (data: IChatEvents[K]) => void): void{
@@ -50,15 +72,25 @@ export class ChatManager{
         this.socketService.dispatchRoomJoined(newRoom.id, this.currentUser.id)
     }
 
-    public joinRoom(roomId: string){
-        const room = this.rooms.find(room => room.id === roomId)
-
-        if(!room){
-            throw new Error(`Room with ${roomId} was not found`)
+    public async joinRoom(roomId: string) {
+        const room = this.rooms.find((room) => room.id === roomId);
+        if (!room) {
+            throw new Error(`Room with ID ${roomId} not found`);
         }
 
-        this.currentRoomId = roomId
-        this.socketService.dispatchRoomJoined(roomId, this.currentUser.id)
+        this.currentRoomId = roomId;
+
+        try {
+            // Fetch messages for the room
+            const messages = await this.messageService.getByRoomId(roomId);
+            this.messages = messages;
+            console.log('Fetched messages:', this.messages);
+
+            // Dispatch an event to update the UI
+            this.eventManager.dispatch('roomJoined', { user: this.currentUser, room });
+        } catch (error) {
+            console.error('Failed to fetch messages:', error);
+        }
     }
 
     public leaveRoom(roomId: string){
@@ -78,22 +110,51 @@ export class ChatManager{
         this.socketService.dispatchLeaveRoom(roomId, this.currentUser.id)
     }
 
-    public sendMessage(content: string){
-        if(!this.currentRoomId){
-            throw new Error('No room currently joined')
+    public async sendMessage(content: string) {
+        const roomId = this.getCurrentRoomId();
+        if (!roomId) {
+            console.error('No room joined');
+            return;
         }
 
-        if(!this.currentUser){
-            throw new Error('No current user available')
-        }
-
-        const message: IChatMessage = {
-            id: uuidv4(),
-            roomId: this.currentRoomId,
-            userId: this.currentUser.id,
+        const newMessage: Omit<IChatMessage, 'id' | 'timestamp'> = {
+            roomId,
+            userId: this.currentUser.id, 
             content,
-            timestamp: Date.now()
+        };
+
+        try {
+            const savedMessage = await this.messageService.create(newMessage);
+            this.messages.push(savedMessage);
+            console.log('Updated messages:', this.messages);
+            this.eventManager.dispatch('messageSent', savedMessage);
+        } catch (error) {
+            console.error('Failed to send message:', error);
         }
-        this.socketService.dispatchMessageSent(message)
+    }
+
+    public async addUserToRoom(roomId: string, userId: string): Promise<void> {
+        try {
+            // Persist the user-room association to the backend
+            await this.roomService.addUserToRoom(roomId, userId);
+
+            // Simulate adding the user to the room locally
+            this.roomUsers.push({ roomId, userId });
+            console.log('Updated roomUsers:', this.roomUsers);
+        } catch (error) {
+            console.error('Failed to add user to room:', error);
+        }
+    }
+
+    public async getUsersInRoom(roomId: string): Promise<IChatUser[]> {
+        return await this.roomService.getUsersInRoom(roomId);
+    }
+
+    public getCurrentRoomId(): string | null {
+        return this.currentRoomId;
+    }
+
+    public getCurrentUser(): { id: string; name: string } {
+        return this.currentUser;
     }
 }

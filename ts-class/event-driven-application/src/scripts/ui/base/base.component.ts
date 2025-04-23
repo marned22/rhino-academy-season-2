@@ -39,23 +39,29 @@ export abstract class BaseComponent {
     }
 
 
-    renderList<T>(containerSelector: string, items: T[], idGenerator: (item: T) => string, componentFactory: (element: Element, item: T) => BaseComponent) {
-      const container = this.parent.querySelector(containerSelector)
-      if(!container) return;
+    renderList<T>(
+        containerSelector: string,
+        items: T[],
+        idGenerator: (item: T) => string,
+        componentFactory: (element: Element, item: T) => BaseComponent
+    ) {
+        const container = this.parent.querySelector(containerSelector);
+        if (!container) {
+            console.error(`Container not found: ${containerSelector}`);
+            return;
+        }
 
-      container.innerHTML = items.map(
-        (item => {
-          const id = idGenerator(item)
-          return `<li id="${id}" class="item-list-placeholder"></li>`
-        })
-      ).join('')
+        container.innerHTML = items.map((item) => {
+            const id = idGenerator(item);
+            return `<li id="${id}" class="item-list-placeholder"></li>`;
+        }).join("");
 
-      items.forEach((item) => {
-        const id = idGenerator(item)
-        this.registerChild(`#${id}`, (element) => componentFactory(element, item))
-      })
+        items.forEach((item) => {
+            const id = idGenerator(item);
+            this.registerChild(`#${id}`, (element) => componentFactory(element, item));
+        });
 
-      this.renderChildren()
+        this.renderChildren();
     }
 
 

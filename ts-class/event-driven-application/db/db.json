@@ -59,22 +59,47 @@
       "id": "d11c11e5-d218-43d6-890c-eaf5c260b05e",
       "username": "asdasdasd",
       "password": "sdadsasd"
+    },
+    {
+      "id": "84d96b33-9f27-4f0c-8e67-4478ade748b7",
+      "username": "Martin",
+      "password": "martin123"
     }
   ],
   "rooms": [
     {
-      "id": "dceb6126-a23d-4123-aded-8aa620d2fd39",
-      "name": "Room 1"
-    },
-    {
-      "id": "60b24356-5a06-4e87-abe3-09227dc4b93a",
-      "name": "Room  2"
-    },
-    {
-      "id": "de46f266-fe60-4526-9a12-70823513a282",
-      "name": "Room 3"
+      "id": "95613dc4-1867-4adb-b324-d02aaf77d6ac",
+      "name": "Room8"
     }
   ],
-  "messages": [],
-  "roomUsers": []
+  "messages": [
+    {
+      "id": "60dd3428-62dd-4d10-bf01-91d7d4dc827a",
+      "timestamp": 1745409303918,
+      "roomId": "95613dc4-1867-4adb-b324-d02aaf77d6ac",
+      "userId": "84d96b33-9f27-4f0c-8e67-4478ade748b7",
+      "content": "Hi"
+    },
+    {
+      "id": "5b01869c-91a9-4fe9-9d8b-3e73b703dee9",
+      "timestamp": 1745409629106,
+      "roomId": "95613dc4-1867-4adb-b324-d02aaf77d6ac",
+      "userId": "84d96b33-9f27-4f0c-8e67-4478ade748b7",
+      "content": "Message 1"
+    },
+    {
+      "id": "208f1996-99b8-48bf-a61e-b7450f5bcd12",
+      "timestamp": 1745409636696,
+      "roomId": "95613dc4-1867-4adb-b324-d02aaf77d6ac",
+      "userId": "84d96b33-9f27-4f0c-8e67-4478ade748b7",
+      "content": "hI"
+    }
+  ],
+  "roomUsers": [
+    {
+      "roomId": "95613dc4-1867-4adb-b324-d02aaf77d6ac",
+      "userId": "6f66792c-03ac-4819-85a2-53b72860c5bf",
+      "id": "8def"
+    }
+  ]
 }

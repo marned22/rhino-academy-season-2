@@ -46,7 +46,7 @@ interface IChatEvents{
     roomCreated(room: IChatRoom): void
     roomJoined:{user: IChatUser, room: IChatRoom}
     roomLeft:{user: IChatUser, room: IChatRoom}
-    messageSent(message: IChatMessage): void
+    messageSent: IChatMessage
 }
 
 interface IbaseAppNotification{

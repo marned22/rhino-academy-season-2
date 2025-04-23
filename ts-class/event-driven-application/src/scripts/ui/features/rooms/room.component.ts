@@ -10,13 +10,12 @@ export class RoomsComponent extends BaseComponent{
     private chatManager: ChatManager
 
     constructor(parent: Element, chatManager: ChatManager){
-        super(parent);
+         super(parent);
         this.roomService = new RoomService();
         this.chatManager = chatManager;
 
         this.loadRooms();
 
-        // Listen for the "roomCreated" event on the #sidebar-section element
         const sidebarSection = document.getElementById("sidebar-section");
         if (sidebarSection) {
             sidebarSection.addEventListener("roomCreated", (event) => {
@@ -42,13 +41,13 @@ export class RoomsComponent extends BaseComponent{
         }
     }
 
-    private renderRooms(){
+    private renderRooms() {
         this.renderList<IChatRoom>(
             '#room-list',
             this.rooms,
             (room) => `room_id_${room.id}`,
             (element, item) => new RoomItemComponent(element, item, this.chatManager)
-        )
+        );
     }
 
     template(): string {

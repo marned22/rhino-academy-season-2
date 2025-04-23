@@ -12,16 +12,19 @@ class App {
     static HeaderComponent: HeaderComponent
     static MainComponent: MainComponent
 
-    static init() {
+    static async init() {
+        App.authService = AuthService.getInstance(); // Ensure authService is initialized
+
         App.chatManager = new ChatManager(
-            App.eventHub as unknown as EventManager<IChatEvents>
+            App.eventHub as unknown as EventManager<IChatEvents>,
+            App.authService 
         );
+
+        await App.chatManager.initialize(); // Ensure rooms are loaded
 
         App.notificationsManager = new NotificationManager(
             App.eventHub as unknown as EventManager<INotificationEvents>
         );
-
-        App.authService = AuthService.getInstance();
 
         const roomService = new RoomService();
 
@@ -53,5 +56,16 @@ class App {
         this.MainComponent.render();
     }
 }
+
+const rooms = [
+  {
+    "id": "60b24356-5a06-4e87-abe3-09227dc4b93a",
+    "name": "Room 2"
+  },
+  {
+    "id": "bb0f3b03-4bcd-42dc-ac87-26d6c3d9d9c3",
+    "name": "Room 3"
+  }
+];
 
 App.init()

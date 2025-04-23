@@ -1,6 +1,6 @@
 import { ChatManager, EventManager } from "../../core";
 import { AuthEvents } from "../../models";
-import { AuthService, RoomService } from "../../services";
+import { AuthService, MessageService, RoomService } from "../../services";
 import { BaseComponent } from "../base/base.component";
 import { MessagesComponent } from "../features/messages/messages.component";
 import { SideBarComponent } from "./sidebar.component";
@@ -11,6 +11,7 @@ export class MainComponent extends BaseComponent {
   private eventManager: EventManager<AuthEvents>;
   private chatManager: ChatManager
   private roomService: RoomService
+  private messageService: MessageService
 
   constructor(parent: Element, authService: AuthService, chatManager:ChatManager, eventManager: EventManager<AuthEvents>, roomService: RoomService) {
     super(parent);
@@ -19,6 +20,7 @@ export class MainComponent extends BaseComponent {
     this.eventManager = eventManager;
     this.chatManager = chatManager
     this.roomService = roomService
+    this.messageService = new MessageService()
 
     // Initialize isAuth based on the current authentication state
     this.isAuth = this.authService.isAuthenticated();
@@ -36,7 +38,7 @@ export class MainComponent extends BaseComponent {
 
     this.registerChild(
       "#messages",
-      (element) => new MessagesComponent(element)
+      (element) => new MessagesComponent(element, this.messageService, this.chatManager) // Pass chatManager
     );
 
     this.registerChild(
@@ -48,7 +50,25 @@ export class MainComponent extends BaseComponent {
   getBindingEvents(): {
     [selector: string]: { event: string; handler: (ev: Event) => void };
   } {
-    return {};
+    return {
+      '#send-btn': {
+        event: 'click',
+        handler: (ev: Event) => {
+          const input = document.querySelector<HTMLTextAreaElement>('#message');
+          if (input && input.value) {
+            try {
+              if (!this.chatManager.getCurrentRoomId()) {
+                throw new Error('No room currently joined');
+              }
+              this.chatManager.sendMessage(input.value);
+              input.value = ''; 
+            } catch (error) {
+              console.log('count', error) 
+            }
+          }
+        },
+      },
+    };
   }
 
   template(): string {

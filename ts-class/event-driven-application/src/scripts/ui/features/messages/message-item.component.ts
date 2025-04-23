@@ -9,18 +9,16 @@ export class MessageItemComponent extends BaseComponent{
 
     template(): string {
         return `
-        <li class="message-wrapper">
-              <div class="message sent">
-                <span class="message-content">${this.message.content}</span>
-                <span class="message-time">${new Date(
-                    this.message.timestamp
-                ).toLocaleDateString([], {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                })}</span>
-              </div>
-        </li>
-        `
+    <div class="message sent">
+        <span class="message-content">${this.message.content}</span>
+        <span class="message-time">${new Date(
+            this.message.timestamp
+        ).toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit',
+        })}</span>
+    </div>
+    `;
     }
 
     getBindingEvents(): { [selector: string]: { event: string; handler: (ev: Event) => void; }; } {
