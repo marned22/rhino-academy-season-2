@@ -70,6 +70,17 @@ export class RoomItemComponent extends BaseComponent {
         console.log("Joining room with ID:", this.room.id); // Debug log
         this.chatManager.joinRoom(this.room.id);
         console.log(`Joined room: ${this.room.name}`);
+
+        // Get the current user ID
+        const currentUserId = this.chatManager.getCurrentUser()?.id;
+        if (!currentUserId) {
+            throw new Error("No current user available");
+        }
+
+        // Add the user to the room in the database
+        await this.chatManager.addUserToRoom(this.room.id, currentUserId);
+
+        console.log(`User ${currentUserId} added to room ${this.room.id}`);
     } catch (error) {
         console.error("Error joining room: ", error);
     }

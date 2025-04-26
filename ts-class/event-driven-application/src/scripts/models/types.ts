@@ -34,6 +34,7 @@ interface IChatMessage{
     userId: string
     content: string
     timestamp: number
+    userName?: string
 }
 
 interface IChatUser{

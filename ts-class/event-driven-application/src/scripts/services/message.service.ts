@@ -13,6 +13,7 @@ export class MessageService extends BaseApiService{
             id: uuidv4(),
             timestamp: Date.now(),
             ...message,
+            userName: message.userName
         };
 
         const savedMessage = await this.post<IChatMessage>('/messages', newMessage);

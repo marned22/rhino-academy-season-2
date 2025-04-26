@@ -124,7 +124,9 @@ export class ChatManager{
         const newMessage: Omit<IChatMessage, 'id' | 'timestamp'> = {
             roomId,
             userId: this.currentUser?.id || '', 
+            userName: this.currentUser?.name || 'Unknown User',
             content,
+    
         };
 
         try {
