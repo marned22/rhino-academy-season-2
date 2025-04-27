@@ -2,24 +2,36 @@ import { IChatMessage } from "../../../models";
 import { MessageService } from "../../../services";
 import { BaseComponent } from "../../base/base.component";
 import { MessageItemComponent } from "./message-item.component";
-import { ChatManager } from "../../../core";
+import { ChatManager } from "../../../core"
 
 export class MessagesComponent extends BaseComponent {
     private messages: IChatMessage[] = [];
     private messageService: MessageService;
     private chatManager: ChatManager;
+    private badWordsWorker: Worker
 
     constructor(parent: Element, messageService: MessageService, chatManager: ChatManager) {
         super(parent);
         this.messageService = messageService;
         this.chatManager = chatManager;
 
+        this.badWordsWorker = new Worker(new URL('../../../workers/badWordsWorker.js', import.meta.url));
+
         this.loadMessages();
 
         // Subscribe to new messages
         this.chatManager.eventManager.subscribe('messageSent', (message: IChatMessage) => {
-            this.addMessage(message);
+            this.filterAndAddMessage(message);
         });
+
+        this.badWordsWorker.onmessage = (event) => {
+            const filteredContent = event.data
+            const filteredMessage: IChatMessage = {
+                ...this.messages[this.messages.length - 1],
+                content: filteredContent,
+            };
+            this.addMessage(filteredMessage);
+        };
     }
 
     private async loadMessages() {
@@ -33,8 +45,14 @@ export class MessagesComponent extends BaseComponent {
         this.renderMessages();
     }
 
+    private filterAndAddMessage(message: IChatMessage) {
+        this.badWordsWorker.postMessage(message.content)
+
+        this.messages.push(message)
+    }
+
     public addMessage(message: IChatMessage) {
-        this.messages.push(message);
+        this.messages[this.messages.length - 1] = message
         this.renderMessages();
     }
 
