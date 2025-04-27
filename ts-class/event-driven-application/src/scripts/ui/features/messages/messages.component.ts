@@ -41,11 +41,17 @@ export class MessagesComponent extends BaseComponent {
             return;
         }
 
+        this.messages = []
+
         this.messages = await this.messageService.getByRoomId(roomId);
         this.renderMessages();
     }
 
     private filterAndAddMessage(message: IChatMessage) {
+        const currentRoomId = this.chatManager.getCurrentRoomId()
+        if(message.roomId !== currentRoomId) {
+            return
+        }
         this.badWordsWorker.postMessage(message.content)
 
         this.messages.push(message)
