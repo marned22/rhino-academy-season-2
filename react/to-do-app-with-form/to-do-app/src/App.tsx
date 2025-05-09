@@ -1,10 +1,10 @@
-import Form from "./components/Form"
+import FormSubmission from "./components/FormSubmission/FormSubmission"
 
 function App() {
 
   return (
     <>
-      <Form />
+      <FormSubmission />
     </>
   )
 }
