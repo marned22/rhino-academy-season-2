@@ -1,0 +1,64 @@
+import { IChatUser } from "../../../types/types";
+
+export const CHAT_USERS: IChatUser[] = [
+    {
+        "title": "Emma Johnson",
+        "icon": "https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png"
+    },
+    {
+        "title": "Liam Smith",
+        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+    },
+    {
+        "title": "Olivia Williams",
+        "icon": "https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png"
+    },
+    {
+        "title": "Noah Brown",
+        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+    },
+    {
+        "title": "Ava Jones",
+        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+    },
+    {
+        "title": "Elijah Garcia",
+        "icon": "https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png"
+    },
+    {
+        "title": "Sophia Miller",
+        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+    },
+    {
+        "title": "James Davis",
+        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+    },
+    {
+        "title": "Isabella Rodriguez",
+        "icon": "https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png"
+    },
+    {
+        "title": "Benjamin Martinez",
+        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+    },
+    {
+        "title": "Mia Hernandez",
+        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+    },
+    {
+        "title": "Lucas Lopez",
+        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+    },
+    {
+        "title": "Charlotte Gonzalez",
+        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+    },
+    {
+        "title": "Henry Wilson",
+        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+    },
+    {
+        "title": "Amelia Anderson",
+        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+    }
+];
