@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../styles/forms.css"
+import { useFormStatus } from "react-dom";
 
 
 
@@ -15,7 +16,7 @@ interface TodoItem {
 const mockDatabase: TodoItem[] = [];
 
 
-const action = async (formData: FormData) => {
+const action = async (formData: FormData, updateTodos: (todos: TodoItem[]) => void) => {
     const title = formData.get("title");
     const description = formData.get("description");
     const priority = formData.get("priority")
@@ -32,28 +33,57 @@ const action = async (formData: FormData) => {
     console.log('Tags: ', tags)
     console.log('Shown item: ', shownItem)
 
-    mockDatabase.push({
+
+    const newTodo: TodoItem = {
         title,
         description,
         priority,
         dueDate,
         tags,
         shownItem
-    })
+    }
+
+    mockDatabase.push(newTodo)
 
     console.log("Current Mock Database: ", mockDatabase)
+
+    updateTodos([...mockDatabase])
 };
 
+const Submit = () => {
+    const { pending } = useFormStatus();
+    return(
+        <button type="submit" disabled={pending}>
+            {pending ? "Submitting..." : "Submit"}
+        </button>
+    )
+}
 
-const FormSubmission = () => {
+
+const ServerSubmission = () => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
+    const [todos, setTodos] = useState<TodoItem[]>([])
+    const [loading, setLoading] = useState(false)
+
+    useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true);
+            await new Promise((resolve) => setTimeout(resolve, 3000))
+            setTodos([...mockDatabase])
+            setLoading(false)
+        }
+
+        fetchData();
+    }, [])
 
     return (
         <>
             <div>
                 <h2>Client Submit</h2>
-                <form action={action}>
+                <form 
+                    action={(formData: FormData) => action(formData, setTodos)}
+                >
                     <div>
                         <label>
                             Title:
@@ -114,18 +144,35 @@ const FormSubmission = () => {
                         </label>
                     </div>
 
+                    
                     <div className="buttons">
-                        <button type="submit" name="action" value="add">
-                            Add Todo
-                        </button>
-                        <button type="submit" name="action" value="addPin">
-                            Add & Pin
-                        </button>
+                        <Submit />
                     </div>
                 </form>
+            </div>
+
+
+            <div>
+                <h2>Todo List</h2>
+                {loading ? (
+                    <div className="spinner">Loading...</div>
+                ): (
+                    <ul>
+                        {todos.map((todo, index) => (
+                            <li key={index}>
+                                <strong>Title: </strong> {typeof todo.title === "string" ? todo.title : "No Title"} <br />
+                                <strong>Description: </strong> {typeof todo.description === "string" ? todo.description : "No Description"} <br />
+                                <strong>Priority: </strong> {typeof todo.priority === "string" ? todo.priority : "No Priority"} <br />
+                                <strong>Due Date: </strong> {typeof todo.dueDate === "string" ? todo.dueDate : "No Due Date"} <br />
+                                <strong>Tags: </strong> {todo.tags.length > 0 ? todo.tags.join(", ") : "No Tags"} <br />
+                                <strong>Shown Item: </strong> {todo.shownItem ? "Yes" : "No"}
+                            </li>
+                        ))}
+                    </ul>
+                )}
             </div>
         </>
     );
 };
 
-export default FormSubmission;
+export default ServerSubmission;

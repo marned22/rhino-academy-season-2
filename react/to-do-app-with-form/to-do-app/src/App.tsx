@@ -1,10 +1,11 @@
-import FormSubmission from "./components/FormSubmission/FormSubmissionServerAction"
+import ServerSubmission from "./components/ServerSubmission/ServerSubmission"
+
 
 function App() {
 
   return (
     <>
-      <FormSubmission />
+      <ServerSubmission />
     </>
   )
 }

@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import "../../styles/forms.css"
 
-const Form = () => {
+const ClientSubmission = () => {
     const [title, setTitle] = useState('')
     const inputRef = useRef<HTMLInputElement>(null)
 
@@ -88,4 +88,4 @@ const Form = () => {
     );
 };
 
-export default Form;
+export default ClientSubmission;
