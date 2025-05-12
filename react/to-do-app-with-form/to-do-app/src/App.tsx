@@ -1,4 +1,4 @@
-import FormSubmission from "./components/FormSubmission/FormSubmission"
+import FormSubmission from "./components/FormSubmission/FormSubmissionServerAction"
 
 function App() {
 

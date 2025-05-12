@@ -3,18 +3,46 @@ import "../../styles/forms.css"
 
 
 
-const action = (formData) => {
+interface TodoItem {
+    title: FormDataEntryValue | null;
+    description: FormDataEntryValue | null;
+    priority: FormDataEntryValue | null;
+    dueDate: FormDataEntryValue | null;
+    tags: FormDataEntryValue[];
+    shownItem: boolean;
+}
+
+const mockDatabase: TodoItem[] = [];
+
+
+const action = async (formData: FormData) => {
     const title = formData.get("title");
     const description = formData.get("description");
-    console.log('Title', title)
-    console.log('Desctription', description)
+    const priority = formData.get("priority")
+    const dueDate = formData.get("dueDate")
+    const tags = formData.getAll("tags")
+    const shownItem = formData.get("showItem") === "on"
+
+    await new Promise ((resolve) => setTimeout(resolve, 3000))
+
+    console.log('Title ', title)
+    console.log('Desctription ', description)
+    console.log('Priority' , priority)
+    console.log('Due Date: ', dueDate)
+    console.log('Tags: ', tags)
+    console.log('Shown item: ', shownItem)
+
+    mockDatabase.push({
+        title,
+        description,
+        priority,
+        dueDate,
+        tags,
+        shownItem
+    })
+
+    console.log("Current Mock Database: ", mockDatabase)
 };
-
-// const save = (formData: FormData) => {
-//     const title: string | null = formData.get("title");
-//     const description: string | null = formData.get("title");
-// }
-
 
 
 const FormSubmission = () => {
