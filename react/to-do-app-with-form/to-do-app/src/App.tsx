@@ -1,11 +1,11 @@
-import ServerSubmission from "./components/ServerSubmission/ServerSubmission"
+import OptimisticallyUpdating from "./components/OptimisticallyUpdating/OptimisticallyUpdating"
 
 
 function App() {
 
   return (
     <>
-      <ServerSubmission />
+      <OptimisticallyUpdating />
     </>
   )
 }
