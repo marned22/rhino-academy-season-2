@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import "../../styles/forms.css"
 import { useFormStatus } from "react-dom";
-import { serverAction } from "./ServerAction";
 import { mockDatabase } from "./mockData";
+import SubmitHandler from "./HandleSubmit";
 import type { TodoItem } from "../../types/types";
+import { serverAction } from "./ServerAction";
 
-const Submit = () => {
+const AddToDo = () => {
     const { pending } = useFormStatus();
     return(
         <button type="submit" disabled={pending}>
-            {pending ? "Submitting..." : "Submit"}
+            {pending ? "Adding new to do" : "Add to"}
         </button>
     )
 }
@@ -19,26 +20,6 @@ const OptimisticallyUpdating = () => {
     const [todos, setTodos] = useState<TodoItem[]>([])
     const [loading, setLoading] = useState(false)
 
-    const handleSubmit = async (formData: FormData) => {
-        const newTodo: TodoItem = {
-            title: formData.get("title") as string,
-            description: formData.get("description") as string,
-            priority: formData.get("priority") as string,
-            dueDate: formData.get("dueDate") as string,
-            tags: formData.getAll("tags") as string[],
-            shownItem: formData.get("showItem") === "on",
-        }
-        
-        setTodos((prevTodos) => [...prevTodos, newTodo])
-
-        try {
-            const updatedTodos = await serverAction(formData)
-            setTodos(updatedTodos)
-        } catch(error){
-            console.log("Failed to update the server:", error)
-            setTodos((prevTodos) => prevTodos.filter((todo) => todo !== newTodo))
-        }
-    }
 
     useEffect(() => {
         const fetchData = async () => {
@@ -55,11 +36,26 @@ const OptimisticallyUpdating = () => {
         <>
             <div>
                 <h2>Server Submit</h2>
-                <form 
+                <form
                     onSubmit={async (e) => {
-                        e.preventDefault()
+                        e.preventDefault();
                         const formData = new FormData(e.currentTarget);
-                        await handleSubmit(formData)
+
+                        const submitter = (e.nativeEvent as SubmitEvent).submitter as HTMLButtonElement;
+
+                        if (!submitter) {
+                            console.error("Submitter is undefined");
+                            return;
+                        }
+
+                        const actionType = submitter.value;
+
+                        await SubmitHandler({
+                            formData,
+                            setTodos,
+                            serverAction,
+                            isPin: actionType === "addPin",
+                        });
                     }}
                 >
                     <div>
@@ -120,7 +116,10 @@ const OptimisticallyUpdating = () => {
 
                     
                     <div className="buttons">
-                        <Submit />
+                        <AddToDo />
+                        <button type="submit" value="addPin">
+                            Add & Pin Todo
+                        </button>
                     </div>
                 </form>
             </div>

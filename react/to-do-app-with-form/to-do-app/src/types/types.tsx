@@ -5,4 +5,5 @@ export interface TodoItem {
     dueDate: FormDataEntryValue | null;
     tags: FormDataEntryValue[];
     shownItem: boolean;
+    pinned?: boolean;
 }
