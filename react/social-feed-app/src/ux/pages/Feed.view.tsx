@@ -1,4 +1,3 @@
-import { Navigation } from "../../core/components/Navigation/Navigation";
 import { CreatePost } from "../../core/components/CreatePost/CreatePost";
 import { Sidebar } from "../../core/components/Sidebar/Sidebar";
 import { PostView } from "../views/components/Posts/Post.view";
@@ -9,7 +8,6 @@ import { UsersView } from "../views/components/Users/Users.view";
 export const FeedView = ({ posts, addPost, deletePost, updatePost, categories, chatUsers }: FeedViewProps) => {
     return (
         <div className="feed-wrapper">
-            <Navigation />
             <div className='feed-content-container'>
                 <div className='feed-content-left'>
                     <div className='category-containter'>
