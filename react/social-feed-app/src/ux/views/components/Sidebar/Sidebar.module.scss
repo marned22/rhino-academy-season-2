@@ -8,4 +8,13 @@
     .icon {
       color: #7e5da1;
     }
+
+    .active {
+        background-color: #e0e0e0;
+        font-weight: bold;
+
+        .icon {
+            color: #5a3d8a;
+        }
+    }
   }

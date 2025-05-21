@@ -12,83 +12,77 @@ import ReportIcon from '@mui/icons-material/Report';
 import ElectricalServicesIcon from '@mui/icons-material/ElectricalServices';
 import PeopleIcon from '@mui/icons-material/People';
 import LockIcon from '@mui/icons-material/Lock';
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { ICategories } from '../../../types/types';
 
 export const CATEGORIES: ICategories[] = [
     {
         "title": "Dashboard",
-        "link": "https://example.com/dashboard",
+        "link": "/dashboard",
         "icon": HomeIcon
     },
     {
         "title": "Profile",
-        "link": "https://example.com/profile",
+        "link": "/profile",
         "icon": PersonIcon
     },
     {
         "title": "Settings",
-        "link": "https://example.com/settings",
+        "link": "/settings",
         "icon": SettingsIcon
     },
     {
         "title": "Notifications",
-        "link": "https://example.com/notifications",
+        "link": "/notifications",
         "icon": NotificationsIcon
     },
     {
         "title": "Messages",
-        "link": "https://example.com/messages",
+        "link": "/messages",
         "icon": MessageIcon
     },
     {
         "title": "Analytics",
-        "link": "https://example.com/analytics",
+        "link": "/analytics",
         "icon": AnalyticsIcon
     },
     {
         "title": "Help Center",
-        "link": "https://example.com/help-center",
+        "link": "/help-center",
         "icon": HelpIcon
     },
     {
         "title": "Billing",
-        "link": "https://example.com/billing",
+        "link": "/billing",
         "icon": CreditCardIcon
     },
     {
         "title": "Activity",
-        "link": "https://example.com/activity",
+        "link": "/activity",
         "icon": CelebrationIcon
     },
     {
         "title": "Tasks",
-        "link": "https://example.com/tasks",
+        "link": "/tasks",
         "icon": TaskIcon
     },
     {
         "title": "Reports",
-        "link": "https://example.com/reports",
+        "link": "/reports",
         "icon": ReportIcon
     },
     {
         "title": "Integrations",
-        "link": "https://example.com/integrations",
+        "link": "/integrations",
         "icon": ElectricalServicesIcon
     },
     {
         "title": "Team",
-        "link": "https://example.com/team",
+        "link": "/team",
         "icon": PeopleIcon
     },
     {
         "title": "Security",
-        "link": "https://example.com/security",
+        "link": "/security",
         "icon": LockIcon
-    },
-    {
-        "title": "Logout",
-        "link": "https://example.com/logout",
-        "icon": ExitToAppIcon
     }
 ];

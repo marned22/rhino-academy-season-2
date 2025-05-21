@@ -3,7 +3,7 @@ import { Navigation } from "../../core/components/Navigation/Navigation"
 
 export const RootLayout: React.FC = () => {
     return (
-        <div className="app">
+        <div>
             <header>
                 <nav>
                     <Navigation />
@@ -13,10 +13,6 @@ export const RootLayout: React.FC = () => {
             <main>
                 <Outlet />
             </main>
-
-            <footer>
-                <p>Sociel Feed App</p>
-            </footer>
         </div>
     )
 }
