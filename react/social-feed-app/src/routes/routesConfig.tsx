@@ -13,6 +13,7 @@ import IntegrationsPage from "../core/pages/IntegrationsPage";
 import TeamPage from "../core/pages/TeamPage";
 import SecurityPage from "../core/pages/SecurityPage";
 import { Feed } from "../core/pages/Feed";
+import NotFoundPage from "../core/pages/NotFoundPage";
 
 export const routesConfig = [
   {
@@ -89,5 +90,10 @@ export const routesConfig = [
     path: "/security",
     element: <SecurityPage />,
     metadata: { title: "Security" },
+  },
+  {
+        path: "*",
+        element: <NotFoundPage />,
+        metadata: { title: "404 Not Found" },
   },
 ];
