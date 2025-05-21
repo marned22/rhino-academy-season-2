@@ -9,7 +9,7 @@ export const RootLayout: React.FC = () => {
                     <Navigation />
                 </nav>
             </header>
-
+            
             <main>
                 <Outlet />
             </main>
