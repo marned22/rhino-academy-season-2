@@ -1,5 +1,6 @@
 import React, { useContext, useRef} from 'react';
 import { AuthContext } from '../components/Context';
+import styles from '../style/Login.module.scss'
 
 
 const Login = () => {
@@ -13,19 +14,20 @@ const Login = () => {
     };
 
     return (
-        <div>
-            <h1>Register</h1>
-            <p>Hello {username ? username : 'N/A'}</p>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username:</label>
+        <div className={styles.loginContainer}>
+            <h1 className={styles.title}>Login</h1>
+            <p className={styles.greeting}>Hello {username ? username : 'N/A'}</p>
+            <form onSubmit={handleSubmit} className={styles.form}>
+                <label htmlFor="username" className={styles.label}>Username:</label>
                 <input
                     type="text"
                     id="username"
                     ref={inputRef}
                     defaultValue={username}
                     required
+                    className={styles.input}
                 />
-                <button type="submit">Login</button>
+                <button type="submit" className={styles.loginBtn}>Login</button>
             </form>
         </div>
     );
