@@ -1,10 +1,11 @@
 import React, { useContext, useRef} from 'react';
-import { AuthContext } from '../components/Context';
+import { AuthContext, OffContext } from '../components/Context';
 import styles from '../style/Login.module.scss'
 
 
 const Login = () => {
     const {username, setUsername} = useContext(AuthContext)
+    const { off } = useContext(OffContext)
     const inputRef = useRef<HTMLInputElement>(null)
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -26,8 +27,9 @@ const Login = () => {
                     defaultValue={username}
                     required
                     className={styles.input}
+                    disabled={off}
                 />
-                <button type="submit" className={styles.loginBtn}>Login</button>
+                <button type="submit" className={styles.loginBtn} disabled  ={off}>Login</button>
             </form>
         </div>
     );

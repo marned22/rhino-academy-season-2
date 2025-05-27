@@ -1,14 +1,19 @@
 import { Link, Outlet } from "react-router-dom"
 import styles from "../style/RootLayout.module.scss" // import the SCSS module
 import { useContext } from "react"
-import { ThemeContext } from "./Context"
+import { OffContext, ThemeContext } from "./Context"
 
 const RootLayout: React.FC = () => {
     const { setBgColor } = useContext(ThemeContext)
+    const { off, setOff } = useContext(OffContext)
 
     function randomColor(){
         const color = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6,"0")
         setBgColor(color)
+    }
+
+    function resetColor() {
+        setBgColor('#fff')
     }
     return(
         <div>
@@ -34,6 +39,18 @@ const RootLayout: React.FC = () => {
                     onClick={randomColor}
                 >
                     Random Color!
+                </button>
+                <button
+                    className={styles.resetBtn}
+                    onClick={resetColor}
+                >
+                    Reset
+                </button>
+                <button
+                    className={styles.offBtn}
+                    onClick={() => setOff(prev => !prev)}
+                >
+                    {off ? "On" : "Off"}
                 </button>
             </nav>
         </header>

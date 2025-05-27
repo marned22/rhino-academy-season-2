@@ -7,8 +7,16 @@ export const AuthContext = createContext<any>({
 
 export const ThemeContext = createContext<{
     bgColor: string,
-    setBgColor: (color: string) => void
+    setBgColor: (color: string) => void,
 }>({
     bgColor: "#fff",
     setBgColor: () => {}
+})
+
+export const OffContext = createContext<{
+    off: boolean;
+    setOff: React.Dispatch<React.SetStateAction<boolean>>,
+}>({
+    off: false,
+    setOff: () => {},
 })
