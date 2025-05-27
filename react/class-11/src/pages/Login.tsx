@@ -1,6 +1,6 @@
 import React, { useContext, useRef} from 'react';
 import { AuthContext, OffContext } from '../components/Context';
-import styles from '../style/Login.module.scss'
+import styles from '../styles/Login.module.scss'
 
 
 const Login = () => {

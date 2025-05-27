@@ -20,3 +20,16 @@ export const OffContext = createContext<{
     off: false,
     setOff: () => {},
 })
+
+export type TableRow = {
+    id: number,
+    name: string
+};
+
+export const DataTableContext = createContext<{
+    rows: TableRow[];
+    setRows: React.Dispatch<React.SetStateAction<TableRow[]>>
+}>({
+    rows: [],
+    setRows: () => {},
+})

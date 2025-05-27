@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom"
-import styles from "../style/RootLayout.module.scss" // import the SCSS module
+import styles from "../styles/RootLayout.module.scss" // import the SCSS module
 import { useContext } from "react"
 import { OffContext, ThemeContext } from "./Context"
 

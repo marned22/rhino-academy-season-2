@@ -5,6 +5,7 @@ import Login from "./pages/Login"
 import { AuthContext, OffContext, ThemeContext } from "./components/Context"
 import { useState } from "react"
 import BrowserInfo from "./pages/BrowserInfo"
+import { DataTableProvider } from "./datatable/DataTableProvied"
 
 
 function App() {
@@ -19,7 +20,11 @@ function App() {
           <div style={{ background: bgColor }}>
             <Routes>
               <Route path="/" element={<RootLayout />}>
-                <Route path="/" element={<Home />}/>
+                <Route path="/" element={
+                  <DataTableProvider>
+                    <Home />
+                  </DataTableProvider>
+                  }/>
                 <Route path="/login" element={<AuthContext.Provider value={{username,  setUsername}}><Login /></AuthContext.Provider>} />
                 <Route path="/browserinfo" element={<BrowserInfo />} />
               </Route>
