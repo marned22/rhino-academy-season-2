@@ -24,8 +24,6 @@ interface FeedViewProps {
     addPost: (content: string) => void;
     deletePost: (index: number) => void;
     updatePost: (index: number, content: string) => void;
-    categories: ICategories[];
-    chatUsers: IChatUser[];
 }
 
 interface PostProps {

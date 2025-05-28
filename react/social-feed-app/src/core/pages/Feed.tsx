@@ -9,26 +9,11 @@ import { Modal } from "../components/Modal/Modal";
 
 export const Feed = () => {
   const [state, dispatch] = useReducer(FeedReducer, POSTS);
-  const [categories, setCategories] = useState<ICategories[]>([]);
-  const [chatUsers, setChatUsers] = useState<IChatUser[]>([]);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [postToDelete, setPostToDelete] = useState<number | null>(null);
   const [postToUpdate, setPostToUpdate] = useState<number | null>(null);
   const [updateContent, setUpdateContent] = useState<string>("");
-
-  const fetchCategories = (): ICategories[] => {
-    return CATEGORIES;
-  };
-
-  const fetchChatUsers = (): IChatUser[] => {
-    return CHAT_USERS;
-  };
-
-  useEffect(() => {
-    setCategories(fetchCategories());
-    setChatUsers(fetchChatUsers());
-  }, []);
 
   const addPost = (content: string) => {
     dispatch({
@@ -82,8 +67,6 @@ export const Feed = () => {
         addPost={addPost}
         deletePost={handleDeleteClick}
         updatePost={handleUpdateClick}
-        categories={categories}
-        chatUsers={chatUsers}
       />
       <Modal
         isOpen={isDeleteModalOpen}

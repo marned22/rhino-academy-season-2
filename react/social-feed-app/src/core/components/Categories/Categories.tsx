@@ -17,7 +17,7 @@ import { ICategories } from '../../../types/types';
 export const CATEGORIES: ICategories[] = [
     {
         "title": "Dashboard",
-        "link": "/dashboard",
+        "link": "/",
         "icon": HomeIcon
     },
     {

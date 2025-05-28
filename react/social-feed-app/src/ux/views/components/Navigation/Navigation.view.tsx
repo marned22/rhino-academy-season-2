@@ -2,12 +2,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ForumIcon from '@mui/icons-material/Forum';
 import PersonIcon from '@mui/icons-material/Person';
-
-// import './Navigation.scss';
 import styles from './Navigation.module.scss';
 import { NavLink } from 'react-router-dom';
-
-console.log(styles)
 
 export const NavigationView = () => {
     return (
