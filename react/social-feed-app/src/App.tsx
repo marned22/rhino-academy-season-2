@@ -1,20 +1,22 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { RootLayout } from "./ux/pages/Root.view";
 import { routesConfig } from "./routes/routesConfig";
-import { CATEGORIES } from "./core/components/Categories/Categories";
-import { CHAT_USERS } from "./core/components/Users/Users";
+import { Suspense } from "react";
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: routesConfig,
+  },
+])
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<RootLayout />}>
-          {routesConfig.map(({ path, element }) => (
-            <Route key={path} path={path} element={element} />
-          ))}
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <Suspense fallback={<div>Loading...</div>}>
+      <RouterProvider router={router} />
+    </Suspense>
   );
 }
 

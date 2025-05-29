@@ -58,4 +58,9 @@ type Action =
   | { type: 'UPDATE'; payload: { id: number | string; updatedPost: Partial<IPost> } }
   | { type: 'DELETE'; payload: { id: number | string} };
 
-export type { ICategories, IPost, IChatUser, Action, FeedViewProps, PostProps, SidebarProps, UsersViewProps, ModalProps}
+type AnalyticsData = {
+    stats: number[];
+    updated: string;
+}
+
+export type { ICategories, IPost, IChatUser, Action, FeedViewProps, PostProps, SidebarProps, UsersViewProps, ModalProps, AnalyticsData}
