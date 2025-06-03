@@ -1,6 +1,4 @@
-import { IChatUser } from "../../../types/types";
-
-export const CHAT_USERS: IChatUser[] = [
+[
     {
         "title": "Emma Johnson",
         "icon": "https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png"
@@ -61,4 +59,4 @@ export const CHAT_USERS: IChatUser[] = [
         "title": "Amelia Anderson",
         "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
     }
-];
+]

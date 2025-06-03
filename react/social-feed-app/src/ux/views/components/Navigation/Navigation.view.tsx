@@ -4,8 +4,12 @@ import ForumIcon from '@mui/icons-material/Forum';
 import PersonIcon from '@mui/icons-material/Person';
 import styles from './Navigation.module.scss';
 import { NavLink } from 'react-router-dom';
+import { LogoutButton } from '../../../../loginlogout/LogoutButton';
+import { useAuth } from '../../../../core/context/auth/useAuth';
+
 
 export const NavigationView = () => {
+    const { user } = useAuth();
     return (
         <div className={styles['navigation-wrapper']}>
             <NavLink
@@ -40,6 +44,7 @@ export const NavigationView = () => {
             >
                 <PersonIcon fontSize='large' />
             </NavLink>
+            {user && <LogoutButton />}
         </div>
     )
 }

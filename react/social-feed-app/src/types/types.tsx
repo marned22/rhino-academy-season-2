@@ -63,4 +63,11 @@ type AnalyticsData = {
     updated: string;
 }
 
-export type { ICategories, IPost, IChatUser, Action, FeedViewProps, PostProps, SidebarProps, UsersViewProps, ModalProps, AnalyticsData}
+
+interface AuthContextType{
+    user: string | null;
+    login: (username: string) => void;
+    logout: () => void
+}
+
+export type { ICategories, IPost, IChatUser, Action, FeedViewProps, PostProps, SidebarProps, UsersViewProps, ModalProps, AnalyticsData, AuthContextType}
