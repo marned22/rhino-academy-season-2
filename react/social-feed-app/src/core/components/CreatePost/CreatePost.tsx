@@ -4,6 +4,7 @@ import { Button } from "@mui/material";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/material/styles';
 import { CreatePostView } from "../../../ux/views/components/CreatePost/CreatePost.view";
+import { useFormInput } from "../../../hooks/useFormInput";
 
 export interface CreatePostViewProps {
   renderContent: () => ReactNode;
@@ -13,20 +14,16 @@ export interface CreatePostViewProps {
 
 export const CreatePost = ({ addPost }: { addPost: (content: string) => void }) => {
   const [value, setValue] = useState<string>('post');
-  const [inputValue, setInputValue] = useState('');
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-  };
+  const input = useFormInput('')
 
   const handleTabChange = (_event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 
   const handleAddPost = () => {
-    if(inputValue) {
-      addPost(inputValue)
-      setInputValue('')
+    if(!input.isEmpty) {
+      addPost(input.value)
+      input.reset()
       console.log('Post added')
     }
   }
@@ -50,12 +47,12 @@ export const CreatePost = ({ addPost }: { addPost: (content: string) => void }) 
           <>
             <img width={50} src="https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png" alt="Avatar" />
             <TextField
-              onChange={handleInputChange}
+              onChange={input.handleChange}
               id="outlined-basic"
               label=""
               variant="outlined"
               placeholder="What's on your mind?"
-              value={inputValue}
+              value={input.value}
               sx={{
                 '& .MuiOutlinedInput-root': {
                   '&:hover': {
@@ -88,8 +85,8 @@ export const CreatePost = ({ addPost }: { addPost: (content: string) => void }) 
               label=""
               variant="outlined"
               placeholder="Share your story"
-              value={inputValue}
-              onChange={handleInputChange}
+              value={input.value}
+              onChange={input.handleChange}
             />
             <Button
               variant="outlined"

@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
 import { Post } from "../../../../core/components/Post/Post";
 import { IPost } from "../../../../types/types";
+import { useInfiniteScroll } from "../../../../hooks/useInfiniteScroll";
 
 export const PostView = ({
   posts,
@@ -11,35 +11,7 @@ export const PostView = ({
   deletePost: (index: number) => void;
   updatePost: (index: number, content: string) => void;
 }) => {
-  const [visibleCount, setVisibleCount] = useState(5); 
-  const containerRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const loadMorePosts = () => {
-      setVisibleCount((prev) => Math.min(prev + 5, posts.length)); 
-    };
-
-    const handleScroll = () => {
-      if (!containerRef.current) return;
-
-      const { scrollTop, scrollHeight, clientHeight } = containerRef.current;
-
-      if (scrollTop + clientHeight >= scrollHeight - 100) {
-        loadMorePosts();
-      }
-    };
-
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener("scroll", handleScroll);
-    }
-
-    return () => {
-      if (container) {
-        container.removeEventListener("scroll", handleScroll);
-      }
-    };
-  }, [posts]);
+  const { containerRef, visibleItems } = useInfiniteScroll(posts, 5, 5);
 
   return (
     <div
@@ -51,7 +23,7 @@ export const PostView = ({
         padding: "16px",
       }}
     >
-      {posts.slice(0, visibleCount).map((post, index) => (
+      {visibleItems.map((post, index) => (
         <Post
           key={index}
           post={post}
