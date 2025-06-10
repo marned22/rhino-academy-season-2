@@ -1,19 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../core/context/auth/useAuth";
 import "../ux/styles/LoginForm.scss"
 
 export const LoginForm = () => {
     const [username, setUsername] = useState("");
-    const { login } = useAuth()
+    const { login, chatUsers, currentUser } = useAuth()
     const navigate = useNavigate()
+
+    useEffect(() => {
+        if(currentUser) {
+            navigate("/");
+        }
+    }, [currentUser, navigate]);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (username.trim()) {
-            login(username.trim())
+
+        const user = chatUsers.find(u => u.username === username.trim());
+        if (user) {
+            login(user.id);
+            } else {
+            alert("User not fount.")
         }
-        navigate("/")
     }
 
     return (

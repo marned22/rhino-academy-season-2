@@ -5,9 +5,9 @@ export const UsersView = ({ chatUsers }: UsersViewProps) => {
     return (
         <div className={styles.usersContainer}> 
             {chatUsers.map((user: IChatUser) => (
-                <div key={user.title} className={styles.userItem}>
-                    <img src={user.icon} alt={user.title} className={styles.userIcon}/>
-                    <p className={styles.userTitle}>{user.title}</p>
+                <div key={user.id} className={styles.userItem}>
+                    <img src={user.images.profile} alt={user.username} className={styles.userIcon}/>
+                    <p className={styles.userTitle}>{user.profile.firstName} {user.profile.lastName}</p>
                 </div>
             ))}
         </div>

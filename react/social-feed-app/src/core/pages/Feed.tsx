@@ -1,8 +1,13 @@
 import { usePosts } from "../../hooks/usePosts";
 import { FeedView } from "../../ux/pages/Feed.view";
 import { Modal } from "../components/Modal/Modal";
+import { withFilterable } from "../hoc/withFilterable";
+import { useAuth } from "../context/auth/useAuth"; 
+
+const FilterableFeedView = withFilterable(FeedView);
 
 const Feed = () => {
+  const { currentUser} = useAuth();
   const {
     posts,
     addPost,
@@ -15,11 +20,12 @@ const Feed = () => {
     isUpdateModalOpen,
     setIsUpdateModalOpen,
     updateContent,
-  } = usePosts();
+  } = usePosts(currentUser);
 
   return (
     <>
-      <FeedView
+      <FilterableFeedView
+
         posts={posts}
         addPost={addPost}
         deletePost={handleDeleteClick}

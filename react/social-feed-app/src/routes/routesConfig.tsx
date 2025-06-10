@@ -24,7 +24,7 @@ const NotFoundPage = lazy(() => import("../core/pages/NotFoundPage"));
 
 export const routesConfig = [
   {
-    path: "/",
+    index: true,
     element: (
       <ProtectedRoute>
         <Feed />
