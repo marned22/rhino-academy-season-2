@@ -2,12 +2,16 @@ import { usePosts } from "../../hooks/usePosts";
 import { FeedView } from "../../ux/pages/Feed.view";
 import { Modal } from "../components/Modal/Modal";
 import { withFilterable } from "../hoc/withFilterable";
-import { useAuth } from "../context/auth/useAuth"; 
+import { useSelector } from "react-redux";
+import type { RootState } from "../store/store";
+import { useGetUsersQuery } from "../features/apiSlice";
 
 const FilterableFeedView = withFilterable(FeedView);
 
 const Feed = () => {
-  const { currentUser} = useAuth();
+  const username = useSelector((state: RootState) => state.username.username);
+  const { data: chatUsers }= useGetUsersQuery();
+  const currentUser = chatUsers?.find(user => user.username === username);
   const {
     posts,
     addPost,

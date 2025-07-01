@@ -4,16 +4,12 @@ import { UsersView } from "../views/components/Users/Users.view";
 import '../styles/RootLayout.scss'
 import { useCategories } from "../../hooks/useCategories";
 import { Outlet } from "react-router-dom";
-import { AuthContext } from "../../core/context/auth/AuthContext";
-import { useContext } from "react";
-
+import { useGetUsersQuery } from "../../core/features/apiSlice";
 
 
 export const RootLayout: React.FC = () => {
   const { categories, loading: categoriesLoading, error: categoriesError } = useCategories();
-  const auth = useContext(AuthContext) 
-
-  const chatUsers = auth?.chatUsers || [];
+  const { data: chatUsers } = useGetUsersQuery();
 
   return (
     <div>
@@ -36,7 +32,7 @@ export const RootLayout: React.FC = () => {
           <Outlet />
         </main>
         <div className="app-content-right">
-          <UsersView chatUsers={chatUsers} />
+          <UsersView chatUsers={chatUsers ?? []} />
         </div>
       </div>
     </div>
