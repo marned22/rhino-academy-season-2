@@ -1,10 +1,11 @@
 import { useReducer, useState } from "react";
-import { POSTS } from "../core/components/Post/Posts";
-import { IPost, IChatUser } from "../types/types";
-import { FeedReducer } from "../core/Reducers/FeedReducer";
+import { POSTS } from "../components/Post/Posts";
+import { FeedReducer } from "../reducers/FeedReducer";
+import { IChatUser, IPost } from "../types/types";
+
 
 export function usePosts(currentUser?:IChatUser, initialPosts: IPost[] = POSTS) {
-     const [state, dispatch] = useReducer(FeedReducer, initialPosts);
+      const [state, dispatch] = useReducer(FeedReducer, initialPosts);
       const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
       const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
       const [postToDelete, setPostToDelete] = useState<number | null>(null);
@@ -12,6 +13,7 @@ export function usePosts(currentUser?:IChatUser, initialPosts: IPost[] = POSTS) 
       const [updateContent, setUpdateContent] = useState<string>("");
     
       const addPost = (content: string) => {
+        if(!currentUser) return;
         dispatch({
           type: "ADD",
           payload: {

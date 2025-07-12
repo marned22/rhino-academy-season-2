@@ -1,26 +1,26 @@
 import { lazy } from "react";
-import ErrorBoundary from "../core/components/ErrorBoundary/ErrorBoundary";
-import { analyticsLoader } from "../core/pages/AnalyticsPage";
-import { ProtectedRoute } from "../core/protectedroute/ProtectedRoute";
+import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
+import { analyticsLoader } from "../pages/AnalyticsPage/AnalyticsPage";
+import { ProtectedRoute } from "../pages/protectedroute/ProtectedRoute";
 import { LoginForm } from "../loginlogout/LoginForm";
 
 
-const DashboardPage = lazy(() => import("../core/pages/DashboardPage"));
-const NotificationsPage = lazy(() => import("../core/pages/NotificationsPage"));
-const MessagesPage = lazy(() => import("../core/pages/MessagesPage"));
-const ProfilePage = lazy(() => import("../core/pages/ProfilePage"));
-const SettingsPage = lazy(() => import("../core/pages/SettingsPage"));
-const AnalyticsPage = lazy(() => import("../core/pages/AnalyticsPage"));
-const HelpCenterPage = lazy(() => import("../core/pages/HelpCenterPage"));
-const BillingPage = lazy(() => import("../core/pages/BillingPage"));
-const ActivityPage = lazy(() => import("../core/pages/ActivityPage"));
-const TasksPage = lazy(() => import("../core/pages/TasksPage"));
-const ReportsPage = lazy(() => import("../core/pages/ReportsPage"));
-const IntegrationsPage = lazy(() => import("../core/pages/IntegrationsPage"));
-const TeamPage = lazy(() => import("../core/pages/TeamPage"));
-const SecurityPage = lazy(() => import("../core/pages/SecurityPage"));
-const Feed = lazy(() => import("../core/pages/Feed"));
-const NotFoundPage = lazy(() => import("../core/pages/NotFoundPage"));
+const DashboardPage = lazy(() => import("../pages/DashboardPage"));
+const NotificationsPage = lazy(() => import("../pages/NotificationsPage"));
+const MessagesPage = lazy(() => import("../pages/MessagesPage"));
+const ProfilePage = lazy(() => import("../pages/ProfilePage"));
+const SettingsPage = lazy(() => import("../pages/SettingsPage"));
+const AnalyticsPage = lazy(() => import("../pages/AnalyticsPage/AnalyticsPage"));
+const HelpCenterPage = lazy(() => import("../pages/HelpCenterPage"));
+const BillingPage = lazy(() => import("../pages/BillingPage"));
+const ActivityPage = lazy(() => import("../pages/ActivityPage"));
+const TasksPage = lazy(() => import("../pages/TasksPage"));
+const ReportsPage = lazy(() => import("../pages/ReportsPage"));
+const IntegrationsPage = lazy(() => import("../pages/IntegrationsPage"));
+const TeamPage = lazy(() => import("../pages/TeamPage"));
+const SecurityPage = lazy(() => import("../pages/SecurityPage"));
+const Feed = lazy(() => import("../pages/Feed"));
+const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
 
 export const routesConfig = [
   {
