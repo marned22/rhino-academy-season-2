@@ -3,32 +3,48 @@
 .app-content-wrapper {
   display: flex;
   flex-direction: row;
-  background-color: #f2eef6;
-  height: 100%;
-  padding: $main-app-padding;
+  background-color: $gray-light;
+  min-height: 100vh;
+  padding: 0;
+  gap: 0;
   align-items: stretch;
 }
 
-.app-content-left,
-.app-content-right {
-  flex-basis: 25%;
+.app-content-left {
+  flex-basis: 280px;
+  flex-shrink: 0;
+  background: $white;
+  border-right: 1px solid $gray-border;
+  display: flex;
   flex-direction: column;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
 }
 
 .app-content-center {
-  flex-basis: 60%;
+  flex: 1;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
-  gap: 16px;
-  padding: 16px 0;
-  height: 1000px;
-  justify-content: flex-start;
-  flex-grow: 1;
+  gap: 0;
+  padding: $content-padding;
+  background: $gray-light;
+  overflow-y: auto;
+  max-height: 100vh;
 
   & > * {
     width: 100%;
-    max-width: 700px;
-    flex: 1 1 0
+    max-width: 600px;
+    margin: 0 auto;
   }
+}
+
+.app-content-right {
+  flex-basis: 300px;
+  flex-shrink: 0;
+  background: $white;
+  border-left: 1px solid $gray-border;
+  padding: $content-padding;
+  overflow-y: auto;
+  max-height: 100vh;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.05);
 }

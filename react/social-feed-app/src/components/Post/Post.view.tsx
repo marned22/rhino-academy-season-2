@@ -2,7 +2,6 @@ import { useInfiniteScroll } from "../../hooks/useInfiniteScroll";
 import { IPost } from "../../types/types";
 import { Post } from "./Post";
 
-
 export const PostView = ({
   posts,
   deletePost,
@@ -18,11 +17,10 @@ export const PostView = ({
     <div
       ref={containerRef}
       style={{
-        height: "100%",
+        height: "600px",
         overflowY: "auto",
-        border: "2px solid #ccc",
-        padding: "16px",
-        background: "#7e5da1",
+        padding: "0",
+        background: "transparent",
       }}
     >
       {visibleItems.map((post, index) => (

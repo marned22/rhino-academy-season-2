@@ -93,3 +93,15 @@
   margin: 0.5rem 0;
   z-index: 1;
 }
+
+.login-label-group {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-label {
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: #333;
+}

@@ -1,0 +1,101 @@
+@use '../../styles/main.scss' as *;
+
+.postCard {
+  background: $purple;
+  border-radius: $border-radius-medium;
+  box-shadow: $card-shadow-modern;
+  margin-bottom: 24px;
+  padding: 20px 24px 16px 24px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+  border: none;
+
+  &:hover {
+    box-shadow: $card-shadow-hover-modern;
+  }
+}
+
+.postHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid $white;
+  }
+
+  .userInfo {
+    flex: 1;
+
+    .userName {
+      font-weight: 600;
+      font-size: 1rem;
+      color: $white;
+      margin: 0;
+      display: inline;
+    }
+
+    .postDate {
+      font-size: 0.97rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin: 0;
+      margin-left: 10px;
+      display: inline;
+    }
+  }
+}
+
+.postContent {
+  margin-bottom: 18px;
+
+  .contentText {
+    font-size: 1.06rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.97);
+    margin: 0;
+    word-wrap: break-word;
+  }
+}
+
+.postActions {
+  display: flex;
+  gap: 16px;
+
+  .actionButton {
+    flex: 1;
+    padding: 12px 0;
+    border: none;
+    border-radius: $border-radius-medium;
+    background: #f8f6fa;
+    color: #222;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: none;
+    outline: none;
+
+    .buttonIcon {
+      font-size: 1.1em;
+    }
+
+    &:hover {
+      background: #ece6f6;
+      color: $purple;
+    }
+
+    &.deleteButton:hover {
+      background: rgba(231, 76, 60, 0.13);
+      color: $danger;
+    }
+  }
+}

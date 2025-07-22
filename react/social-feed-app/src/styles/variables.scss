@@ -11,7 +11,7 @@ $purple: #7e5da1;
 $purple-dark: #5a3d85;
 $purple-light: #b39ddb;
 $purple-lighter: #d1b3ff;
-$purple-bg: #f8f6fc;
+$purple-bg: #f2eef6;
 $purple-bg2: #ece3f7;
 $purple-bg3: #ede3f7;
 $purple-bg4: #faf8fc;
@@ -21,8 +21,8 @@ $purple-border-focus: #e9d8fd;
 $purple-placeholder: #b39ddb;
 $white: #fff;
 $gray: #888;
-$gray-light: #e0e0e0;
-$gray-border: #ccc;
+$gray-light: #f5f5f5;
+$gray-border: #e0e0e0;
 $danger: #e74c3c;
 $danger-dark: #c0392b;
 $success: #4caf50;
@@ -30,13 +30,21 @@ $success-dark: #388e3c;
 $primary: #1976d2;
 $black: #000;
 
+// New colors for modern design
+$sidebar-bg: #f8f9fa;
+$content-bg: #ffffff;
+$card-shadow: rgba(0, 0, 0, 0.08);
+$card-shadow-hover: rgba(0, 0, 0, 0.12);
+
 // Shadows
 $purple-shadow: rgba(126, 93, 161, 0.07);
 $purple-shadow-strong: rgba(126, 93, 161, 0.12);
 $purple-shadow-dark: rgba(126, 93, 161, 0.18);
+$card-shadow-modern: 0 2px 8px rgba(0, 0, 0, 0.1);
+$card-shadow-hover-modern: 0 4px 16px rgba(0, 0, 0, 0.15);
 
 // Gradients & backgrounds
-$sidebar-bg: linear-gradient(135deg, $purple-bg 0%, $purple-bg2 100%);
+$sidebar-bg-gradient: linear-gradient(135deg, $purple-bg 0%, $purple-bg2 100%);
 $sidebar-bg-hover: $purple-bg3;
 
 // Border radius
@@ -48,10 +56,17 @@ $border-radius-modal-btn: 6px;
 $border-radius-small: 6px;
 $border-radius-medium: 8px;
 $border-radius-large: 16px;
+$border-radius-card: 16px;
 
 // Spacing
-$main-app-padding: calculate-rem(12px);
-$main-app-gap: calculate-rem(12px);
+$main-app-padding: calculate-rem(16px);
+$main-app-gap: calculate-rem(16px);
+$sidebar-padding: calculate-rem(20px);
+$content-padding: calculate-rem(24px);
 
 // Font
 $font-main: 'Noto Sans', sans-serif;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;

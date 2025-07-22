@@ -1,25 +1,46 @@
 @use '../../styles/main.scss' as *;
 
 .navigation-wrapper {
-    background-color: $purple;
-    padding: $main-app-padding;
+    background: $purple;
+    padding: 16px 24px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: flex-end;
-    gap: $main-app-gap;
+    gap: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        border-radius: $border-radius-medium;
+        transition: all 0.2s ease;
+        text-decoration: none;
+    }
 
     svg {
         color: $white;
         cursor: pointer;
-        transition: transform 0.2s ease-in-out;
+        transition: all 0.2s ease;
+        font-size: 1.5rem;
 
         &:hover {
             transform: scale(1.1);
+            opacity: 0.8;
         }
     }
 
-    .active-link svg {
-        color: $primary;
-        transform: scale(1.2);
+    .active-link {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+
+        svg {
+            color: $white;
+            transform: scale(1.1);
+        }
     }
 }

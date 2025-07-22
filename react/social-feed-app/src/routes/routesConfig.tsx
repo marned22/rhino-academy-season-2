@@ -8,7 +8,7 @@ import { LoginForm } from "../loginlogout/LoginForm";
 const DashboardPage = lazy(() => import("../pages/DashboardPage"));
 const NotificationsPage = lazy(() => import("../pages/NotificationsPage"));
 const MessagesPage = lazy(() => import("../pages/MessagesPage"));
-const ProfilePage = lazy(() => import("../pages/ProfilePage"));
+const ProfilePage = lazy(() => import("../pages/ProfilePage/ProfilePage"));
 const SettingsPage = lazy(() => import("../pages/SettingsPage"));
 const AnalyticsPage = lazy(() => import("../pages/AnalyticsPage/AnalyticsPage"));
 const HelpCenterPage = lazy(() => import("../pages/HelpCenterPage"));
@@ -59,7 +59,11 @@ export const routesConfig = [
   },
   {
     path: "/profile",
-    element: <ProfilePage />,
+    element: (
+      <ProtectedRoute>
+        <ProfilePage />
+      </ProtectedRoute>
+    ),
     errorElement: <ErrorBoundary />,
     metadata: { title: "Profile" },
   },

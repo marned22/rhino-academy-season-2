@@ -3,6 +3,7 @@
         "id": "1",
         "username": "emma_johnson",
         "email": "emma.johnson@example.com",
+        "password": "Qw8rT2pL",
         "profile": {
             "firstName": "Emma",
             "lastName": "Johnson",
@@ -23,6 +24,7 @@
         "id": "2",
         "username": "liam_smith",   
         "email": "liam.smith@example.com",
+        "password": "Xy3vB9sK",
         "profile": {
             "firstName": "Liam",
             "lastName": "Smith",
@@ -43,6 +45,7 @@
         "id": "3",
         "username": "olivia_williams",
         "email": "olivia.williams@example.com",
+        "password": "Lm7qP4zA",
         "profile": {
             "firstName": "Olivia",
             "lastName": "Williams",
@@ -62,6 +65,7 @@
         "id": "4",
         "username": "noah_brown",
         "email": "noah.brown@example.com",
+        "password": "Jk2sV8wM",
         "profile": {
             "firstName": "Noah",
             "lastName": "Brown",
@@ -80,6 +84,7 @@
         "id": "5",
         "username": "ava_jones",
         "email": "ava.jones@example.com",
+        "password": "Zp6tN1xC",
         "profile": {
             "firstName": "Ava",
             "lastName": "Jones",
@@ -96,6 +101,7 @@
         "id": "6",
         "username": "elijah_garcia",
         "email": "elijah.garcia@example.com",
+        "password": "Wb5uQ3rE",
         "profile": {
             "firstName": "Elijah",
             "lastName": "Garcia",
@@ -112,6 +118,7 @@
         "id": "7",
         "username": "sophia_miller",
         "email": "sophia.miller@example.com",
+        "password": "Rt9yL2vF",
         "profile": {
             "firstName": "Sophia",
             "lastName": "Miller",
@@ -128,6 +135,7 @@
         "id": "8",
         "username": "james_davis",
         "email": "james.davis@example.com",
+        "password": "Hn4eS7kU",
         "profile": {
             "firstName": "James",
             "lastName": "Davis",
@@ -144,6 +152,7 @@
         "id": "9",
         "username": "isabella_rodriguez",
         "email": "isabella.rodriguez@example.com",
+        "password": "Df8wK5mB",
         "profile": {
             "firstName": "Isabella",
             "lastName": "Rodriguez",
@@ -160,6 +169,7 @@
         "id": "10",
         "username": "benjamin_martinez",
         "email": "benjamin.martinez@example.com",
+        "password": "Tp3zC6qD",
         "profile": {
             "firstName": "Benjamin",
             "lastName": "Martinez",
@@ -176,6 +186,7 @@
         "id": "11",
         "username": "mia_hernandez",
         "email": "mia.hernandez@example.com",
+        "password": "Vg1nJ8sP",
         "profile": {
             "firstName": "Mia",
             "lastName": "Hernandez",
@@ -192,6 +203,7 @@
         "id": "12",
         "username": "lucas_lopez",
         "email": "lucas.lopez@example.com",
+        "password": "Sb6pF2wL",
         "profile": {
             "firstName": "Lucas",
             "lastName": "Lopez",
@@ -208,6 +220,7 @@
         "id": "13",
         "username": "charlotte_gonzalez",
         "email": "charlotte.gonzalez@example.com",
+        "password": "Kf7tM3vN",
         "profile": {
             "firstName": "Charlotte",
             "lastName": "Gonzalez",
@@ -224,6 +237,7 @@
         "id": "14",
         "username": "henry_wilson",
         "email": "henry.wilson@example.com",
+        "password": "Jp2wL9sQ",
         "profile": {
             "firstName": "Henry",
             "lastName": "Wilson",
@@ -240,6 +254,7 @@
         "id": "15",
         "username": "amelia_anderson",
         "email": "amelia.anderson@example.com",
+        "password": "Qm8rT4pL",
         "profile": {
             "firstName": "Amelia",
             "lastName": "Anderson",

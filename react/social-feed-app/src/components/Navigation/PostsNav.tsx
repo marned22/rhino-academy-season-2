@@ -12,7 +12,8 @@ const FilterBarWrapper = styled.div`
   align-items: center;
   margin-bottom: 20px;
   background-color: #f2eef6;
-  padding: 20px 32px;
+  padding: 32px 32px; 
+  min-height: 80px;   
   border-radius: 16px;
   border: 2px solid #cbb8e6; 
   box-shadow:
