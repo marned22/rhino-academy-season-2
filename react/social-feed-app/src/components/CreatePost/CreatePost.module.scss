@@ -4,13 +4,12 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  background: $white;
-  border-radius: $border-radius-card;
+  background: $purple-bg;
+  border-radius: $border-radius-medium;
   padding: $content-padding;
   gap: $main-app-gap;
   margin-bottom: $main-app-gap;
   border: 1px solid $purple-border;
-  box-shadow: $card-shadow-modern;
 }
 
 .createPostTopContainer {
@@ -63,21 +62,21 @@
   }
 
   .addButton {
-    background: $purple;
-    color: $white;
-    border: none;
+    background: transparent;
+    color: $purple-dark;
+    border: 1px solid $purple-border-input;
     border-radius: $border-radius-medium;
     padding: 0 24px;
     height: 40px;
-    font-weight: $font-weight-semibold;
+    font-weight: $font-weight-medium;
     text-transform: none;
     box-shadow: none;
     transition: background 0.2s, color 0.2s, border 0.2s;
     min-width: 120px;
 
     &:hover {
-      background: $purple-dark;
-      color: $white;
+      background: $purple-light;
+      color: $purple-dark;
     }
   }
 }

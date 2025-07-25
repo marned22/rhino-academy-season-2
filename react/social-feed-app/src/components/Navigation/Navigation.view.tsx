@@ -11,6 +11,13 @@ export const NavigationView = () => {
     const username = useSelector((state: any) => state.username);
     return (
         <div className={styles['navigation-wrapper']}>
+            <div className={styles['welcome-message']}>
+                {username.loggedIn && (
+                    <span>
+                        Welcome, {username.username}!
+                    </span>
+                )}
+            </div>
             <NavLink
                 to="/"
                 className={({ isActive }) => 

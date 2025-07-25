@@ -5,12 +5,18 @@
     padding: 16px 24px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     gap: 24px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 100;
+
+    .welcome-message {
+        color: $white;
+        font-size: 1.4rem;
+        font-weight: $font-weight-medium;
+    }
 
     a {
         display: flex;
