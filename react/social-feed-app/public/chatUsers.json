@@ -1,62 +1,255 @@
 [
     {
-        "title": "Emma Johnson",
-        "icon": "https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png"
+        "id": "1",
+        "username": "emma_johnson",
+        "email": "emma.johnson@example.com",
+        "profile": {
+            "firstName": "Emma",
+            "lastName": "Johnson",
+            "age": 28,
+            "bio": "Loves hiking and photography."
+        },
+        "images": {
+            "profile": "https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png",
+            "cover": "https://images.unsplash.com/photo-1506744038136-46273834b3fb"
+        },
+        "friends": [
+            "2",
+            "3"
+        ],
+        "createdAt": 1717500000000
     },
     {
-        "title": "Liam Smith",
-        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+        "id": "2",
+        "username": "liam_smith",   
+        "email": "liam.smith@example.com",
+        "profile": {
+            "firstName": "Liam",
+            "lastName": "Smith",
+            "age": 31,
+            "work": "Software Engineer"
+        },
+        "images": {
+            "profile": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png",
+            "cover": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca"
+        },
+        "friends": [
+            "1",
+            "4"
+        ],
+        "createdAt": 1717500001000
     },
     {
-        "title": "Olivia Williams",
-        "icon": "https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png"
+        "id": "3",
+        "username": "olivia_williams",
+        "email": "olivia.williams@example.com",
+        "profile": {
+            "firstName": "Olivia",
+            "lastName": "Williams",
+            "age": 25,
+            "education": "MIT"
+        },
+        "images": {
+            "profile": "https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png",
+            "cover": "https://images.unsplash.com/photo-1519125323398-675f0ddb6308"
+        },
+        "friends": [
+            "1"
+        ],
+        "createdAt": 1717500002000
     },
     {
-        "title": "Noah Brown",
-        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+        "id": "4",
+        "username": "noah_brown",
+        "email": "noah.brown@example.com",
+        "profile": {
+            "firstName": "Noah",
+            "lastName": "Brown",
+            "age": 27
+        },
+        "images": {
+            "profile": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png",
+            "cover": "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99"
+        },
+        "friends": [
+            "2"
+        ],
+        "createdAt": 1717500003000
     },
     {
-        "title": "Ava Jones",
-        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+        "id": "5",
+        "username": "ava_jones",
+        "email": "ava.jones@example.com",
+        "profile": {
+            "firstName": "Ava",
+            "lastName": "Jones",
+            "age": 24
+        },
+        "images": {
+            "profile": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png",
+            "cover": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca"
+        },
+        "friends": [],
+        "createdAt": 1717500004000
     },
     {
-        "title": "Elijah Garcia",
-        "icon": "https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png"
+        "id": "6",
+        "username": "elijah_garcia",
+        "email": "elijah.garcia@example.com",
+        "profile": {
+            "firstName": "Elijah",
+            "lastName": "Garcia",
+            "age": 29
+        },
+        "images": {
+            "profile": "https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png",
+            "cover": "https://images.unsplash.com/photo-1506744038136-46273834b3fb"
+        },
+        "friends": [],
+        "createdAt": 1717500005000
     },
     {
-        "title": "Sophia Miller",
-        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+        "id": "7",
+        "username": "sophia_miller",
+        "email": "sophia.miller@example.com",
+        "profile": {
+            "firstName": "Sophia",
+            "lastName": "Miller",
+            "age": 26
+        },
+        "images": {
+            "profile": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png",
+            "cover": "https://images.unsplash.com/photo-1519125323398-675f0ddb6308"
+        },
+        "friends": [],
+        "createdAt": 1717500006000
     },
     {
-        "title": "James Davis",
-        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+        "id": "8",
+        "username": "james_davis",
+        "email": "james.davis@example.com",
+        "profile": {
+            "firstName": "James",
+            "lastName": "Davis",
+            "age": 30
+        },
+        "images": {
+            "profile": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png",
+            "cover": "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99"
+        },
+        "friends": [],
+        "createdAt": 1717500007000
     },
     {
-        "title": "Isabella Rodriguez",
-        "icon": "https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png"
+        "id": "9",
+        "username": "isabella_rodriguez",
+        "email": "isabella.rodriguez@example.com",
+        "profile": {
+            "firstName": "Isabella",
+            "lastName": "Rodriguez",
+            "age": 23
+        },
+        "images": {
+            "profile": "https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png",
+            "cover": "https://images.unsplash.com/photo-1506744038136-46273834b3fb"
+        },
+        "friends": [],
+        "createdAt": 1717500008000
     },
     {
-        "title": "Benjamin Martinez",
-        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+        "id": "10",
+        "username": "benjamin_martinez",
+        "email": "benjamin.martinez@example.com",
+        "profile": {
+            "firstName": "Benjamin",
+            "lastName": "Martinez",
+            "age": 32
+        },
+        "images": {
+            "profile": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png",
+            "cover": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca"
+        },
+        "friends": [],
+        "createdAt": 1717500009000
     },
     {
-        "title": "Mia Hernandez",
-        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+        "id": "11",
+        "username": "mia_hernandez",
+        "email": "mia.hernandez@example.com",
+        "profile": {
+            "firstName": "Mia",
+            "lastName": "Hernandez",
+            "age": 27
+        },
+        "images": {
+            "profile": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png",
+            "cover": "https://images.unsplash.com/photo-1519125323398-675f0ddb6308"
+        },
+        "friends": [],
+        "createdAt": 1717500010000
     },
     {
-        "title": "Lucas Lopez",
-        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+        "id": "12",
+        "username": "lucas_lopez",
+        "email": "lucas.lopez@example.com",
+        "profile": {
+            "firstName": "Lucas",
+            "lastName": "Lopez",
+            "age": 29
+        },
+        "images": {
+            "profile": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png",
+            "cover": "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99"
+        },
+        "friends": [],
+        "createdAt": 1717500011000
     },
     {
-        "title": "Charlotte Gonzalez",
-        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+        "id": "13",
+        "username": "charlotte_gonzalez",
+        "email": "charlotte.gonzalez@example.com",
+        "profile": {
+            "firstName": "Charlotte",
+            "lastName": "Gonzalez",
+            "age": 26
+        },
+        "images": {
+            "profile": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png",
+            "cover": "https://images.unsplash.com/photo-1506744038136-46273834b3fb"
+        },
+        "friends": [],
+        "createdAt": 1717500012000
     },
     {
-        "title": "Henry Wilson",
-        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+        "id": "14",
+        "username": "henry_wilson",
+        "email": "henry.wilson@example.com",
+        "profile": {
+            "firstName": "Henry",
+            "lastName": "Wilson",
+            "age": 31
+        },
+        "images": {
+            "profile": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png",
+            "cover": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca"
+        },
+        "friends": [],
+        "createdAt": 1717500013000
     },
     {
-        "title": "Amelia Anderson",
-        "icon": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+        "id": "15",
+        "username": "amelia_anderson",
+        "email": "amelia.anderson@example.com",
+        "profile": {
+            "firstName": "Amelia",
+            "lastName": "Anderson",
+            "age": 28
+        },
+        "images": {
+            "profile": "https://cdn-icons-png.flaticon.com/512/4140/4140047.png",
+            "cover": "https://images.unsplash.com/photo-1519125323398-675f0ddb6308"
+        },
+        "friends": [],
+        "createdAt": 1717500014000
     }
 ]

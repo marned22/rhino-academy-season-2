@@ -6,15 +6,34 @@ interface ICategories {
 }
 
 interface IPost {
-    username: string;
+    userId: string;
+    visibility: boolean;
+    likes: number;
+    coments: number;
     date: number;
     image: string;
     content: string;
 }
 
 interface IChatUser {
-    title: string;
-    icon: string;
+    id: string;
+    username: string;
+    email: string;
+    profile: {
+        firstName: string;
+        lastName: string;
+        age: number;
+        bio?: string;
+        loacation?: string;
+        work?: string;
+        education?: string;
+    };
+    images: {
+        profile: string;
+        cover: string;
+    }
+    friends: string[];
+    createdAt: number
 }
 
 interface FeedViewProps {
@@ -63,9 +82,13 @@ type AnalyticsData = {
 
 
 interface AuthContextType{
-    user: string | null;
-    login: (username: string) => void;
-    logout: () => void
+    currentUser: IChatUser | null;
+    login: (userId: string) => void;
+    logout: () => void;
+    isAuthenticated: boolean;
+    isFriend: (userId: string) => boolean;
+    isOwnPost: (post: { userId: string }) => boolean;
+    chatUsers: IChatUser[];
 }
 
 interface useInfiniteScrollResult<T> {
@@ -73,5 +96,23 @@ interface useInfiniteScrollResult<T> {
     visibleItems: T[];
 }
 
+interface WithFilterableProps {
+  posts: IPost[];
+}
+
+type FilterType = "all" | "friends" | "mine";
+
+interface UseFilteredPostsResult {
+  filteredPosts: IPost[];
+  filter: FilterType;
+  setFilter: (filter: FilterType) => void;
+}
+
+type FilterBarProps = {
+  filter: FilterType;
+  setFilter: (filter: FilterType) => void;
+};
+
 export type { ICategories, IPost, IChatUser, Action, FeedViewProps, PostProps, SidebarProps, 
-    UsersViewProps, ModalProps, AnalyticsData, AuthContextType, useInfiniteScrollResult}
+    UsersViewProps, ModalProps, AnalyticsData, AuthContextType, useInfiniteScrollResult, WithFilterableProps
+    ,UseFilteredPostsResult, FilterType, FilterBarProps};

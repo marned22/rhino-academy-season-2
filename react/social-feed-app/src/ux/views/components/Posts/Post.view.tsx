@@ -17,10 +17,11 @@ export const PostView = ({
     <div
       ref={containerRef}
       style={{
-        height: "800px",
+        height: "100%",
         overflowY: "auto",
-        border: "1px solid #ccc",
+        border: "2px solid #ccc",
         padding: "16px",
+        background: "#7e5da1",
       }}
     >
       {visibleItems.map((post, index) => (

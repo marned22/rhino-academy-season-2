@@ -3,109 +3,163 @@ import { IPost } from "../../../types/types";
 
 export const POSTS: IPost[] = [
   {
-    username: 'John Doe',
+    userId: '1',
+    visibility: true,
+    likes: 10,
+    coments: 2,
     date: Date.now(),
     image: 'https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png',
     content: 'This is my first post!'
   },
   {
-    username: 'Jane Doe',
+    userId: '2',
+    visibility: true,
+    likes: 5,
+    coments: 1,
     date: Date.now(),
     image: 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png',
     content: 'This is my first post!'
   },
   {
-    username: 'John Doe',
+    userId: '1',
+    visibility: true,
+    likes: 7,
+    coments: 0,
     date: Date.now(),
     image: 'https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png',
     content: 'This is my second post!'
   },
   {
-    username: 'Emma Johnson',
+    userId: '3',
+    visibility: true,
+    likes: 12,
+    coments: 3,
     date: Date.now(),
     image: 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png',
     content: 'Loving the new app features!'
   },
   {
-    username: 'Liam Smith',
+    userId: '4',
+    visibility: true,
+    likes: 8,
+    coments: 2,
     date: Date.now(),
     image: 'https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png',
     content: 'Excited to connect with everyone!'
   },
   {
-    username: 'Olivia Williams',
+    userId: '5',
+    visibility: true,
+    likes: 6,
+    coments: 1,
     date: Date.now(),
     image: 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png',
     content: 'Beautiful day today!'
   },
   {
-    username: 'Noah Brown',
+    userId: '6',
+    visibility: true,
+    likes: 9,
+    coments: 0,
     date: Date.now(),
     image: 'https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png',
     content: 'Working on a new project!'
   },
   {
-    username: 'Ava Jones',
+    userId: '7',
+    visibility: true,
+    likes: 4,
+    coments: 1,
     date: Date.now(),
     image: 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png',
     content: 'Just finished a good book.'
   },
   {
-    username: 'Elijah Garcia',
+    userId: '8',
+    visibility: true,
+    likes: 11,
+    coments: 2,
     date: Date.now(),
     image: 'https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png',
     content: 'Feeling productive today!'
   },
   {
-    username: 'Sophia Miller',
+    userId: '9',
+    visibility: true,
+    likes: 13,
+    coments: 4,
     date: Date.now(),
     image: 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png',
     content: "Can't wait for the weekend!"
   },
   {
-    username: 'James Davis',
+    userId: '10',
+    visibility: true,
+    likes: 3,
+    coments: 0,
     date: Date.now(),
     image: 'https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png',
     content: 'Anyone up for a game night?'
   },
   {
-    username: 'Isabella Rodriguez',
+    userId: '11',
+    visibility: true,
+    likes: 7,
+    coments: 2,
     date: Date.now(),
     image: 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png',
     content: 'Started a new hobby today!'
   },
   {
-    username: 'Benjamin Martinez',
+    userId: '12',
+    visibility: true,
+    likes: 5,
+    coments: 1,
     date: Date.now(),
     image: 'https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png',
     content: 'Learning something new every day.'
   },
   {
-    username: 'Mia Hernandez',
+    userId: '13',
+    visibility: true,
+    likes: 6,
+    coments: 0,
     date: Date.now(),
     image: 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png',
     content: 'Weekend vibes!'
   },
   {
-    username: 'Lucas Lopez',
+    userId: '14',
+    visibility: true,
+    likes: 8,
+    coments: 1,
     date: Date.now(),
     image: 'https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png',
     content: 'Time for some coffee!'
   },
   {
-    username: 'Charlotte Gonzalez',
+    userId: '15',
+    visibility: true,
+    likes: 9,
+    coments: 2,
     date: Date.now(),
     image: 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png',
     content: 'Happy to be here!'
   },
   {
-    username: 'Henry Wilson',
+    userId: '16',
+    visibility: true,
+    likes: 10,
+    coments: 3,
     date: Date.now(),
     image: 'https://www.shareicon.net/data/512x512/2016/08/18/813775_man_512x512.png',
     content: 'New adventures await.'
   },
   {
-    username: 'Amelia Anderson',
+    userId: '17',
+    visibility: true,
+    likes: 7,
+    coments: 1,
     date: Date.now(),
     image: 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png',
     content: 'Grateful for the little things.'

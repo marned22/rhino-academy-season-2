@@ -9,14 +9,19 @@ import {
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import CommentIcon from "@mui/icons-material/Comment";
 import { PostProps } from "../../../types/types";
+import { useAuth } from "../../context/auth/useAuth";
 
 export const Post = ({ post, onDelete, onUpdate }: PostProps) => {
+  const { chatUsers } = useAuth();
+  const user = chatUsers.find((u) => u.id === post.userId);
   return (
     <Card
       sx={{
         width: "100%",
-        maxWidth: "700px",
+        maxWidth: "1000px",
         height: "auto",
         margin: "16px 0",
         padding: "16px",
@@ -26,8 +31,8 @@ export const Post = ({ post, onDelete, onUpdate }: PostProps) => {
         color: "#fff",
         display: "flex",
         flexDirection: "column",
-        alignItems: "flex-start", 
-        gap: "16px", 
+        alignItems: "flex-start",
+        gap: "16px",
       }}
     >
       <CardHeader
@@ -49,7 +54,9 @@ export const Post = ({ post, onDelete, onUpdate }: PostProps) => {
               color: "#fff",
             }}
           >
-            {post.username}
+            {user
+              ? `${user.profile.firstName} ${user.profile.lastName}`
+              : post.userId}
           </Typography>
         }
         subheader={
@@ -63,8 +70,8 @@ export const Post = ({ post, onDelete, onUpdate }: PostProps) => {
           </Typography>
         }
         sx={{
-          padding: 0, 
-          alignItems: "flex-start", 
+          padding: 0,
+          alignItems: "flex-start",
         }}
       />
       <CardContent
@@ -77,25 +84,37 @@ export const Post = ({ post, onDelete, onUpdate }: PostProps) => {
       >
         <Typography>{post.content}</Typography>
       </CardContent>
+    
+      <div style={{ display: "flex", gap: "24px", alignItems: "center" }}>
+        <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+          <FavoriteIcon sx={{ fontSize: 20, color: "#fff" }} />
+          <Typography sx={{ color: "#fff" }}>{post.likes}</Typography>
+        </span>
+        <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+          <CommentIcon sx={{ fontSize: 20, color: "#fff" }} />
+          <Typography sx={{ color: "#fff" }}>{post.coments}</Typography>
+        </span>
+      </div>
+      <div style={{ display: "flex", gap: "16px" }}></div>
       <CardActions
         sx={{
           display: "flex",
-          justifyContent: "space-between", 
-          gap: "16px", 
-          width: "100%", 
+          justifyContent: "space-between",
+          gap: "16px",
+          width: "100%",
         }}
       >
         <Button
           startIcon={<EditIcon />}
           onClick={onUpdate}
           sx={{
-            fontSize: "1rem", 
+            fontSize: "1rem",
             padding: "12px 24px",
             borderRadius: "8px",
             textTransform: "none",
             backgroundColor: "#fff",
             color: "#7e5da1",
-            flex: "0 0 40%", 
+            flex: "0 0 40%",
             "&:hover": {
               backgroundColor: "#e0e0e0",
               color: "#7e5da1",
@@ -108,13 +127,13 @@ export const Post = ({ post, onDelete, onUpdate }: PostProps) => {
           startIcon={<DeleteIcon />}
           onClick={onDelete}
           sx={{
-            fontSize: "1rem", 
-            padding: "12px 24px", 
+            fontSize: "1rem",
+            padding: "12px 24px",
             borderRadius: "8px",
             textTransform: "none",
             backgroundColor: "#fff",
             color: "#7e5da1",
-            flex: "0 0 40%", 
+            flex: "0 0 40%",
             "&:hover": {
               backgroundColor: "#d9534f",
             },

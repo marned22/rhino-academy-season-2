@@ -4,9 +4,9 @@ import { FeedViewProps } from "../../types/types";
 
 export const FeedView = ({ posts, addPost, deletePost, updatePost }: FeedViewProps) => {
     return (
-        <div>
+        <>
             <CreatePost addPost={addPost} />
             <PostView posts={posts} deletePost={deletePost} updatePost={updatePost} />
-        </div>
+        </>
     );
 };

@@ -9,7 +9,7 @@ import { useAuth } from '../../../../core/context/auth/useAuth';
 
 
 export const NavigationView = () => {
-    const { user } = useAuth();
+    const { currentUser } = useAuth();
     return (
         <div className={styles['navigation-wrapper']}>
             <NavLink
@@ -44,7 +44,7 @@ export const NavigationView = () => {
             >
                 <PersonIcon fontSize='large' />
             </NavLink>
-            {user && <LogoutButton />}
+            {currentUser && <LogoutButton />}
         </div>
     )
 }

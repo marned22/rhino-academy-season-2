@@ -1,30 +1,19 @@
-import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
 import { Navigation } from "../../core/components/Navigation/Navigation";
 import { Sidebar } from "../../core/components/Sidebar/Sidebar";
 import { UsersView } from "../views/components/Users/Users.view";
-import { IChatUser } from "../../types/types";
 import '../styles/RootLayout.scss'
-import axios from "axios"
 import { useCategories } from "../../hooks/useCategories";
+import { Outlet } from "react-router-dom";
+import { AuthContext } from "../../core/context/auth/AuthContext";
+import { useContext } from "react";
+
 
 
 export const RootLayout: React.FC = () => {
   const { categories, loading: categoriesLoading, error: categoriesError } = useCategories();
-  const [chatUsers, setChatUsers] = useState<IChatUser[]>([]);
+  const auth = useContext(AuthContext) 
 
-  useEffect(() =>{
-    const fetchChatUsers = async () => {
-      try {
-        const response = await axios.get<IChatUser[]>('/chatUsers.json');
-        setChatUsers(response.data);
-      } catch (error) {
-        setChatUsers([])
-      }
-    };
-    
-    fetchChatUsers();
-  }, [])
+  const chatUsers = auth?.chatUsers || [];
 
   return (
     <div>

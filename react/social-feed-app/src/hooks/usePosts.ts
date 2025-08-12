@@ -1,9 +1,9 @@
 import { useReducer, useState } from "react";
 import { POSTS } from "../core/components/Post/Posts";
-import { IPost } from "../types/types";
-import { FeedReducer } from "../core/reducers/FeedReducer";
+import { IPost, IChatUser } from "../types/types";
+import { FeedReducer } from "../core/Reducers/FeedReducer";
 
-export function usePosts(initialPosts: IPost[] = POSTS) {
+export function usePosts(currentUser?:IChatUser, initialPosts: IPost[] = POSTS) {
      const [state, dispatch] = useReducer(FeedReducer, initialPosts);
       const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
       const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
@@ -16,9 +16,12 @@ export function usePosts(initialPosts: IPost[] = POSTS) {
           type: "ADD",
           payload: {
             content,
-            username: "DefaultUser",
+            userId: currentUser.id,
             date: Date.now(),
-            image: "default-image-url",
+            image: currentUser.images?.profile || "default-image-url",
+            likes: 0,
+            visibility: true,
+            coments: 0,
           },
         });
       };
