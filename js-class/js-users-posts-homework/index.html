@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users & Posts exercise</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Users List</h1>
+        <ul id="user-list"></ul>
+
+        <h1>Posts List</h1>
+
+        <div class="controls">
+            <input type="text" id="search" placeholder="Search posts..." />
+            <select id="sort">
+                <option value="asc">Sort A-Z</option>
+                <option value="desc">Sort Z-A</option>
+            </select>
+        </div>
+
+        <ul id="post-list"></ul>
+
+        <div class="pagination">
+            <button id="prev">Previous</button>
+            <button id="next">Next</button>
+        </div>
+
+        <h2>Add a New Post</h2>
+        <form id="post-form">
+            <input type="text" id="post-title" placeholder="Post Title" required>
+            <textarea id="post-body" placeholder="Post Content" required></textarea>
+            <button type="submit">Add Post</button>
+        </form>
+
+        <p id="message" class="hidden"></p>
+        <div id="loading" class="hidden">Loading...</div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
