@@ -1,10 +1,8 @@
-import { SvgIconTypeMap } from "@mui/material";
-import { OverridableComponent } from "@mui/material/OverridableComponent";
 
 interface ICategories {
     title: string;
     link: string;
-    icon: OverridableComponent<SvgIconTypeMap>;
+    icon: string;
 }
 
 interface IPost {
@@ -70,4 +68,10 @@ interface AuthContextType{
     logout: () => void
 }
 
-export type { ICategories, IPost, IChatUser, Action, FeedViewProps, PostProps, SidebarProps, UsersViewProps, ModalProps, AnalyticsData, AuthContextType}
+interface useInfiniteScrollResult<T> {
+    containerRef: React.RefObject<HTMLDivElement | null>;
+    visibleItems: T[];
+}
+
+export type { ICategories, IPost, IChatUser, Action, FeedViewProps, PostProps, SidebarProps, 
+    UsersViewProps, ModalProps, AnalyticsData, AuthContextType, useInfiniteScrollResult}

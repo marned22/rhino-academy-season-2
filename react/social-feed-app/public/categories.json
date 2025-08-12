@@ -1,0 +1,16 @@
+[
+  { "title": "Dashboard", "link": "/", "icon": "HomeIcon" },
+  { "title": "Profile", "link": "/profile", "icon": "PersonIcon" },
+  { "title": "Settings", "link": "/settings", "icon": "SettingsIcon" },
+  { "title": "Notifications", "link": "/notifications", "icon": "NotificationsIcon" },
+  { "title": "Messages", "link": "/messages", "icon": "MessageIcon" },
+  { "title": "Analytics", "link": "/analytics", "icon": "AnalyticsIcon" },
+  { "title": "Help Center", "link": "/help-center", "icon": "HelpIcon" },
+  { "title": "Billing", "link": "/billing", "icon": "CreditCardIcon" },
+  { "title": "Activity", "link": "/activity", "icon": "CelebrationIcon" },
+  { "title": "Tasks", "link": "/tasks", "icon": "TaskIcon" },
+  { "title": "Reports", "link": "/reports", "icon": "ReportIcon" },
+  { "title": "Integrations", "link": "/integrations", "icon": "ElectricalServicesIcon" },
+  { "title": "Team", "link": "/team", "icon": "PeopleIcon" },
+  { "title": "Security", "link": "/security", "icon": "LockIcon" }
+]

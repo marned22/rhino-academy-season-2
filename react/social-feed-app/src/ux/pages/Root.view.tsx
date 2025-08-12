@@ -3,19 +3,17 @@ import { Outlet } from "react-router-dom";
 import { Navigation } from "../../core/components/Navigation/Navigation";
 import { Sidebar } from "../../core/components/Sidebar/Sidebar";
 import { UsersView } from "../views/components/Users/Users.view";
-import { CATEGORIES } from "../../core/components/Categories/Categories";
-import { ICategories, IChatUser } from "../../types/types";
+import { IChatUser } from "../../types/types";
 import '../styles/RootLayout.scss'
 import axios from "axios"
+import { useCategories } from "../../hooks/useCategories";
 
 
 export const RootLayout: React.FC = () => {
-  const [categories, setCategories] = useState<ICategories[]>([]);
+  const { categories, loading: categoriesLoading, error: categoriesError } = useCategories();
   const [chatUsers, setChatUsers] = useState<IChatUser[]>([]);
 
   useEffect(() =>{
-    setCategories(CATEGORIES);
-
     const fetchChatUsers = async () => {
       try {
         const response = await axios.get<IChatUser[]>('/chatUsers.json');
@@ -38,7 +36,11 @@ export const RootLayout: React.FC = () => {
       <div className="app-content-wrapper">
         <div className="app-content-left">
           <div className="category-container">
-            <Sidebar categories={categories} />
+            {categoriesLoading && <div>Loading categories...</div>}
+            {categoriesError && <div>Error: {categoriesError}</div>}
+            {!categoriesLoading && !categoriesError && (
+              <Sidebar categories={categories} />
+            )}
           </div>
         </div>
         <main className="app-content-center">
