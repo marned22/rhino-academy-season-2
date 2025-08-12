@@ -1,0 +1,28 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 0.75rem 1.5rem;
+    text-align: left;
+  }
+
+  th {
+    background: #f4f4f4;
+    font-weight: bold;
+  }
+
+  tr:nth-child(even) {
+    background: #fafafa;
+  }
+}
+
+.row {
+  transition: background 0.2s;
+
+  &:hover {
+    background: #e6f7ff;
+  }
+}

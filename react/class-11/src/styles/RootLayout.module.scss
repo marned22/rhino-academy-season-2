@@ -1,0 +1,73 @@
+.nav {
+  display: flex;
+  gap: 2rem;
+  background: #222;
+  padding: 1rem 2rem;
+  align-items: center;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+.nav a:hover {
+  color: #61dafb;
+}
+
+header {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  margin-bottom: 2rem;
+}
+
+.randomColorBtn {
+  background: #61dafb;
+  color: #222;
+  font-weight: bold;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-left: 1rem;
+}
+
+.randomColorBtn:hover {
+  background: #21a1f3;
+}
+
+.resetBtn {
+  background: yellow;
+  color: #222;
+  font-weight: bold;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 1rem;
+  transition: background 0.2s;
+}
+
+.resetBtn:hover {
+  background: gold;
+}
+
+.offBtn {
+  background: #fff;
+  color: #222;
+  font-weight: bold;
+  border: 2px solid #222;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 1rem;
+  transition: background 0.2s, color 0.2s;
+
+  &:hover {
+    background: #eee;
+    color: #000;
+  }
+}
