@@ -1,28 +1,37 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
-import { useAuth } from "../core/context/auth/useAuth";
+import { login } from "../core/features/userSlice";
 import "../ux/styles/LoginForm.scss"
+import { useGetUsersQuery } from "../core/features/apiSlice";
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "../core/store/store";
 
 export const LoginForm = () => {
+    const dispatch = useDispatch<AppDispatch>();
+    const user = useSelector((state: RootState) => state.username);
     const [username, setUsername] = useState("");
-    const { login, chatUsers, currentUser } = useAuth()
     const navigate = useNavigate()
 
     useEffect(() => {
-        if(currentUser) {
+        if(username) {
             navigate("/");
         }
-    }, [currentUser, navigate]);
+    }, [user.loggedIn, navigate]);
 
+    const { data: chatUsers, isLoading } = useGetUsersQuery(); 
+    
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-
-        const user = chatUsers.find(u => u.username === username.trim());
-        if (user) {
-            login(user.id);
-            } else {
-            alert("User not fount.")
+        if(isLoading) {
+            console.log("Loading users, please wait...");
+            return;
         }
+        if(chatUsers && chatUsers.some(((user: any) => user.username === username))) {
+            dispatch(login({ username }));
+        } else {
+            alert("User not fount")
+        }
+
     }
 
     return (

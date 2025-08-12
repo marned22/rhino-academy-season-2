@@ -5,11 +5,10 @@ import PersonIcon from '@mui/icons-material/Person';
 import styles from './Navigation.module.scss';
 import { NavLink } from 'react-router-dom';
 import { LogoutButton } from '../../../../loginlogout/LogoutButton';
-import { useAuth } from '../../../../core/context/auth/useAuth';
-
+import { useSelector } from 'react-redux';
 
 export const NavigationView = () => {
-    const { currentUser } = useAuth();
+    const username = useSelector((state: any) => state.username);
     return (
         <div className={styles['navigation-wrapper']}>
             <NavLink
@@ -44,7 +43,7 @@ export const NavigationView = () => {
             >
                 <PersonIcon fontSize='large' />
             </NavLink>
-            {currentUser && <LogoutButton />}
+            {username && <LogoutButton />}
         </div>
     )
 }

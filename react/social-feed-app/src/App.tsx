@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { RootLayout } from "./ux/pages/Root.view";
 import { routesConfig } from "./routes/routesConfig";
-import { Suspense } from "react";
-import { AuthProvider } from "./core/context/auth/AuthProvider";
-
+import { Provider } from "react-redux";
+import { persistor, store } from "./core/store/store";
+import { PersistGate } from "redux-persist/lib/integration/react";
 
 const router = createBrowserRouter([
   {
@@ -15,11 +15,11 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <AuthProvider>
-      <Suspense fallback={<div>Loading...</div>}>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
         <RouterProvider router={router} />
-      </Suspense>
-    </AuthProvider>
+      </PersistGate>
+    </Provider>
   )
 }
 

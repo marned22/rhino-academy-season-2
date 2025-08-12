@@ -1,10 +1,11 @@
 import React from 'react';
 import { WithFilterableProps } from '../../types/types';
 import styled from 'styled-components';
-import { useAuth } from '../context/auth/useAuth';
 import { useFilterPosts } from '../../hooks/useFilter';
 import { FilterBar } from '../components/Navigation/PostsNav';
-
+import { useGetUsersQuery } from '../features/apiSlice'
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/store';
 
 const FilterableContainer = styled.div`
   width: 100%;
@@ -19,8 +20,10 @@ export const withFilterable = <P extends WithFilterableProps>(
 ) => {
   return (props: P) => {
     const { posts, ...rest } = props;
-    const { currentUser } = useAuth();
-    const { filteredPosts, filter, setFilter } = useFilterPosts(posts, currentUser ?? undefined);
+    const username = useSelector((state: RootState) => state.username.username);
+    const { data: chatUsers } = useGetUsersQuery();
+    const currentUser = chatUsers?.find((user) => user.username === username);
+    const { filteredPosts, filter, setFilter } = useFilterPosts(posts, currentUser);
 
     return (
       <FilterableContainer>

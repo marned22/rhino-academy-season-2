@@ -12,11 +12,11 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CommentIcon from "@mui/icons-material/Comment";
 import { PostProps } from "../../../types/types";
-import { useAuth } from "../../context/auth/useAuth";
+import { useGetUsersQuery } from "../../features/apiSlice";
 
 export const Post = ({ post, onDelete, onUpdate }: PostProps) => {
-  const { chatUsers } = useAuth();
-  const user = chatUsers.find((u) => u.id === post.userId);
+  const { data: chatUsers } = useGetUsersQuery();
+  const user = chatUsers?.find((user) => user.id === post.userId);
   return (
     <Card
       sx={{
