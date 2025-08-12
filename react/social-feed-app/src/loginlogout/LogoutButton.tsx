@@ -1,8 +1,8 @@
 // import { useAuth } from "../core/context/auth/useAuth"
 import { useDispatch } from "react-redux";
-import { logout } from "../core/features/userSlice";
-import { AppDispatch } from "../core/store/store";
-import "../ux/styles/LogoutButton.scss"
+import { logout } from "../features/userSlice";
+import { AppDispatch } from "../app/store";
+import styles from "./LogoutButton.module.scss";
 
 export const LogoutButton = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -11,7 +11,7 @@ export const LogoutButton = () => {
     }
 
     return (
-        <button className="logout-btn" onClick={handleLogout}>
+        <button className={styles["logout-btn"]} onClick={handleLogout}>
             Logout
         </button>
     )

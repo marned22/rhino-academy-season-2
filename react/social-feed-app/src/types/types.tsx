@@ -1,3 +1,4 @@
+import { ReactNode, SyntheticEvent } from "react";
 
 interface ICategories {
     title: string;
@@ -113,6 +114,12 @@ type FilterBarProps = {
   setFilter: (filter: FilterType) => void;
 };
 
+interface CreatePostViewProps {
+  renderContent: () => ReactNode;
+  value: string;
+  handleTabChange: (event: SyntheticEvent, newValue: string) => void;
+}
+
 export type { ICategories, IPost, IChatUser, Action, FeedViewProps, PostProps, SidebarProps, 
     UsersViewProps, ModalProps, AnalyticsData, AuthContextType, useInfiniteScrollResult, WithFilterableProps
-    ,UseFilteredPostsResult, FilterType, FilterBarProps};
+    ,UseFilteredPostsResult, FilterType, FilterBarProps, CreatePostViewProps };

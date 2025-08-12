@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
-import { login } from "../core/features/userSlice";
-import "../ux/styles/LoginForm.scss"
-import { useGetUsersQuery } from "../core/features/apiSlice";
+import { login } from "../features/userSlice";
+import styles from './LoginForm.module.scss'
+import { useGetUsersQuery } from "../api/apiSlice";
 import { useDispatch, useSelector } from "react-redux";
-import type { AppDispatch, RootState } from "../core/store/store";
+import type { AppDispatch, RootState } from "../app/store";
 
 export const LoginForm = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -35,17 +35,17 @@ export const LoginForm = () => {
     }
 
     return (
-        <div className="login-form-container">
-            <form className="login-form" onSubmit={handleSubmit}>
-                <h2>Login</h2>
+        <div className={styles["login-form-container"]}>
+            <form className={styles["login-form"]} onSubmit={handleSubmit}>
+                <h2 className={styles["login-title"]}>Login</h2>
                 <input
                     type="text"
                     placeholder="Enter username"
                     value={username}
                     onChange={e => setUsername(e.target.value)}
-                    className="login-input"
+                    className={styles["login-input"]}
                 />
-                <button type="submit" className="login-btn">Login</button>
+                <button type="submit" className={styles["login-btn"]}>Login</button>
             </form>
         </div>
     )

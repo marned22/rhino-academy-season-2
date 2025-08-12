@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { RootLayout } from "./ux/pages/Root.view";
+import { RootLayout } from "./pages/RootView/Root.view";
 import { routesConfig } from "./routes/routesConfig";
 import { Provider } from "react-redux";
-import { persistor, store } from "./core/store/store";
+import { persistor, store } from "./app/store";
 import { PersistGate } from "redux-persist/lib/integration/react";
 
 const router = createBrowserRouter([
