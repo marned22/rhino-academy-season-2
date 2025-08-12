@@ -4,19 +4,29 @@ import { Navigation } from "../../core/components/Navigation/Navigation";
 import { Sidebar } from "../../core/components/Sidebar/Sidebar";
 import { UsersView } from "../views/components/Users/Users.view";
 import { CATEGORIES } from "../../core/components/Categories/Categories";
-import { CHAT_USERS } from "../../core/components/Users/Users";
 import { ICategories, IChatUser } from "../../types/types";
 import '../styles/RootLayout.scss'
+import axios from "axios"
 
 
 export const RootLayout: React.FC = () => {
   const [categories, setCategories] = useState<ICategories[]>([]);
   const [chatUsers, setChatUsers] = useState<IChatUser[]>([]);
 
-  useEffect(() => {
+  useEffect(() =>{
     setCategories(CATEGORIES);
-    setChatUsers(CHAT_USERS);
-  }, []);
+
+    const fetchChatUsers = async () => {
+      try {
+        const response = await axios.get<IChatUser[]>('/chatUsers.json');
+        setChatUsers(response.data);
+      } catch (error) {
+        setChatUsers([])
+      }
+    };
+    
+    fetchChatUsers();
+  }, [])
 
   return (
     <div>

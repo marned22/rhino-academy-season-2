@@ -1,6 +1,6 @@
 import { useReducer, useState } from "react";
 import { FeedView } from "../../ux/pages/Feed.view";
-import { FeedReducer } from "../Reducers/FeedReducer";
+import { FeedReducer } from "../reducers/FeedReducer";
 import { POSTS } from "../components/Post/Posts";
 import { Modal } from "../components/Modal/Modal";
 

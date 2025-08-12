@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { RootLayout } from "./ux/pages/Root.view";
 import { routesConfig } from "./routes/routesConfig";
 import { Suspense } from "react";
+import { AuthProvider } from "./core/context/auth/AuthProvider";
 
 
 const router = createBrowserRouter([
@@ -14,10 +15,12 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <RouterProvider router={router} />
-    </Suspense>
-  );
+    <AuthProvider>
+      <Suspense fallback={<div>Loading...</div>}>
+        <RouterProvider router={router} />
+      </Suspense>
+    </AuthProvider>
+  )
 }
 
 export default App;

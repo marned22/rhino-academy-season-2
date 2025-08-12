@@ -1,6 +1,8 @@
 import { lazy } from "react";
 import ErrorBoundary from "../core/components/ErrorBoundary/ErrorBoundary";
 import { analyticsLoader } from "../core/pages/AnalyticsPage";
+import { ProtectedRoute } from "../core/protectedroute/ProtectedRoute";
+import { LoginForm } from "../loginlogout/LoginForm";
 
 
 const DashboardPage = lazy(() => import("../core/pages/DashboardPage"));
@@ -23,9 +25,19 @@ const NotFoundPage = lazy(() => import("../core/pages/NotFoundPage"));
 export const routesConfig = [
   {
     path: "/",
-    element: <Feed />,
+    element: (
+      <ProtectedRoute>
+        <Feed />
+      </ProtectedRoute>
+    ),
     errorElement: <ErrorBoundary />,
     metadata: { title: "Feed" },
+  },
+  {
+    path:"/login",
+    element: <LoginForm />,
+    errorElement: <ErrorBoundary />,
+    metadata: { title: "Login"}
   },
   {
     path: "/dashboard",
