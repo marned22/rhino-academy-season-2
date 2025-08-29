@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import { BaseApiService } from "./baseApiService";
+import { BaseApiService } from "./BaseApiService";
 import { IChatRoom, IChatUser } from "../models";
 
 export class RoomService extends BaseApiService{

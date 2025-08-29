@@ -10,7 +10,7 @@ export class RoomsComponent extends BaseComponent{
     private chatManager: ChatManager
 
     constructor(parent: Element, chatManager: ChatManager){
-         super(parent);
+        super(parent);
         this.roomService = new RoomService();
         this.chatManager = chatManager;
 

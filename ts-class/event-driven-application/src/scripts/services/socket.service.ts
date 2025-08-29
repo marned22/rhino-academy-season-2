@@ -1,5 +1,5 @@
 import { io, Socket } from "socket.io-client";
-import {  IChatEvents, IChatMessage, IChatUser } from "../models";
+import {  IChatEvents, IChatMessage, IChatUser, IChatRoom } from "../models";
 import { EventManager } from "../core/eventManager";
 
 const SOCKET_URL = "http://localhost:3001";
@@ -35,13 +35,16 @@ export class SocketService {
       console.log("Disconnected from server");
     });
 
-    this.socket.on("messageSent", (message) => {
-      console.log("Message sent:", message);
-      this.eventManager.dispatch('messageSent', message);
-    });
-
     this.socket.on('userJoined', (data) => {
       console.log("User joined room:", data);
+    });
+
+    this.socket.on('roomCreated', (room: IChatRoom) => {
+        this.eventManager.dispatch('roomCreated', room);
+    });
+    
+    this.socket.on('messageSent', (message: IChatMessage) => {
+        this.eventManager.dispatch('messageSent', message);
     });
   }
 

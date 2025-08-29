@@ -66,24 +66,26 @@ export class AuthService {
             this.currentUser = response.user;
             this.authToken = response.token;
             this.saveUserToStorage();
-            this.eventManager.dispatch('login', this.currentUser); // Dispatch login event
-            return response.user;
+            if (this.currentUser) {
+                this.eventManager.dispatch('login', this.currentUser);
+            }
+            return this.currentUser
         } catch (error) {
             console.error('Login failed:', error);
             throw error;
         }
     }
 
-    logout(): void {
+    async logout(): Promise<void> {
         this.currentUser = null;
         this.authToken = null;
         localStorage.removeItem('authUser');
         localStorage.removeItem('authToken');
-        this.eventManager.dispatch('logout', undefined); // Dispatch logout event
+        this.eventManager.dispatch('logout', undefined);
     }
 
     public getCurrentUser(): IChatUser | null {
-        const user = localStorage.getItem('authUser'); // Use 'authUser' instead of 'currentUser'
+        const user = localStorage.getItem('authUser')
         return user ? JSON.parse(user) : null;
     }
 

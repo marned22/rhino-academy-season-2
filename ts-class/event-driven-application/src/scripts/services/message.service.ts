@@ -1,5 +1,5 @@
 import { IChatMessage } from "../models";
-import { BaseApiService } from "./baseApiService";
+import { BaseApiService } from "./BaseApiService";
 import { v4 as uuidv4 } from "uuid";
 
 export class MessageService extends BaseApiService{
