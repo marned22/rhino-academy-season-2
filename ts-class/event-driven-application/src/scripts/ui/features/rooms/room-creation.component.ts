@@ -27,17 +27,16 @@ export class RoomCreationComponent extends BaseComponent {
             const roomName = roomNameInput.value;
             try {
                 const newRoom = await this.roomService.create({ name: roomName });
-                this.chatManager.createRoom(newRoom.name);
-                console.log("Room created", newRoom);
 
-                // Dispatch the event on the closest common parent (e.g., #sidebar-section)
+                this.chatManager.eventManager.dispatch('roomCreated', newRoom);
+                
                 const sidebarSection = document.getElementById("sidebar-section");
                 if (sidebarSection) {
                     const event = new CustomEvent("roomCreated", { detail: newRoom });
                     sidebarSection.dispatchEvent(event);
                 }
 
-                roomNameInput.value = ""; // Clear the input field
+                roomNameInput.value = "";
             } catch (error) {
                 console.log("Error creating room: ", error);
             }

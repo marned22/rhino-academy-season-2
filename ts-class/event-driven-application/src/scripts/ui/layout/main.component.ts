@@ -68,6 +68,28 @@ export class MainComponent extends BaseComponent {
           }
         },
       },
+      '#message': {
+        event: 'keydown',
+        handler: (ev: Event) => {
+          const ke = ev as KeyboardEvent;
+          // Enter sends the message, Shift+Enter -> newline
+          if (ke.key === 'Enter' && !ke.shiftKey) {
+            ke.preventDefault();
+            const input = document.querySelector<HTMLTextAreaElement>('#message');
+            if (input && input.value) {
+              try {
+                if (!this.chatManager.getCurrentRoomId()) {
+                  throw new Error('No room currently joined');
+                }
+                this.chatManager.sendMessage(input.value);
+                input.value = '';
+              } catch (error) {
+                console.log('count', error);
+              }
+            }
+          }
+        },
+      },
     };
   }
 

@@ -19,7 +19,6 @@ export class MessagesComponent extends BaseComponent {
 
         this.loadMessages();
 
-        // Subscribe to new messages
         this.chatManager.eventManager.subscribe('messageSent', (message: IChatMessage) => {
             this.filterAndAddMessage(message);
         });
@@ -32,6 +31,12 @@ export class MessagesComponent extends BaseComponent {
             };
             this.addMessage(filteredMessage);
         };
+
+        this.loadMessages();
+
+        this.chatManager.eventManager.subscribe('messageSent', (message: IChatMessage) => {
+            this.filterAndAddMessage(message);
+        });
     }
 
     private async loadMessages() {
@@ -49,12 +54,14 @@ export class MessagesComponent extends BaseComponent {
 
     private filterAndAddMessage(message: IChatMessage) {
         const currentRoomId = this.chatManager.getCurrentRoomId()
-        if(message.roomId !== currentRoomId) {
+        if (message.roomId !== currentRoomId) {
             return
         }
-        this.badWordsWorker.postMessage(message.content)
+
+        this.badWordsWorker.postMessage({ id: message.id, content: message.content });
 
         this.messages.push(message)
+        this.renderMessages()
     }
 
     public addMessage(message: IChatMessage) {

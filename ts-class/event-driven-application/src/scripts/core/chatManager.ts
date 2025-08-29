@@ -22,14 +22,20 @@ export class ChatManager{
         this.roomService = new RoomService();
         this.messageService = new MessageService();
 
-        // Set the current user from the AuthService
         const user = authService.getCurrentUser();
         if (user) {
-            this.currentUser = { id: user.id, name: user.username || 'Unknown User' };
+            this.currentUser = { id: user.id, name: user.username || user.name || 'Unknown User' };
         } else {
-            console.warn('No logged-in user found. ChatManager will operate in unauthenticated mode.');
-            this.currentUser = null; 
+            this.currentUser = null;
         }
+
+        const authEventHub = this.eventManager as unknown as EventManager<any>;
+        authEventHub.subscribe('login', (u: any) => {
+            this.currentUser = { id: u.id, name: u.username || u.name || 'Unknown User' };
+        });
+        authEventHub.subscribe('logout', () => {
+            this.currentUser = null;
+        });
     }
 
     private handleRoomJoined = (data: { user: IChatUser, room: IChatRoom }): void => {

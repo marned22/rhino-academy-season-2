@@ -1,196 +1,229 @@
 {
   "users": [
     {
-      "id": "0fee0d43-f956-4050-b7c7-6f2743816254",
-      "username": "0956756",
-      "password": "pofgoifghj"
+      "id": "08577a1c-2190-467e-8e70-5f1146be182f",
+      "username": "martin",
+      "password": "martin"
     },
     {
-      "id": "0069",
-      "username": "89657",
-      "password": "hjjrkhtritr"
+      "id": "5bb7cc6e-3dad-42cd-82c9-370fa1ca1ab7",
+      "username": "adfgffff",
+      "password": "ffffffffff"
     },
     {
-      "id": "fcf6b3e7-383c-485e-8e5f-93287295ffb2",
-      "username": "89657",
-      "password": "hjjrkhtritr"
-    },
-    {
-      "id": "580d4aee-9e8d-4b2b-9b69-83370c55b016",
-      "username": "Zoran",
-      "password": "zoran1234"
-    },
-    {
-      "id": "50d3dbb5-a991-4c56-abd0-018914ca37ab",
-      "username": "Zoran",
-      "password": "zoran1234"
-    },
-    {
-      "id": "ce968f51-8ac2-432b-8002-1bfd6076182e",
-      "username": "Zoran",
-      "password": "zoran1234"
-    },
-    {
-      "id": "878dd7ef-dd5f-4fbd-9d89-3544dbd0b798",
-      "username": "Zoran",
-      "password": "zoran1234"
-    },
-    {
-      "id": "1a528cad-51e6-4a3d-a84f-80abc7475461",
-      "username": "Zoran",
-      "password": "zoran1234"
-    },
-    {
-      "id": "6f66792c-03ac-4819-85a2-53b72860c5bf",
-      "username": "Martin123",
+      "id": "eada59ef-c45a-4a9e-8bc8-d49671a2464a",
+      "username": "martin123",
       "password": "martin123"
-    },
-    {
-      "id": "332657c8-02c3-49e3-b5c1-4c169529e477",
-      "username": "klgdfkmlgdkmlgkml",
-      "password": "faklakldmkfdkm"
-    },
-    {
-      "id": "6c3564a4-3e8c-47d5-a852-aead7cb1a2a9",
-      "username": "dfjkjksdnjdfj",
-      "password": "fdsfdsfdsfds"
-    },
-    {
-      "id": "d11c11e5-d218-43d6-890c-eaf5c260b05e",
-      "username": "asdasdasd",
-      "password": "sdadsasd"
-    },
-    {
-      "id": "84d96b33-9f27-4f0c-8e67-4478ade748b7",
-      "username": "Martin",
-      "password": "martin123"
-    },
-    {
-      "id": "232d9c9f-47ec-464c-862d-3d6b6ef66a19",
-      "username": "Zoran123",
-      "password": "zoran123"
-    },
-    {
-      "id": "4427bf93-e0f5-4acd-8f13-c8183e54cef7",
-      "username": "Zoran1234",
-      "password": "zoran1234"
     }
   ],
   "rooms": [
     {
-      "id": "95613dc4-1867-4adb-b324-d02aaf77d6ac",
-      "name": "Room8"
+      "id": "c6e79eff-1f12-4cc7-8c31-8c21bc8549b8",
+      "name": "room23"
     },
     {
-      "id": "a269e948-a3cf-4fd0-9b3a-69f901436509",
-      "name": "Room 10"
+      "id": "6bb9557a-21c8-4436-b7a5-094a095d7d05",
+      "name": "room 32"
     }
   ],
   "messages": [
     {
-      "id": "75186c83-96d3-4d8f-8ed8-951ac8bfeae3",
-      "timestamp": 1745605912592,
-      "roomId": "95613dc4-1867-4adb-b324-d02aaf77d6ac",
-      "userId": "4427bf93-e0f5-4acd-8f13-c8183e54cef7",
-      "userName": "Zoran1234",
-      "content": "Zoran\n"
+      "id": "3ce79151-fb60-41ce-9793-c753b85bba4f",
+      "timestamp": 1755195502205,
+      "roomId": null,
+      "userId": "08577a1c-2190-467e-8e70-5f1146be182f",
+      "userName": "martin",
+      "content": "hello\n"
     },
     {
-      "id": "ee49b1aa-54f5-4eb1-b8f3-4fb8bd0dff22",
-      "timestamp": 1745605924862,
-      "roomId": "95613dc4-1867-4adb-b324-d02aaf77d6ac",
-      "userId": "6f66792c-03ac-4819-85a2-53b72860c5bf",
-      "userName": "Martin123",
-      "content": "Martin"
+      "id": "52a346ea-6607-4f45-81db-a17f9cbf7a74",
+      "timestamp": 1755195632284,
+      "roomId": null,
+      "userId": "5bb7cc6e-3dad-42cd-82c9-370fa1ca1ab7",
+      "userName": "adfgffff",
+      "content": "Hi"
     },
     {
-      "id": "3b41d2bd-0b00-498e-9d47-37eb5c4a4d1e",
-      "timestamp": 1745713162205,
-      "roomId": "95613dc4-1867-4adb-b324-d02aaf77d6ac",
-      "userId": "6f66792c-03ac-4819-85a2-53b72860c5bf",
-      "userName": "Martin123",
+      "id": "2b9bde8b-587f-4c8a-93ee-bab54f76d32c",
+      "timestamp": 1756214228057,
+      "roomId": null,
+      "userId": "eada59ef-c45a-4a9e-8bc8-d49671a2464a",
+      "userName": "martin123",
       "content": "fuck"
     },
     {
-      "id": "b700ee19-cab0-477b-9ba4-444fdd9552f1",
-      "timestamp": 1745713314699,
-      "roomId": "95613dc4-1867-4adb-b324-d02aaf77d6ac",
-      "userId": "6f66792c-03ac-4819-85a2-53b72860c5bf",
-      "userName": "Martin123",
+      "id": "db052f64-ee30-49fa-a468-f71468341eba",
+      "timestamp": 1756299290168,
+      "roomId": null,
+      "userId": "08577a1c-2190-467e-8e70-5f1146be182f",
+      "userName": "martin",
       "content": "fuck"
     },
     {
-      "id": "734470eb-025a-47c0-98be-60fa673b6ab0",
-      "timestamp": 1745713545155,
-      "roomId": "95613dc4-1867-4adb-b324-d02aaf77d6ac",
-      "userId": "6f66792c-03ac-4819-85a2-53b72860c5bf",
-      "userName": "Martin123",
-      "content": "fuck\n"
+      "id": "62448cc7-68d3-471b-8e0a-f9814b38c03a",
+      "timestamp": 1756299878185,
+      "roomId": null,
+      "userId": "08577a1c-2190-467e-8e70-5f1146be182f",
+      "userName": "martin",
+      "content": "fuck"
     },
     {
-      "id": "47fc046b-9394-401d-b953-05d9853c4a25",
-      "timestamp": 1745713545217,
-      "roomId": "95613dc4-1867-4adb-b324-d02aaf77d6ac",
-      "userId": "6f66792c-03ac-4819-85a2-53b72860c5bf",
-      "userName": "Martin123",
-      "content": "****\n"
+      "id": "76320cd3-8841-4354-96f4-7b9054a64ed3",
+      "timestamp": 1756310353542,
+      "roomId": null,
+      "userId": "08577a1c-2190-467e-8e70-5f1146be182f",
+      "userName": "martin",
+      "content": "shit"
+    },
+    {
+      "id": "bac25ff6-1d80-4602-b2e5-dd105e87d5b9",
+      "timestamp": 1756310555273,
+      "roomId": null,
+      "userId": "08577a1c-2190-467e-8e70-5f1146be182f",
+      "userName": "martin",
+      "content": "shit\n"
+    },
+    {
+      "id": "a340165b-5fa7-4c48-89f3-5e14077c203c",
+      "timestamp": 1756310581142,
+      "roomId": null,
+      "userId": "08577a1c-2190-467e-8e70-5f1146be182f",
+      "userName": "martin",
+      "content": "shit"
+    },
+    {
+      "id": "c3371a9c-6563-46f2-a2bc-7107f524be29",
+      "timestamp": 1756321389746,
+      "roomId": "6bb9557a-21c8-4436-b7a5-094a095d7d05",
+      "userId": "08577a1c-2190-467e-8e70-5f1146be182f",
+      "userName": "martin",
+      "content": "Hi\n"
+    },
+    {
+      "id": "5658ac91-809c-4771-8bc2-3fb74187a6ad",
+      "timestamp": 1756321444036,
+      "roomId": "c6e79eff-1f12-4cc7-8c31-8c21bc8549b8",
+      "userId": "eada59ef-c45a-4a9e-8bc8-d49671a2464a",
+      "userName": "martin123",
+      "content": "Hello"
+    },
+    {
+      "id": "a3873d28-1775-48d1-931e-9e4bc111a586",
+      "timestamp": 1756321464520,
+      "roomId": "c6e79eff-1f12-4cc7-8c31-8c21bc8549b8",
+      "userId": "08577a1c-2190-467e-8e70-5f1146be182f",
+      "userName": "martin",
+      "content": "Hi"
+    },
+    {
+      "id": "c87b4875-e315-4397-9660-c4b04195b3e0",
+      "timestamp": 1756321665770,
+      "roomId": "c6e79eff-1f12-4cc7-8c31-8c21bc8549b8",
+      "userId": "08577a1c-2190-467e-8e70-5f1146be182f",
+      "userName": "martin",
+      "content": "Hello"
     }
   ],
   "roomUsers": [
     {
-      "roomId": "95613dc4-1867-4adb-b324-d02aaf77d6ac",
-      "userId": "6f66792c-03ac-4819-85a2-53b72860c5bf",
-      "id": "8def"
+      "id": "a22c",
+      "roomId": null,
+      "userId": "08577a1c-2190-467e-8e70-5f1146be182f"
     },
     {
-      "id": "0f13",
-      "roomId": "95613dc4-1867-4adb-b324-d02aaf77d6ac",
-      "userId": "4427bf93-e0f5-4acd-8f13-c8183e54cef7"
+      "id": "2079",
+      "roomId": null,
+      "userId": "08577a1c-2190-467e-8e70-5f1146be182f"
     },
     {
-      "id": "4e82",
-      "roomId": "95613dc4-1867-4adb-b324-d02aaf77d6ac",
-      "userId": "6f66792c-03ac-4819-85a2-53b72860c5bf"
+      "id": "2956",
+      "roomId": null,
+      "userId": "5bb7cc6e-3dad-42cd-82c9-370fa1ca1ab7"
     },
     {
-      "id": "9099",
-      "roomId": "95613dc4-1867-4adb-b324-d02aaf77d6ac",
-      "userId": "6f66792c-03ac-4819-85a2-53b72860c5bf"
+      "id": "6617",
+      "roomId": null,
+      "userId": "5bb7cc6e-3dad-42cd-82c9-370fa1ca1ab7"
     },
     {
-      "id": "7e7d",
-      "roomId": "a269e948-a3cf-4fd0-9b3a-69f901436509",
-      "userId": "6f66792c-03ac-4819-85a2-53b72860c5bf"
+      "id": "cdd4",
+      "roomId": "c6e79eff-1f12-4cc7-8c31-8c21bc8549b8",
+      "userId": "eada59ef-c45a-4a9e-8bc8-d49671a2464a"
     },
     {
-      "id": "29ba",
-      "roomId": "a269e948-a3cf-4fd0-9b3a-69f901436509",
-      "userId": "6f66792c-03ac-4819-85a2-53b72860c5bf"
+      "id": "8686",
+      "roomId": null,
+      "userId": "eada59ef-c45a-4a9e-8bc8-d49671a2464a"
     },
     {
-      "id": "0e55",
-      "roomId": "a269e948-a3cf-4fd0-9b3a-69f901436509",
-      "userId": "6f66792c-03ac-4819-85a2-53b72860c5bf"
+      "id": "d16e",
+      "roomId": "c6e79eff-1f12-4cc7-8c31-8c21bc8549b8",
+      "userId": "eada59ef-c45a-4a9e-8bc8-d49671a2464a"
     },
     {
-      "id": "fe7c",
-      "roomId": "95613dc4-1867-4adb-b324-d02aaf77d6ac",
-      "userId": "6f66792c-03ac-4819-85a2-53b72860c5bf"
+      "id": "2ba6",
+      "roomId": null,
+      "userId": "eada59ef-c45a-4a9e-8bc8-d49671a2464a"
     },
     {
-      "id": "204c",
-      "roomId": "a269e948-a3cf-4fd0-9b3a-69f901436509",
-      "userId": "6f66792c-03ac-4819-85a2-53b72860c5bf"
+      "id": "5f7a",
+      "roomId": "6bb9557a-21c8-4436-b7a5-094a095d7d05",
+      "userId": "eada59ef-c45a-4a9e-8bc8-d49671a2464a"
     },
     {
-      "id": "4a35",
-      "roomId": "95613dc4-1867-4adb-b324-d02aaf77d6ac",
-      "userId": "6f66792c-03ac-4819-85a2-53b72860c5bf"
+      "id": "ce3b",
+      "roomId": "6bb9557a-21c8-4436-b7a5-094a095d7d05",
+      "userId": "eada59ef-c45a-4a9e-8bc8-d49671a2464a"
     },
     {
-      "id": "ce2c",
-      "roomId": "a269e948-a3cf-4fd0-9b3a-69f901436509",
-      "userId": "6f66792c-03ac-4819-85a2-53b72860c5bf"
+      "id": "7ff8",
+      "roomId": null,
+      "userId": "eada59ef-c45a-4a9e-8bc8-d49671a2464a"
+    },
+    {
+      "id": "2457",
+      "roomId": "6bb9557a-21c8-4436-b7a5-094a095d7d05",
+      "userId": "eada59ef-c45a-4a9e-8bc8-d49671a2464a"
+    },
+    {
+      "id": "065e",
+      "roomId": null,
+      "userId": "eada59ef-c45a-4a9e-8bc8-d49671a2464a"
+    },
+    {
+      "id": "65dc",
+      "roomId": "6bb9557a-21c8-4436-b7a5-094a095d7d05",
+      "userId": "08577a1c-2190-467e-8e70-5f1146be182f"
+    },
+    {
+      "id": "8a6e",
+      "roomId": null,
+      "userId": "eada59ef-c45a-4a9e-8bc8-d49671a2464a"
+    },
+    {
+      "id": "0a96",
+      "roomId": "c6e79eff-1f12-4cc7-8c31-8c21bc8549b8",
+      "userId": "eada59ef-c45a-4a9e-8bc8-d49671a2464a"
+    },
+    {
+      "id": "5f1c",
+      "roomId": "c6e79eff-1f12-4cc7-8c31-8c21bc8549b8",
+      "userId": "08577a1c-2190-467e-8e70-5f1146be182f"
+    },
+    {
+      "id": "5b9f",
+      "roomId": "c6e79eff-1f12-4cc7-8c31-8c21bc8549b8",
+      "userId": "eada59ef-c45a-4a9e-8bc8-d49671a2464a"
+    },
+    {
+      "id": "fb60",
+      "roomId": null,
+      "userId": "08577a1c-2190-467e-8e70-5f1146be182f"
+    },
+    {
+      "id": "0281",
+      "roomId": "c6e79eff-1f12-4cc7-8c31-8c21bc8549b8",
+      "userId": "08577a1c-2190-467e-8e70-5f1146be182f"
     }
   ]
 }

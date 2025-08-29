@@ -15,6 +15,26 @@ export class LoginComponent extends BaseComponent {
         '#login-btn': {
           event: 'click',
           handler: this.handleLogin.bind(this)
+        },
+        '#username': {
+          event: 'keydown',
+          handler: (ev: Event) => {
+            const ke = ev as KeyboardEvent;
+            if (ke.key === 'Enter') {
+              ke.preventDefault();
+              this.handleLogin(ev);
+            }
+          }
+        },
+        '#password': {
+          event: 'keydown',
+          handler: (ev: Event) => {
+            const ke = ev as KeyboardEvent;
+            if (ke.key === 'Enter') {
+              ke.preventDefault();
+              this.handleLogin(ev);
+            }
+          }
         }
       }
     }

@@ -44,7 +44,7 @@ interface IChatUser{
 }
 
 interface IChatEvents{
-    roomCreated(room: IChatRoom): void
+    roomCreated: IChatRoom
     roomJoined:{user: IChatUser, room: IChatRoom}
     roomLeft:{user: IChatUser, room: IChatRoom}
     messageSent: IChatMessage
