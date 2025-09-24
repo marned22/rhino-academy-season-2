@@ -145,11 +145,29 @@ The application uses CSS custom properties for theming:
 
 ```css
 :root {
-    --bg-color: #f0f0f0;
-    --text-color: #000;
-    --primary-color: #000;
-    --button-bg: #0b93f6;
-    /* ... */
+    --bg-color: #f8f9fa;
+    --text-color: #2c3e50;
+    --primary-color: #007AFF;
+    --text-dark: #1a1a1a;
+    --secondary-color: #f1f3f4;
+    --input-bg: #ffffff;
+    --button-bg: #007AFF;
+    --button-color: #ffffff;
+    --button-hover: #0056CC;
+    --header-bg: #ffffff;
+    --border-color: #e1e5e9;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --radius: 12px;
+    --radius-small: 8px;
+    --sent-message-bg: linear-gradient(135deg, #007AFF 0%, #0056CC 100%);
+    --received-message-bg: #f1f3f4;
+    --message-input-height: 120px;
+    --message-input-width: 100%;
+    --send-btn-size: 56px;
 }
 ```
 
@@ -190,17 +208,6 @@ export class MyComponent extends BaseComponent {
 }
 ```
 
-### Decorator Pattern
-
-Used for cross-cutting concerns like logging:
-
-```typescript
-@LogErrorNotification(true)
-public handleNotification(notification: AppNotification) {
-    // Method implementation
-}
-```
-
 ## 📝 API Endpoints
 
 ### Users
@@ -221,12 +228,6 @@ public handleNotification(notification: AppNotification) {
 - `GET /roomUsers` - Get room-user relationships
 - `POST /roomUsers` - Add user to room
 
-## 📄 License
-
-This project is licensed under the ISC License.
-
-## 🔍 Troubleshooting
-
 ### Common Issues
 
 1. **Port conflicts**: Ensure ports 1234, 2000, and 3001 are available
@@ -238,14 +239,3 @@ This project is licensed under the ISC License.
 - Check browser console for client-side errors
 - Monitor Socket.io server logs for connection issues
 - Verify JSON Server is running and accessible at `http://localhost:2000`
-
-## 🚀 Future Enhancements
-
-- [ ] User profiles and avatars
-- [ ] Message editing and deletion
-- [ ] File sharing capabilities
-- [ ] Push notifications
-- [ ] Dark/light theme toggle
-- [ ] Message search functionality
-- [ ] Typing indicators
-- [ ] Message reactions/emojis
