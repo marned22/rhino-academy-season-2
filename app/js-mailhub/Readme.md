@@ -45,9 +45,16 @@ A simple, fast and private email client for developers built with vanilla JavaSc
 
 ## Getting Started
 
-1. **Clone or download** the project files
-2. **Open** [`index.html`](index.html) in a web browser
-3. **Register** a new account or **login** with any email/password combination
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/marned22/rhino-academy-season-2.git
+   ```
+2. **Navigate to the project directory**:
+   ```bash
+   cd rhino-academy-season-2/app/js-mailhub
+   ```
+3. **Open** [`index.html`](index.html) in a web browser or use a local dev server e.g. VS Code Live Server: right-click -> "Open with Live Server", or run `npx live-server
+4. **Register** a new account or **login** with any email/password combination
 
 ## How to Use
 
