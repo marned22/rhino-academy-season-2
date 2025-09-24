@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.container {
+    padding: 24px 80px;
+    background-color: lightcoral;
+}
+
+.card {
+    background-color: lightgreen;
+    padding: 24px;
+}
+
+.title {
+    background-color: lightpink;
+    padding: 24px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px 24px;
+    background-color: lightgreen;
+}
+
+.navigation-right-side {
+    display: flex;
+    gap: 8px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 4px 2px gray;
+}

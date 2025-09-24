@@ -1,0 +1,19 @@
+@use './variables.scss' as *;
+
+// Font mixins
+@mixin font-14-medium {
+    font-size: calculate-rem(14px);
+    font-weight: 500;
+}
+
+@mixin card-shadow {
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    transition: box-shadow 0.2s;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

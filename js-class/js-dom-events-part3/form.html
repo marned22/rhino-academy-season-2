@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./formStyle.css">
+</head>
+
+<body>
+    <!-- Login Form -->
+    <div class="form-container">
+        <h2>Login Form</h2>
+
+        <form id="loginForm">
+            <!-- Username Input -->
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            <div id="usernameError" class="error"></div>
+
+            <!-- Password Input -->
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <div id="passwordError" class="error"></div>
+
+            <button type="submit" id="submitBtn">Submit</button>
+        </form>
+
+        <!-- Button to open the modal (moved below the success message) -->
+        <button id="openModalBtn">Terms and Conditions</button>
+
+        <!-- Success Message -->
+        <div id="successMessage" class="success"></div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" id="closeModalBtn">&times;</span>
+            <h3>Terms and Conditions</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book.
+            </p>
+        </div>
+    </div>
+</body>
+<script src="./formScript.js"></script>
+
+</html>

@@ -1,0 +1,74 @@
+@use '../../styles/main.scss' as *;
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    @include flex-center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+    background: $purple-dark;
+    color: $white;
+    padding: 30px;
+    border-radius: $border-radius;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    width: 600px;
+}
+
+.modal-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.modal-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.cancel-button,
+.delete-button,
+.update-button {
+    background: $white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: $border-radius-small;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-button {
+    color: $purple-dark;
+}
+
+.cancel-button:hover {
+    background: $gray-light;
+}
+
+.delete-button {
+    background: $danger;
+    color: $white;
+}
+
+.delete-button:hover {
+    background: $danger-dark;
+}
+
+.update-button {
+    background: $success;
+    color: $white;
+}
+
+.update-button:hover {
+    background: $success-dark;
+}

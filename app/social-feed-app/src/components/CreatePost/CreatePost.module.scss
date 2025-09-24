@@ -1,0 +1,56 @@
+@use '../../styles/main.scss' as *;
+
+.createPostWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: $purple-bg;
+  border-radius: $border-radius;
+  @include card-shadow;
+  padding: $main-app-padding;
+  gap: $main-app-gap;
+}
+
+.createPostTopContainer {
+  display: flex;
+  flex-direction: row;
+  gap: $main-app-gap;
+  min-height: 55px;
+  justify-content: center;
+  align-items: center;
+
+  img,
+  button {
+    flex-shrink: 0;
+  }
+
+  .MuiButton-outlined {
+    border-color: $purple;
+    color: $purple;
+    height: 100%;
+    border-radius: $border-radius-btn;
+    @include font-14-medium;
+  }
+
+  .MuiFormControl-root {
+    flex: 1;
+  }
+}
+
+.createPostBottomContainer {
+  display: flex;
+  flex-direction: row;
+  gap: $main-app-gap;
+  justify-content: center;
+  align-items: center;
+
+  .MuiTabs-root {
+    width: 100%;
+
+    button {
+      flex: 1;
+      border-radius: $border-radius-btn;
+      @include font-14-medium;
+    }
+  }
+}
