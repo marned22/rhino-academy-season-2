@@ -28,7 +28,7 @@ export class RoomItemComponent extends BaseComponent {
         <div id="room-item-wrapper" class="room-item-wrapper active">
             <div class="room-info">
               <span class="room-name">${this.room.name}</span>
-              <span class="room-count">${this.updateRoomUserCount()}/span>
+              <span class="room-count">Loading...</span>
             </div>
             <button id="leave-room-btn" class="leave-room-btn" title="Leave Room">
             <span>x</span>
@@ -36,6 +36,11 @@ export class RoomItemComponent extends BaseComponent {
         </div>
     </li>
     `;
+  }
+
+  render(): void {
+    super.render();
+    this.updateRoomUserCount();
   }
 
   getBindingEvents(): { [selector: string]: { event: string; handler: (ev: Event) => void } } {
@@ -54,9 +59,7 @@ export class RoomItemComponent extends BaseComponent {
   private async handleLeaveRoom() {
     try {
       await this.roomService.deleteRoom(this.room.id);
-
       this.chatManager.leaveRoom(this.room.id);
-
       console.log(`Room ${this.room.name} has been left successfully`);
     } catch (error) {
       console.error("Error leaving room: ", error);
@@ -67,20 +70,22 @@ export class RoomItemComponent extends BaseComponent {
 
   private async handleJoinRoom() {
     try {
-        console.log("Joining room with ID:", this.room.id); // Debug log
-        this.chatManager.joinRoom(this.room.id);
+        console.log("Joining room with ID:", this.room.id);
+      
+        await this.chatManager.joinRoom(this.room.id);
         console.log(`Joined room: ${this.room.name}`);
 
-        // Get the current user ID
         const currentUserId = this.chatManager.getCurrentUser()?.id;
         if (!currentUserId) {
             throw new Error("No current user available");
         }
 
-        // Add the user to the room in the database
         await this.chatManager.addUserToRoom(this.room.id, currentUserId);
 
         console.log(`User ${currentUserId} added to room ${this.room.id}`);
+
+        this.updateRoomUserCount();
+
     } catch (error) {
         console.error("Error joining room: ", error);
     }

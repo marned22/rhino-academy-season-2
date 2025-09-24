@@ -23,6 +23,11 @@ export class MessagesComponent extends BaseComponent {
             this.filterAndAddMessage(message);
         });
 
+        this.chatManager.eventManager.subscribe('roomJoined', () => {
+            console.log('Room joined event received, reloading messages...');
+            this.loadMessages(); // Reload messages when joining a new room
+        });
+
         this.badWordsWorker.onmessage = (event) => {
             const filteredContent = event.data
             const filteredMessage: IChatMessage = {
@@ -31,30 +36,33 @@ export class MessagesComponent extends BaseComponent {
             };
             this.addMessage(filteredMessage);
         };
-
-        this.loadMessages();
-
-        this.chatManager.eventManager.subscribe('messageSent', (message: IChatMessage) => {
-            this.filterAndAddMessage(message);
-        });
     }
 
     private async loadMessages() {
         const roomId = this.chatManager.getCurrentRoomId();
         if (!roomId) {
-            console.error("No room joined");
+            console.log("No room joined - clearing messages");
+            this.messages = [];
+            this.renderMessages();
             return;
         }
 
-        this.messages = []
-
-        this.messages = await this.messageService.getByRoomId(roomId);
-        this.renderMessages();
+        try {
+            console.log(`Loading messages for room: ${roomId}`);
+            this.messages = await this.messageService.getByRoomId(roomId);
+            console.log(`Loaded ${this.messages.length} messages for room ${roomId}`);
+            this.renderMessages();
+        } catch (error) {
+            console.error("Error loading messages:", error);
+            this.messages = [];
+            this.renderMessages();
+        }
     }
 
     private filterAndAddMessage(message: IChatMessage) {
         const currentRoomId = this.chatManager.getCurrentRoomId()
         if (message.roomId !== currentRoomId) {
+            console.log(`Message is for room ${message.roomId}, but current room is ${currentRoomId}. Ignoring.`);
             return
         }
 

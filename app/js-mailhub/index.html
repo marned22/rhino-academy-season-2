@@ -38,9 +38,9 @@
     </div>
     <div class="nav-headline">
       <!-- non authenticated -->
-      <span id="welcome-label" class="hide">Welcome to MailHub</span>
+      <span id="welcome-label">Welcome to MailHub</span>
       <!-- authenticated -->
-      <div id="search-field" class="input-group">
+      <div id="search-field" class="input-group hide">
         <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
         <input type="text" class="form-control" placeholder="Search inbox">
       </div>
@@ -51,22 +51,80 @@
       <button id="register-btn" type="button" class="btn btn-link hide">Register</button>
 
       <!-- authenticated buttons -->
-      <button id="logout-btn" class="btn btn-danger"><span>Logout</span> <i class="bi bi-box-arrow-right"></i></button>
+      <button id="logout-btn" class="btn btn-danger hide"><span>Logout</span> <i class="bi bi-box-arrow-right"></i></button>
     </div>
   </nav>
   <!-- Main -->
   <main>
     <!-- Logged out user view -->
+    <div id="logged-out-view" class="auth-welcome">
+      <div class="welcome-card">
+        <h1 class="welcome-title">Welcome to MailHub</h1>
+        <p class="welcome-sub">Simple, fast and private email for developers. Sign in to view your inbox or create an
+          account.</p>
+        <div class="welcome-actions">
+          <button id="main-show-login" class="btn btn-primary">Login</button>
+          <button id="main-show-register" class="btn btn-outline-primary">Register</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Login Form -->
-    
+    <div id="login-form" class="auth-container hide">
+      <div class="auth-card">
+        <h2 class="auth-title">Login to MailHub</h2>
+        <form>
+          <div class="mb-3">
+            <label for="login-email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="login-email" required>
+            <div id="error-msg" class="invalid-feedback"></div>
+          </div>
+          <div class="mb-3">
+            <label for="login-password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="login-password" required>
+            <div id="error-msg" class="invalid-feedback"></div>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+        <p class="auth-switch">Don't have an account? <a href="#" id="show-register">Register here</a></p>
+      </div>
+    </div>
 
     <!-- Register Form -->
-   
+    <div id="register-form" class="auth-container hide">
+      <div class="auth-card">
+        <h2 class="auth-title">Register for MailHub</h2>
+        <form>
+          <div class="mb-3">
+            <label for="register-name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="register-name" required>
+            <div id="error-msg" class="invalid-feedback"></div>
+          </div>
+          <div class="mb-3">
+            <label for="register-email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="register-email" required>
+            <div id="error-msg" class="invalid-feedback"></div>
+          </div>
+          <div class="mb-3">
+            <label for="register-password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="register-password" required>
+            <div id="error-msg" class="invalid-feedback"></div>
+          </div>
+          <div class="mb-3">
+            <label for="register-confirm-password" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="register-confirm-password" required>
+            <div id="error-msg" class="invalid-feedback"></div>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Register</button>
+        </form>
+        <p class="auth-switch">Already have an account? <a href="#" id="show-login">Login here</a></p>
+      </div>
+    </div>
 
     <!-- Logged in user view -->
-    <div id="main-container" class="conainer container-lg">
+    <div id="main-container" class="container container-lg hide">
       <nav class="main-container-nav">
-        <div class="nav nav-tabs show active" id="nav-tab" role="tablist">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
           <button class="nav-link" id="nav-inbox-tab" data-bs-toggle="tab" data-bs-target="#nav-inbox" type="button"
             role="tab" aria-controls="nav-inbox" aria-selected="true">Inbox</button>
           <button class="nav-link" id="nav-bookmarked-tab" data-bs-toggle="tab" data-bs-target="#nav-bookmarked"
@@ -94,7 +152,7 @@
           <!-- List messages -->
           <div class="list-group messages-container" id="inbox-container"></div>
         </div>
-        <div class="tab-pane fade show active" id="nav-bookmarked" role="tabpanel" aria-labelledby="nav-bookmarked-tab">
+        <div class="tab-pane fade" id="nav-bookmarked" role="tabpanel" aria-labelledby="nav-bookmarked-tab">
           <!-- List bookmarked messages -->
           <div class="list-group messages-container" id="bookmark-container"></div>
         </div>
@@ -116,14 +174,19 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"></script>
 
-    <!-- scripts order is important -->
-    <script src="./assets/js/helpers/index.js"></script>
     <script src="./assets/js/helpers/formHelpers.js"></script>
-    <script src="./assets/js/helpers/messages.js"></script>
-    <script src="./assets/js/helpers/tabs.js"></script>
+    <script src="./assets/js/helpers/domHelper.js"></script>
+    <script src="./assets/js/helpers/searchHelper.js"></script>
+    <script src="./assets/js/helpers/messageActions.js"></script>
+
+    <!-- services -->
+    <script src="./assets/js/services/authService.js"></script>
+    <script src="./assets/js/services/messageService.js"></script>
+    <script src="./assets/js/services/viewService.js"></script>
 
     <!-- main data source -->
     <script src="./assets/js/data/index.js"></script>
+    <script src="./assets/js/data/messages.js"></script>
 
     <!-- main app -->
     <script src="./assets/js/app.js"></script>
