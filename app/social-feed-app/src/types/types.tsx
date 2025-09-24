@@ -1,5 +1,6 @@
 import { SvgIconTypeMap } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
+import { ReactNode, SyntheticEvent } from "react";
 
 interface ICategories {
     title: string;
@@ -8,15 +9,37 @@ interface ICategories {
 }
 
 interface IPost {
+    userId: string;
     username: string;
+    visibility: boolean;
+    likes: number;
+    coments: number;
     date: number;
     image: string;
     content: string;
 }
 
 interface IChatUser {
+    id: string;
     title: string;
+    username: string;
+    email: string;
     icon: string;
+    profile: {
+        firstName: string;
+        lastName: string;
+        age: number;
+        bio?: string;
+        loacation?: string;
+        work?: string;
+        education?: string;
+    };
+    images: {
+        profile: string;
+        cover: string;
+    }
+    friends: string[];
+    createdAt: number
 }
 
 interface FeedViewProps {
@@ -60,4 +83,49 @@ type Action =
   | { type: 'UPDATE'; payload: { id: number | string; updatedPost: Partial<IPost> } }
   | { type: 'DELETE'; payload: { id: number | string} };
 
-export type { ICategories, IPost, IChatUser, Action, FeedViewProps, PostProps, SidebarProps, UsersViewProps, ModalProps}
+type AnalyticsData = {
+    stats: number[];
+    updated: string;
+}
+
+interface AuthContextType{
+    currentUser: IChatUser | null;
+    login: (userId: string) => void;
+    logout: () => void;
+    isAuthenticated: boolean;
+    isFriend: (userId: string) => boolean;
+    isOwnPost: (post: { userId: string }) => boolean;
+    chatUsers: IChatUser[];
+}
+
+interface useInfiniteScrollResult<T> {
+    containerRef: React.RefObject<HTMLDivElement | null>;
+    visibleItems: T[];
+}
+
+interface WithFilterableProps {
+  posts: IPost[];
+}
+
+type FilterType = "all" | "friends" | "mine";
+
+interface UseFilteredPostsResult {
+  filteredPosts: IPost[];
+  filter: FilterType;
+  setFilter: (filter: FilterType) => void;
+}
+
+type FilterBarProps = {
+  filter: FilterType;
+  setFilter: (filter: FilterType) => void;
+};
+
+interface CreatePostViewProps {
+  renderContent: () => ReactNode;
+  value: string;
+  handleTabChange: (event: SyntheticEvent, newValue: string) => void;
+}
+
+export type { ICategories, IPost, IChatUser, Action, FeedViewProps, PostProps, SidebarProps, 
+    UsersViewProps, ModalProps, AnalyticsData, AuthContextType, useInfiniteScrollResult, WithFilterableProps
+    ,UseFilteredPostsResult, FilterType, FilterBarProps, CreatePostViewProps };

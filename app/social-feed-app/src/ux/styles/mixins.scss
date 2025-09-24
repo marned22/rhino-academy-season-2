@@ -1,7 +1,0 @@
-@use './variables.scss' as *;
-
-@mixin font-14-medium {
-    font-size: calculate-rem(14px);
-    font-weight: 500;
-}
-

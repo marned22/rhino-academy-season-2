@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Battlefield</title>
+  <link rel="stylesheet" href="./assets/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Yuji+Mai&display=swap" rel="stylesheet">
+  <script src="./assets/utils/index.js" defer></script>
+  <script src="./assets/utils/data.js" defer></script>
+  <script src="./assets/index.js" defer></script>
+</head>
+
+<body>
+  <h1 class="title">DOM Battlefield</h1>
+
+  <div class="main">
+    <div class="game-container">
+      <div class="player-view-container">
+        <h1 id="p1-label">Player 1</h1>
+        <div class="challenge-container" id="p1-challenge-container">
+          <p class="challenge" id="p1-ready-label">Get ready...</p>
+        </div>
+        <button id="p1-join-btn">Join now</button>
+        <div class="score-container"></div>
+      </div>
+      <div class="divider"></div>
+      <div class="player-view-container">
+        <h1 id="p2-label">Player 2</h1>
+        <div class="challenge-container" id="p2-challenge-container">
+          <p class="challenge" id="p2-ready-label">Get ready...</p>
+        </div>
+        <button id="p2-join-btn">Join now</button>
+        <div class="score-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-buttons-wrapper">
+    <button id="start-game-button" style="display: none;">Start Game</button>
+    <button id="new-game-button" style="display: none;">New Game Button</button>
+    <button id="leaderboard-button" style="display: none;">Leaderboard</button>
+  </div>
+
+  <!-- Modal Container -->
+  <div class="modal-overlay" id="p1-username-modal" style="display: none;">
+    <div class="modal">
+      <h2>Player 1 Username</h2>
+      <input type="text" class="player-input" id="p1-username-input" placeholder="Enter your username" />
+      <button id="p1-submit-button">Submit</button>
+    </div>
+  </div>
+
+  <!-- Modal Container -->
+  <div class="modal-overlay" id="p2-username-modal" style="display: none;">
+    <div class="modal">
+      <h2>Player 2 Username</h2>
+      <input type="text" class="player-input" id="p2-username-input" placeholder="Enter your username" />
+      <button id="p2-submit-button">Submit</button>
+    </div>
+  </div>
+
+  <div class="leaderboard-container" id="leaderboard-container" > </div>
+
+</body>
+
+</html>
