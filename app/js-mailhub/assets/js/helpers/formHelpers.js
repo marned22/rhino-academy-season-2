@@ -11,9 +11,9 @@ const showMessage = (input, message, type) => {
   const messageElement = parentElement.querySelector('#error-msg');
   messageElement.innerText = message;
   if (type) {
-    input.classList.remove('is-invalid'); 
+    input.classList.remove('is-invalid'); // uses bootstrap class
   } else {
-    input.classList.add('is-invalid'); 
+    input.classList.add('is-invalid'); // uses bootstrap class
   }
   return type;
 }

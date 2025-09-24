@@ -1,6 +1,6 @@
-const bookmarkedMessages = [];
-const favoriteMessages = []; 
-const trashMessages = []; 
+const bookmarkedMessages = []; // Array to store bookmarked messages
+const favoriteMessages = []; // Array to store favorite messages
+const trashMessages = []; // Array to store trashed messages
 let searchTimeout;
 
 function displayInboxMessages() {
@@ -47,7 +47,7 @@ function displayInboxMessages() {
 
     const bookmarkIcon = messageElement.querySelector(".btn-bookmark");
     bookmarkIcon.addEventListener("click", function (event) {
-      event.stopPropagation(); 
+      event.stopPropagation(); // Prevent click from triggering message read toggle
       toggleBookmark(message, bookmarkIcon);
     });
 
