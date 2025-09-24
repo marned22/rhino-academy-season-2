@@ -45,6 +45,86 @@ nav {
   margin: 40px auto;
 }
 
+/* Auth Forms Styling */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 2rem;
+}
+
+.auth-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #e9ecef;
+}
+
+.auth-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.auth-card .form-label {
+  font-weight: 500;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+.auth-card .form-control {
+  border-radius: 8px;
+  border: 2px solid #e9ecef;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-card .form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.auth-card .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.auth-card .btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  color: #6c757d;
+}
+
+.auth-switch a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-switch a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
 .hide {
   display: none;
 }
@@ -99,4 +179,57 @@ nav {
 .list-group-item.read small {
   font-weight: normal;
   color: #6c757d;
+}
+
+.auth-welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 2rem;
+}
+
+.welcome-card {
+  background: linear-gradient(180deg,#ffffff 0%,#f8f9fa 100%);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 720px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(21,27,38,0.06);
+  border: 1px solid #e9ecef;
+}
+
+.welcome-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #2c3e50;
+  font-family: "Work Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.welcome-sub {
+  color: #6c757d;
+  margin-bottom: 1.25rem;
+  font-size: 0.98rem;
+}
+
+.welcome-actions .btn {
+  min-width: 140px;
+  margin: 0 0.5rem;
+  border-radius: 8px;
+}
+
+@media (max-width: 576px) {
+  .auth-card {
+    padding: 2rem 1.5rem;
+    margin: 1rem;
+  }
+  
+  .auth-title {
+    font-size: 1.3rem;
+  }
+
+  .welcome-card { padding: 1.25rem; }
+  .welcome-title { font-size: 1.25rem; }
+  .welcome-actions .btn { display: block; width: 100%; margin: 0.5rem 0; }
 }
