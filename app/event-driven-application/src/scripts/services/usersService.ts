@@ -8,10 +8,10 @@ export class UserService extends BaseApiService{
         return this.get<IChatUser[]>('/users');
     }
     public getById(id: string){
-        return this.get<IChatUser>(`./users/${id}`)
+        return this.get<IChatUser>(`/users/${id}`)
         .then(user => {
             if(!user)
-                throw new ApiError(404, 'User not fount')
+                throw new ApiError(404, 'User not found')
             return user
         })
     }
@@ -19,11 +19,11 @@ export class UserService extends BaseApiService{
     public register(credentials: UserCredentials): Promise<{ user: IChatUser; token: string }> {
         const newUser = { id: uuidv4(), ...credentials };
         console.log('New user:', newUser);
-        return this.post<IChatUser>('users', newUser)
+        return this.post<{ user: IChatUser; token: string }>('/users', newUser)
             .then(user => {
                 if (!user) throw new ApiError(400, 'Registration failed');
                 return {
-                    user,
+                    user: (user as unknown) as IChatUser,
                     token: "fake-jwt-token" 
                 };
             });
@@ -33,8 +33,8 @@ export class UserService extends BaseApiService{
         credentials: UserCredentials
       ): Promise<{ user: IChatUser; token: string }> {
         console.log(credentials)
-        const users = await this.get<(IChatUser & { password: string })[]>(
-          `users?name=${credentials.username}`
+        const users = await this.get<(IChatUser & { password: string })[]>
+          (`users?username=${credentials.username}`
         );
         const user = users.find((u) => u.username === credentials.username);
     

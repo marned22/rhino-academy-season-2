@@ -88,18 +88,19 @@ export class ChatManager{
         this.setCurrentRoomId(roomId);
 
         try {
-
             const messages = await this.messageService.getByRoomId(roomId);
             this.messages = messages;
-            console.log('Fetched messages:', this.messages);
+            console.log('Fetched messages for room:', roomId, messages.length);
 
             if (this.currentUser) {
+                console.log('Dispatching roomJoined event for room:', roomId);
                 this.eventManager.dispatch('roomJoined', { user: this.currentUser, room });
             } else {
                 console.error('Cannot dispatch roomJoined event: currentUser is null');
             }
+            this.socketService.dispatchRoomJoined(roomId, this.currentUser?.id || '');
         } catch (error) {
-            console.error('Failed to fetch messages:', error);
+            console.error('Failed to join room:', error);
         }
     }
 
@@ -132,6 +133,7 @@ export class ChatManager{
             userId: this.currentUser?.id || '', 
             userName: this.currentUser?.name || 'Unknown User',
             content,
+            timestamp: Date.now()
     
         };
 
@@ -147,10 +149,8 @@ export class ChatManager{
 
     public async addUserToRoom(roomId: string, userId: string): Promise<void> {
         try {
-            // Persist the user-room association to the backend
             await this.roomService.addUserToRoom(roomId, userId);
 
-            // Simulate adding the user to the room locally
             this.roomUsers.push({ roomId, userId });
             console.log('Updated roomUsers:', this.roomUsers);
         } catch (error) {
@@ -164,12 +164,12 @@ export class ChatManager{
 
     public setCurrentRoomId(roomId: string) {
         this.currentRoomId = roomId;
-        localStorage.setItem('currentRoomId', roomId); // Persist roomId
+        localStorage.setItem('currentRoomId', roomId); 
     }
 
     public getCurrentRoomId(): string | null {
         if (!this.currentRoomId) {
-            this.currentRoomId = localStorage.getItem('currentRoomId'); // Restore roomId
+            this.currentRoomId = localStorage.getItem('currentRoomId');
         }
         return this.currentRoomId;
     }

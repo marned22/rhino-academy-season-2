@@ -2,21 +2,29 @@ import { IChatMessage } from "../models";
 import { BaseApiService } from "./BaseApiService";
 import { v4 as uuidv4 } from "uuid";
 
-export class MessageService extends BaseApiService{
-    async getByRoomId(roomId: string): Promise<IChatMessage[]> {
-        const messages = await this.get<IChatMessage[]>(`/messages?roomId=${roomId}`);
-        return messages;
+export class MessageService extends BaseApiService {
+    public getAll(): Promise<IChatMessage[]> {
+        return this.get<IChatMessage[]>('/messages');
     }
 
-    async create(message: Omit<IChatMessage, 'id' | 'timestamp'>): Promise<IChatMessage> {
-        const newMessage: IChatMessage = {
-            id: uuidv4(),
-            timestamp: Date.now(),
-            ...message,
-            userName: message.userName
-        };
+    public getByRoomId(roomId: string): Promise<IChatMessage[]> {
+        return this.get<IChatMessage[]>(`/messages?roomId=${roomId}`);
+    }
 
-        const savedMessage = await this.post<IChatMessage>('/messages', newMessage);
-        return savedMessage;
+    public getById(id: string): Promise<IChatMessage> {
+        return this.get<IChatMessage>(`/messages/${id}`)
+            .then(message => {
+                if (!message)
+                    throw new Error('Message not found');
+                return message;
+            });
+    }
+
+    public create(message: IChatMessage): Promise<IChatMessage> {
+        return this.post<IChatMessage>('/messages', message);
+    }
+
+    public update(id: string, message: Partial<IChatMessage>): Promise<IChatMessage> {
+        return this.put<IChatMessage>(`/messages/${id}`, message);
     }
 }
