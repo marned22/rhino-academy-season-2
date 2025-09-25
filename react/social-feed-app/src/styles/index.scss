@@ -1,8 +1,0 @@
-@use './main.scss' as *;
-
-* {
-    @include font-14-medium;
-    box-sizing: border-box;
-    font-family: 'Noto Sans', 'sans-serif';
-    margin: 0;
-}

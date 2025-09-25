@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ICO -->
+  <link rel="shortcut icon" type="image/png" href="./assets/images/mailhub.ico" />
+
+  <!-- Google fonts injected - use this page to generate the fonts https://fonts.google.com/ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+
+  <!-- Own CSS -->
+  <link rel="stylesheet" href="./assets/css/app.css" />
+  <title>MailHub</title>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo-container">
+      <img src="./assets/images/logo.png" alt="Logo" class="logo" />
+      <p class="m-0 position-relative">
+        <span id="app-name" class="app-name">MailHub</span>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger hide">
+          99+
+        </span>
+      </p>
+    </div>
+    <div class="nav-headline">
+      <!-- non authenticated -->
+      <span id="welcome-label">Welcome to MailHub</span>
+      <!-- authenticated -->
+      <div id="search-field" class="input-group hide">
+        <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+        <input type="text" class="form-control" placeholder="Search inbox">
+      </div>
+    </div>
+    <div class="nav-buttons">
+      <!-- non authenticated buttons -->
+      <button id="login-btn" type="button" class="btn btn-link hide">Login</button>
+      <button id="register-btn" type="button" class="btn btn-link hide">Register</button>
+
+      <!-- authenticated buttons -->
+      <button id="logout-btn" class="btn btn-danger hide"><span>Logout</span> <i class="bi bi-box-arrow-right"></i></button>
+    </div>
+  </nav>
+  <!-- Main -->
+  <main>
+    <!-- Logged out user view -->
+    <div id="logged-out-view" class="auth-welcome">
+      <div class="welcome-card">
+        <h1 class="welcome-title">Welcome to MailHub</h1>
+        <p class="welcome-sub">Simple, fast and private email for developers. Sign in to view your inbox or create an
+          account.</p>
+        <div class="welcome-actions">
+          <button id="main-show-login" class="btn btn-primary">Login</button>
+          <button id="main-show-register" class="btn btn-outline-primary">Register</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Login Form -->
+    <div id="login-form" class="auth-container hide">
+      <div class="auth-card">
+        <h2 class="auth-title">Login to MailHub</h2>
+        <form>
+          <div class="mb-3">
+            <label for="login-email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="login-email" required>
+            <div id="error-msg" class="invalid-feedback"></div>
+          </div>
+          <div class="mb-3">
+            <label for="login-password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="login-password" required>
+            <div id="error-msg" class="invalid-feedback"></div>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+        <p class="auth-switch">Don't have an account? <a href="#" id="show-register">Register here</a></p>
+      </div>
+    </div>
+
+    <!-- Register Form -->
+    <div id="register-form" class="auth-container hide">
+      <div class="auth-card">
+        <h2 class="auth-title">Register for MailHub</h2>
+        <form>
+          <div class="mb-3">
+            <label for="register-name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="register-name" required>
+            <div id="error-msg" class="invalid-feedback"></div>
+          </div>
+          <div class="mb-3">
+            <label for="register-email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="register-email" required>
+            <div id="error-msg" class="invalid-feedback"></div>
+          </div>
+          <div class="mb-3">
+            <label for="register-password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="register-password" required>
+            <div id="error-msg" class="invalid-feedback"></div>
+          </div>
+          <div class="mb-3">
+            <label for="register-confirm-password" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="register-confirm-password" required>
+            <div id="error-msg" class="invalid-feedback"></div>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Register</button>
+        </form>
+        <p class="auth-switch">Already have an account? <a href="#" id="show-login">Login here</a></p>
+      </div>
+    </div>
+
+    <!-- Logged in user view -->
+    <div id="main-container" class="container container-lg hide">
+      <nav class="main-container-nav">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <button class="nav-link" id="nav-inbox-tab" data-bs-toggle="tab" data-bs-target="#nav-inbox" type="button"
+            role="tab" aria-controls="nav-inbox" aria-selected="true">Inbox</button>
+          <button class="nav-link" id="nav-bookmarked-tab" data-bs-toggle="tab" data-bs-target="#nav-bookmarked"
+            type="button" role="tab" aria-controls="nav-bookmarked" aria-selected="false">Bookmarked</button>
+          <button class="nav-link" id="nav-fav-tab" data-bs-toggle="tab" data-bs-target="#nav-fav" type="button"
+            role="tab" aria-controls="nav-fav" aria-selected="false">Favourites</button>
+          <button class="nav-link" id="nav-trash-tab" data-bs-toggle="tab" data-bs-target="#nav-trash" type="button"
+            role="tab" aria-controls="nav-trash" aria-selected="false">Trash</button>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-messages-content">
+        <div class="tab-pane fade" id="nav-inbox" role="tabpanel" aria-labelledby="nav-inbox-tab">
+          <!-- Default INBOX Tab -->
+          <ul id="messages-buttons" class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="bi bi-book"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="bi bi-star"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="trash-btn" href="#"><i class="bi bi-trash"></i></a>
+            </li>
+          </ul>
+          <!-- List messages -->
+          <div class="list-group messages-container" id="inbox-container"></div>
+        </div>
+        <div class="tab-pane fade" id="nav-bookmarked" role="tabpanel" aria-labelledby="nav-bookmarked-tab">
+          <!-- List bookmarked messages -->
+          <div class="list-group messages-container" id="bookmark-container"></div>
+        </div>
+        <div class="tab-pane fade" id="nav-fav" role="tabpanel" aria-labelledby="nav-fav-tab">
+          <!-- List favourite messages -->
+          <div class="list-group messages-container" id="favourites-container"></div>
+        </div>
+        <div class="tab-pane fade" id="nav-trash" role="tabpanel" aria-labelledby="nav-trash-tab">
+          <!-- List deleted messages -->
+          <div class="list-group messages-container" id="trash-container"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add New message Modal -->
+
+    <!-- Vendor -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+
+    <script src="./assets/js/helpers/formHelpers.js"></script>
+    <script src="./assets/js/helpers/domHelper.js"></script>
+    <script src="./assets/js/helpers/searchHelper.js"></script>
+    <script src="./assets/js/helpers/messageActions.js"></script>
+
+    <!-- services -->
+    <script src="./assets/js/services/authService.js"></script>
+    <script src="./assets/js/services/messageService.js"></script>
+    <script src="./assets/js/services/viewService.js"></script>
+
+    <!-- main data source -->
+    <script src="./assets/js/data/index.js"></script>
+    <script src="./assets/js/data/messages.js"></script>
+
+    <!-- main app -->
+    <script src="./assets/js/app.js"></script>
+</body>
+
+</html>

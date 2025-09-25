@@ -1,13 +1,16 @@
+import { SvgIconTypeMap } from "@mui/material";
+import { OverridableComponent } from "@mui/material/OverridableComponent";
 import { ReactNode, SyntheticEvent } from "react";
 
 interface ICategories {
     title: string;
     link: string;
-    icon: string;
+    icon: OverridableComponent<SvgIconTypeMap>;
 }
 
 interface IPost {
     userId: string;
+    username: string;
     visibility: boolean;
     likes: number;
     coments: number;
@@ -18,8 +21,10 @@ interface IPost {
 
 interface IChatUser {
     id: string;
+    title: string;
     username: string;
     email: string;
+    icon: string;
     profile: {
         firstName: string;
         lastName: string;
@@ -42,6 +47,8 @@ interface FeedViewProps {
     addPost: (content: string) => void;
     deletePost: (index: number) => void;
     updatePost: (index: number, content: string) => void;
+    categories: ICategories[];
+    chatUsers: IChatUser[];
 }
 
 interface PostProps {
@@ -80,7 +87,6 @@ type AnalyticsData = {
     stats: number[];
     updated: string;
 }
-
 
 interface AuthContextType{
     currentUser: IChatUser | null;
